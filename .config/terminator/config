@@ -1,0 +1,36 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    background_type = transparent
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      order = 0
+      parent = ""
+    [[[child1]]]
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child3]]]
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child3
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child3
+[plugins]

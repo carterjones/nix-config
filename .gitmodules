@@ -1,0 +1,3 @@
+[submodule "fill-column-indicator"]
+	path = fill-column-indicator
+	url = https://github.com/alpaker/Fill-Column-Indicator

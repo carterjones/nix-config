@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Install packages.
+echo Installing emacs and terminator...
+apt-get -qq -y install emacs terminator
+
+# Install chrome beta.
+if [[ ! "$`which google-chrome`" == *google-chrome ]]; then
+  echo Installing google-chrome beta...
+  if [[ "$`uname -m`" == *86 ]]; then
+    wget -nc http://dl.google.com/linux/direct/google-chrome-beta_current_i386.deb
+    dpkg -i google-chrome-beta_current_i386.deb
+  elif [[ "$`uname -m`" == *64 ]]; then
+    wget -nc http://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
+    dpkg -i google-chrome-beta_current_amd64.deb
+  fi
+fi
+
+# Set up generic folders and config files.
+if [ ! -e ~/bin ]; then echo Creating ~/bin...; mkdir ~/bin; fi
+if [ ! -e ~/code ]; then echo Creating ~/code...; mkdir ~/code; fi
+echo Copying new .bashrc file...
+if [ -e ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc.bak; fi
+cp ./.bashrc ~/.bashrc
+echo Copying new .bash_aliases file...
+if [ -e ~/.bash_aliases ]; then mv ~/.bash_aliases ~/.bash_aliases.bak; fi
+cp ./.bash_aliases ~/.bash_aliases
+echo Copying new emacs files...
+if [ -e ~/.emacs ]; then mv ~/.emacs ~/.emacs.bak; fi
+cp ./.emacs ~/.emacs
+if [ ! -e ~/.emacs.d/ ]; then mkdir ~/.emacs.d; fi
+if [ ! -e ~/.emacs.d/site-lisp ]; then mkdir ~/.emacs.d/site-lisp; fi
+if [ -e ~/.emacs.d/fill-column-indicator.el ]; then
+  mv ~/.emacs.d/fill-column-indicator.el ~/.emacs.d/fill-column-indicator.el.bak
+  cp ./fill_column_indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
+fi
+
+# Set up terminator config file.
+echo Setting up terminator customizations...
+if [ ! -e ~/.config ]; then mkdir ~/.config; fi
+if [ ! -e ~/.config/terminator ]; then mkdir ~/.config/terminator; fi
+if [ -e ~/.config/terminator/config ]; then mv ~/.config/terminator/config ~/.config/terminator/config.bak; fi
+cp ./.config/terminator/config ~/.config/terminator/config
+
+# Copy custom utilities.
+echo Copying bin utilities...
+if [ ! -e ~/bin/ipaddr ]; then echo - ipaddr; cp ./bin/ipaddr ~/bin/ipaddr; fi
+
+# Leave installer.
+echo Finished installation.
