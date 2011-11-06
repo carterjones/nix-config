@@ -1,6 +1,10 @@
 ;; Set the load path for emacs.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
+;; Show line numbers and column numbers.
+(setq line-number-mode t)
+(setq column-number-mode t)
+
 ;; Reindent, followed by newline and indent.
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
 
