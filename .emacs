@@ -26,6 +26,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Use the fill-column-indicator module.
+(setq-default fill-column 80)
 (require 'fill-column-indicator)
 (add-hook 'sh-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'fci-mode)
