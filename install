@@ -33,7 +33,11 @@ if [ ! -e ~/.emacs.d/site-lisp ]; then mkdir ~/.emacs.d/site-lisp; fi
 if [ -e ~/.emacs.d/site-lisp/fill-column-indicator.el ]; then
   mv ~/.emacs.d/site-lisp/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el.bak
 fi
-cp ./fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
+cp ./plugins/fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
+
+# Add bgrep.
+if [ -e ~/bin/bgrep ]; then cp ~/bin/bgrep ~/bin/bgrep.bak; fi
+gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
 
 # Set up terminator config file.
 echo Setting up terminator customizations...

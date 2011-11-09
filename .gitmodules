@@ -1,3 +1,9 @@
 [submodule "fill-column-indicator"]
 	path = fill-column-indicator
 	url = https://github.com/alpaker/Fill-Column-Indicator
+[submodule "plugins/bgrep"]
+	path = plugins/bgrep
+	url = https://github.com/tmbinc/bgrep.git
+[submodule "plugins/fill-column-indicator"]
+	path = plugins/fill-column-indicator
+	url = https://github.com/alpaker/Fill-Column-Indicator.git
