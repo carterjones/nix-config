@@ -32,8 +32,8 @@ if [ ! -e ~/.emacs.d/ ]; then mkdir ~/.emacs.d; fi
 if [ ! -e ~/.emacs.d/site-lisp ]; then mkdir ~/.emacs.d/site-lisp; fi
 if [ -e ~/.emacs.d/site-lisp/fill-column-indicator.el ]; then
   mv ~/.emacs.d/site-lisp/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el.bak
-  cp ./fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
 fi
+cp ./fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
 
 # Set up terminator config file.
 echo Setting up terminator customizations...
