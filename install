@@ -35,6 +35,10 @@ if [ -e ~/.emacs.d/site-lisp/fill-column-indicator.el ]; then
 fi
 cp ./plugins/fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
 
+# Change ~/Desktop to ~/desktop.
+cp ./.config/user-dirs.dirs ~/.config/user-dirs.dirs
+mv ~/Desktop ~/desktop 2> /dev/null
+
 # Add bgrep.
 if [ -e ~/bin/bgrep ]; then cp ~/bin/bgrep ~/bin/bgrep.bak; fi
 gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
