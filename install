@@ -4,18 +4,6 @@
 echo Installing emacs and terminator...
 apt-get -qq -y install emacs terminator
 
-# Install chrome beta.
-if [[ ! "$`which google-chrome`" == *google-chrome ]]; then
-  echo Installing google-chrome beta...
-  if [[ "$`uname -m`" == *86 ]]; then
-    wget -nc http://dl.google.com/linux/direct/google-chrome-beta_current_i386.deb
-    dpkg -i google-chrome-beta_current_i386.deb
-  elif [[ "$`uname -m`" == *64 ]]; then
-    wget -nc http://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
-    dpkg -i google-chrome-beta_current_amd64.deb
-  fi
-fi
-
 # Set up generic folders and config files.
 if [ ! -e ~/bin ]; then echo Creating ~/bin...; mkdir ~/bin; fi
 if [ ! -e ~/code ]; then echo Creating ~/code...; mkdir ~/code; fi
