@@ -39,8 +39,10 @@ if [ -e ~/.config/terminator/config ]; then mv ~/.config/terminator/config ~/.co
 cp ./.config/terminator/config ~/.config/terminator/config
 
 # Copy custom utilities.
-echo Copying bin utilities...
-if [ ! -e ~/bin/ipaddr ]; then echo - ipaddr; cp ./bin/ipaddr ~/bin/ipaddr; fi
+echo Setting up ~/bin...
+cp -n ./bin/ipaddr ~/bin/ipaddr; chmod +x ~/bin/ipaddr
+cp -n ./bin/full-upgrade ~/bin/full-upgrade; chmod +x ~/bin/full-upgrade
+cp -n ./bin/battery ~/bin/battery; chmod +x ~/bin/battery
 
 # Leave installer.
 echo Finished installation.
