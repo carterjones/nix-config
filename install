@@ -14,10 +14,6 @@ echo Copying new .bash_aliases file...
 if [ -e ~/.bash_aliases ]; then mv ~/.bash_aliases ~/.bash_aliases.bak; fi
 cp ./.bash_aliases ~/.bash_aliases
 
-# Change ~/Desktop to ~/desktop.
-cp ./.config/user-dirs.dirs ~/.config/user-dirs.dirs
-mv ~/Desktop ~/desktop 2> /dev/null
-
 # Add bgrep.
 if [ -e ~/bin/bgrep ]; then cp ~/bin/bgrep ~/bin/bgrep.bak; fi
 gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
