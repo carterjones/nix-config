@@ -19,6 +19,7 @@ mkdir -p ~/code
 
 # Set up configuration files.
 cp -n ./.bashrc ~/.bashrc
+cp -n ./.exports ~/.exports
 mkdir -p ~/.config/terminator
 cp -n ./.config/terminator/config ~/.config/terminator/config
 

@@ -1,0 +1,1 @@
+export PATH=$PATH:/etc/alternatives/gem-bin:~/bin/

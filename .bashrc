@@ -102,4 +102,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$PATH:/etc/alternatives/gem-bin:~/bin/
+source ~/.exports
