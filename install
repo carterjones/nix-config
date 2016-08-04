@@ -13,18 +13,14 @@ cp -n ./bin/battery ~/bin/battery; chmod +x ~/bin/battery
 # Make a code directory.
 mkdir -p ~/code
 
-echo Copying new .bashrc file...
-if [ -e ~/.bashrc ]; then mv ~/.bashrc ~/.bashrc.bak; fi
-cp ./.bashrc ~/.bashrc
+# Set up configuration files.
+cp -n ./.bashrc ~/.bashrc
+mkdir -p ~/.config/terminator
+cp -n ./.config/terminator/config ~/.config/terminator/config
 
 # Add bgrep.
 if [ -e ~/bin/bgrep ]; then cp ~/bin/bgrep ~/bin/bgrep.bak; fi
 gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
-
-# Set up terminator config file.
-echo Setting up terminator customizations...
-mkdir -p ~/.config/terminator
-cp -n ./.config/terminator/config ~/.config/terminator/config
 
 # Leave installer.
 echo Finished installation.
