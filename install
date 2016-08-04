@@ -10,6 +10,9 @@ cp -n ./bin/ipaddr ~/bin/ipaddr; chmod +x ~/bin/ipaddr
 cp -n ./bin/full-upgrade ~/bin/full-upgrade; chmod +x ~/bin/full-upgrade
 cp -n ./bin/battery ~/bin/battery; chmod +x ~/bin/battery
 
+# Add bgrep.
+gcc -O2 -x c -o ~/bin/bgrep ./lib/bgrep/bgrep.c
+
 # Make a code directory.
 mkdir -p ~/code
 
@@ -17,10 +20,6 @@ mkdir -p ~/code
 cp -n ./.bashrc ~/.bashrc
 mkdir -p ~/.config/terminator
 cp -n ./.config/terminator/config ~/.config/terminator/config
-
-# Add bgrep.
-if [ -e ~/bin/bgrep ]; then cp ~/bin/bgrep ~/bin/bgrep.bak; fi
-gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
 
 # Leave installer.
 echo Finished installation.
