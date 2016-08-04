@@ -81,6 +81,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias cdl='cd $1 && ls -alF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
