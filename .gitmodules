@@ -1,3 +1,0 @@
-[submodule "plugins/bgrep"]
-	path = plugins/bgrep
-	url = https://github.com/tmbinc/bgrep.git
