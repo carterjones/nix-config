@@ -20,10 +20,8 @@ gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
 
 # Set up terminator config file.
 echo Setting up terminator customizations...
-if [ ! -e ~/.config ]; then mkdir ~/.config; fi
-if [ ! -e ~/.config/terminator ]; then mkdir ~/.config/terminator; fi
-if [ -e ~/.config/terminator/config ]; then mv ~/.config/terminator/config ~/.config/terminator/config.bak; fi
-cp ./.config/terminator/config ~/.config/terminator/config
+mkdir -p ~/.config/terminator
+cp -n ./.config/terminator/config ~/.config/terminator/config
 
 # Copy custom utilities.
 echo Setting up ~/bin...
