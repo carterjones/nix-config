@@ -103,3 +103,6 @@ if ! shopt -oq posix; then
 fi
 
 source ~/.exports
+
+# end the surrounding if statement
+fi
