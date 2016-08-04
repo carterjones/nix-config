@@ -4,8 +4,13 @@
 echo Installing emacs and terminator...
 apt-get -qq -y install terminator
 
-# Set up generic folders and config files.
+# Set up ~/bin
 mkdir -p ~/bin
+cp -n ./bin/ipaddr ~/bin/ipaddr; chmod +x ~/bin/ipaddr
+cp -n ./bin/full-upgrade ~/bin/full-upgrade; chmod +x ~/bin/full-upgrade
+cp -n ./bin/battery ~/bin/battery; chmod +x ~/bin/battery
+
+# Make a code directory.
 mkdir -p ~/code
 
 echo Copying new .bashrc file...
@@ -20,12 +25,6 @@ gcc -O2 -x c -o ~/bin/bgrep ./plugins/bgrep/bgrep.c
 echo Setting up terminator customizations...
 mkdir -p ~/.config/terminator
 cp -n ./.config/terminator/config ~/.config/terminator/config
-
-# Copy custom utilities.
-echo Setting up ~/bin...
-cp -n ./bin/ipaddr ~/bin/ipaddr; chmod +x ~/bin/ipaddr
-cp -n ./bin/full-upgrade ~/bin/full-upgrade; chmod +x ~/bin/full-upgrade
-cp -n ./bin/battery ~/bin/battery; chmod +x ~/bin/battery
 
 # Leave installer.
 echo Finished installation.
