@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Install packages.
-echo Installing emacs and terminator...
-apt-get -qq -y install terminator
+sudo apt-get install -y \
+	terminator
 
 # Set up ~/bin
 mkdir -p ~/bin
