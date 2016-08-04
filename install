@@ -21,3 +21,8 @@ mkdir -p ~/code
 cp -n ./.bashrc ~/.bashrc
 mkdir -p ~/.config/terminator
 cp -n ./.config/terminator/config ~/.config/terminator/config
+
+# Set up terminal settings.
+PROFILE_PATH=/org/gnome/terminal/legacy/profiles:/
+PROFILE=$(dconf list $PROFILE_PATH)
+dconf write ${PROFILE_PATH}${PROFILE}scrollback-unlimited true
