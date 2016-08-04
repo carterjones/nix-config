@@ -2,7 +2,7 @@
 
 # Install packages.
 echo Installing emacs and terminator...
-apt-get -qq -y install emacs terminator
+apt-get -qq -y install terminator
 
 # Set up generic folders and config files.
 if [ ! -e ~/bin ]; then echo Creating ~/bin...; mkdir ~/bin; fi
@@ -13,15 +13,6 @@ cp ./.bashrc ~/.bashrc
 echo Copying new .bash_aliases file...
 if [ -e ~/.bash_aliases ]; then mv ~/.bash_aliases ~/.bash_aliases.bak; fi
 cp ./.bash_aliases ~/.bash_aliases
-echo Copying new emacs files...
-if [ -e ~/.emacs ]; then mv ~/.emacs ~/.emacs.bak; fi
-cp ./.emacs ~/.emacs
-if [ ! -e ~/.emacs.d/ ]; then mkdir ~/.emacs.d; fi
-if [ ! -e ~/.emacs.d/site-lisp ]; then mkdir ~/.emacs.d/site-lisp; fi
-if [ -e ~/.emacs.d/site-lisp/fill-column-indicator.el ]; then
-  mv ~/.emacs.d/site-lisp/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el.bak
-fi
-cp ./plugins/fill-column-indicator/fill-column-indicator.el ~/.emacs.d/site-lisp/fill-column-indicator.el
 
 # Change ~/Desktop to ~/desktop.
 cp ./.config/user-dirs.dirs ~/.config/user-dirs.dirs
