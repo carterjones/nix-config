@@ -18,5 +18,6 @@ if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 	bash scripts/configure-gnome.sh
 	bash scripts/install-terminator.sh
 	bash scripts/install-sublime.sh
+	bash scripts/install-chrome.sh
 
 fi
