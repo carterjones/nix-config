@@ -14,4 +14,4 @@ fi
 
 # Set up config files.
 mkdir -p ~/.config/sublime-text-3/
-cp -r .config/sublime-text-3/* ~/.config/sublime-text-3/
+cp -r ./files/.config/sublime-text-3/* ~/.config/sublime-text-3/
