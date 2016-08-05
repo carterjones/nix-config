@@ -22,6 +22,8 @@ cp ./.bashrc ~/.bashrc
 cp -n ./.exports ~/.exports
 mkdir -p ~/.config/terminator
 cp -n ./.config/terminator/config ~/.config/terminator/config
+mkdir -p ~/.config/sublime-text-3/
+cp -r .config/sublime-text-3/* ~/.config/sublime-text-3/
 
 # Set up terminal settings.
 PROFILE_PATH=/org/gnome/terminal/legacy/profiles:/

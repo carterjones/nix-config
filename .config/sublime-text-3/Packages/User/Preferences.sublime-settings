@@ -1,0 +1,8 @@
+{
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers": [72, 80, 120],
+}
