@@ -2,7 +2,7 @@
 
 set -eux -o pipefail
 
-# Check for Sublime, exit if it exists.
+# Check for Sublime, move on if it exists.
 if [[ ! $(which subl &>/dev/null; echo $?) ]]; then
 
 	# Install Sublime 3.
