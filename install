@@ -7,7 +7,7 @@ set -eux -o pipefail
 readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$(xset q &>/dev/null; echo $?)
 
 # Make globally applicable customizations.
-bash scripts/install-debs-cli.sh
+bash scripts/install-base-debs.sh
 bash scripts/create-user-dirs.sh
 bash scripts/create-dot-files.sh
 bash scripts/install-bgrep.sh
