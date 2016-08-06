@@ -14,6 +14,7 @@ bash scripts/install-base-debs.sh
 bash scripts/create-user-dirs.sh
 bash scripts/create-dot-files.sh
 bash scripts/install-bgrep.sh
+bash scripts/install-go.sh
 
 # Make customizations specific to GUI environments.
 if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then

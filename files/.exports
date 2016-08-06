@@ -4,3 +4,6 @@ set -o pipefail
 
 # Add the user's bin folder to the path.
 export PATH=$PATH:~/bin
+
+# Set up the go path.
+export GOPATH=~/code/go
