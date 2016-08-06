@@ -1,6 +1,7 @@
 set autoindent
 unset backup
 set const
+set cut
 unset historylog
 set mouse
 set regexp
