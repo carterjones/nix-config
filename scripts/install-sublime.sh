@@ -3,11 +3,11 @@
 set -eux -o pipefail
 
 # Check for Sublime, move on if it exists.
-if [[ ! $(which subl &>/dev/null; echo $?) ]]; then
+if [[ $(which subl &>/dev/null; echo $?) -ne 0 ]]; then
 
 	# Install Sublime 3.
 	wget "https://download.sublimetext.com/sublime-text_build-3114_amd64.deb" \
-		-o /tmp/sublime.deb
+		-O /tmp/sublime.deb
 	sudo dpkg -i /tmp/sublime.deb
 
 fi
