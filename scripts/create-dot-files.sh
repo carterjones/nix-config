@@ -6,3 +6,4 @@ set -eux -o pipefail
 cp ./files/.bash_aliases ~/.bash_aliases
 cp ./files/.bashrc ~/.bashrc
 cp ./files/.exports ~/.exports
+cp ./files/.nanorc ~/.nanorc

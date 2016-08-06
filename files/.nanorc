@@ -1,0 +1,9 @@
+set autoindent
+unset backup
+set const
+unset historylog
+set mouse
+set smarthome
+set softwrap
+set tabsize 4
+set tabstospaces
