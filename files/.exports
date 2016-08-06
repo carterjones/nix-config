@@ -1,1 +1,6 @@
-export PATH=$PATH:/etc/alternatives/gem-bin:~/bin/
+#!/bin/bash
+
+set -o pipefail
+
+# Add the user's bin folder to the path.
+export PATH=$PATH:~/bin
