@@ -11,4 +11,5 @@ To download, extract, and run the installer, run the following command:
         tar -xvf master.tar.gz && \
         rm master.tar.gz && \
         pushd debian-config-master/ && \
-        ./install
+        ./install && \
+        popd && popd
