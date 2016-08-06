@@ -23,6 +23,7 @@ if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 	bash scripts/install-yakuake.sh
 	bash scripts/install-sublime.sh
 	bash scripts/install-chrome.sh
+	bash scripts/install-slack.sh
 
 	# Make customizations specific to Gnome environments.
 	if [[ GNOME_INSTALLED ]]; then
