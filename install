@@ -18,7 +18,6 @@ bash scripts/install-bgrep.sh
 # Make customizations specific to GUI environments.
 if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 
-	bash scripts/configure-gnome.sh
 	bash scripts/install-terminator.sh
 	bash scripts/install-yakuake.sh
 	bash scripts/install-sublime.sh
@@ -26,7 +25,10 @@ if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 
 	# Make customizations specific to Gnome environments.
 	if [[ GNOME_INSTALLED ]]; then
-		echo ""
+
+		bash scripts/configure-gnome.sh
+		bash scripts/install-compizconfig-settings-manager.sh
+
 	fi
 
 fi
