@@ -3,6 +3,7 @@ unset backup
 set const
 unset historylog
 set mouse
+set regexp
 set smarthome
 set softwrap
 set tabsize 4
