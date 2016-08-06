@@ -26,6 +26,7 @@ if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 
 	# Make customizations specific to Gnome environments.
 	if [[ GNOME_INSTALLED ]]; then
+		echo ""
 	fi
 
 fi
