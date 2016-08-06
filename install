@@ -6,6 +6,9 @@ set -eux -o pipefail
 # customizations. Otherwise, skip installation of those tools.
 readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$(xset q &>/dev/null; echo $?)
 
+# Determine if gnome-desktop is installed. If it is, install gnome-specific customizations.
+readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
+
 # Make globally applicable customizations.
 bash scripts/install-base-debs.sh
 bash scripts/create-user-dirs.sh
@@ -20,5 +23,9 @@ if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
 	bash scripts/install-yakuake.sh
 	bash scripts/install-sublime.sh
 	bash scripts/install-chrome.sh
+
+	# Make customizations specific to Gnome environments.
+	if [[ GNOME_INSTALLED ]]; then
+	fi
 
 fi
