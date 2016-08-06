@@ -10,6 +10,6 @@ To download, extract, and run the installer, run the following command:
         wget "https://github.com/carterjones/debian-config/archive/master.tar.gz" && \
         tar -xvf master.tar.gz && \
         rm master.tar.gz && \
-        pushd debian-config-master/ && \
+        cd debian-config-master/ && \
         ./install && \
-        popd && popd
+        popd
