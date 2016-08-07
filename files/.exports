@@ -7,3 +7,6 @@ export PATH=$PATH:~/bin
 
 # Set up the go path.
 export GOPATH=~/code/go
+
+# Set up an nmap log directory path.
+export NMAP_LOGS=~/.nmap/logs
