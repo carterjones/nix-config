@@ -16,6 +16,7 @@ bash scripts/create-dot-files.sh
 bash scripts/install-bgrep.sh
 bash scripts/install-go.sh
 bash scripts/install-nmap.sh
+bash scripts/install-whois.sh
 
 # Make customizations specific to GUI environments.
 if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
