@@ -2,9 +2,9 @@
 
 set -eux -o pipefail
 
-# Determine if an X server is in use. If it is, install GUI-related
+# Determine if this is a GUI environment. If it is, install GUI-related
 # customizations. Otherwise, skip installation of those tools.
-readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$(xset q &>/dev/null; echo $?)
+readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$([[ -n "${DISPLAY+x}" ]]; echo $?)
 
 # Determine if gnome-desktop is installed. If it is, install gnome-specific customizations.
 readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
@@ -18,7 +18,7 @@ bash scripts/install-go.sh
 bash scripts/install-nmap.sh
 
 # Make customizations specific to GUI environments.
-if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS ]]; then
+if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
 
 	bash scripts/install-terminator.sh
 	bash scripts/install-yakuake.sh
