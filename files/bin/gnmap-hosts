@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat | sed "s/Host: //;s/ .*//" | sort | uniq
