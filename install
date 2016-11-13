@@ -6,6 +6,9 @@ set -eux -o pipefail
 export shared_files='./files/shared'
 export shared_scripts='./scripts/shared'
 
+# Make globally applicable customizations.
+bash ${shared_scripts}/create-user-dirs.sh
+
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
 
@@ -22,7 +25,6 @@ if [[ $(uname) == Linux ]]; then
 
 	# Make globally applicable customizations.
 	bash ${linux_scripts}/install-base-debs.sh
-	bash ${linux_scripts}/create-user-dirs.sh
 	bash ${linux_scripts}/create-dot-files.sh
 	bash ${linux_scripts}/install-bgrep.sh
 	bash ${linux_scripts}/install-go.sh
