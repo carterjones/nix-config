@@ -4,6 +4,7 @@ set -eux -o pipefail
 
 # Set up bashrc related files.
 cp ./files/.bash_aliases $HOME/
+cp ./files/.bash_prmpt $HOME/
 cp ./files/.bashrc $HOME/
 cp ./files/.exports $HOME/
 cp ./files/.git-completion $HOME/
