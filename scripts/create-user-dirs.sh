@@ -8,4 +8,6 @@ mkdir -p $HOME/code
 
 # Copy bin scripts.
 cp -r ./files/bin/* $HOME/bin/
-ln -s $(which ack-grep) $HOME/bin/ag
+
+# Make symlinks.
+ln -fs $(which ack-grep) $HOME/bin/ag

@@ -9,4 +9,4 @@ cp ./files/.exports $HOME/
 cp ./files/.git-completion $HOME/
 cp ./files/.gitconfig $HOME/
 cp ./files/.nanorc $HOME/
-cp ./files/.tmux.config $HOME/
+cp ./files/.tmux.conf $HOME/
