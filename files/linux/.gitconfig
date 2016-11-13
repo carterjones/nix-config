@@ -1,6 +1,3 @@
-[user]
-    name = Carter Jones
-    email = fake-email@mailinator.com
 [core]
     editor = /usr/bin/nano
 [color]
