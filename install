@@ -12,6 +12,7 @@ export macos_scripts='./scripts/macos'
 
 # Make globally applicable customizations.
 bash ${shared_scripts}/create-user-dirs.sh
+bash ${shared_scripts}/create-dot-files.sh
 
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
@@ -25,7 +26,6 @@ if [[ $(uname) == Linux ]]; then
 
 	# Make globally applicable customizations.
 	bash ${linux_scripts}/install-base-debs.sh
-	bash ${linux_scripts}/create-dot-files.sh
 	bash ${linux_scripts}/install-bgrep.sh
 	bash ${linux_scripts}/install-go.sh
 	bash ${linux_scripts}/install-nmap.sh
@@ -46,7 +46,16 @@ if [[ $(uname) == Linux ]]; then
 		fi
 	fi
 elif [[ $(uname) == Darwin ]]; then
-	echo
+	# Load .bash_profile.
+	set +u
+	source $HOME/.bash_profile
+	set -u
+
+	# Install software.
+	bash ${macos_scripts}/update-brew.sh
+	bash ${macos_scripts}/install-brew-packages.sh
+	bash ${macos_scripts}/install-vagrant.sh
+	bash ${macos_scripts}/install-vscode.sh
 fi
 
 # Unset exported variables.
