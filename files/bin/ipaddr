@@ -1,3 +1,7 @@
 #!/bin/sh
 
-ifconfig | grep inet[^6] | cut -d : -f 2 | sed "s/ .*//"
+if [[ $(uname) == Linux ]]; then
+    ifconfig | grep inet[^6] | cut -d : -f 2 | sed "s/ .*//"
+elif [[ $(uname) == Darwin ]]; then
+    ifconfig | grep inet[^6] | cut -d" " -f 2
+fi

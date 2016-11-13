@@ -1,6 +1,32 @@
 #!/bin/bash
 
-sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y dist-upgrade
-sudo apt-get -y autoremove
+set -eux -o pipefail
+
+if [[ $(uname) == Linux ]]; then
+    sudo apt-get update
+    sudo apt-get -y upgrade
+    sudo apt-get -y dist-upgrade
+    sudo apt-get -y autoremove
+elif [[ $(uname) == Darwin ]]; then
+    # Upgrade everything from the App Store.
+    softwareupdate -i --all
+
+    # Upgrade all brew packages.
+    brew update
+    brew upgrade
+    brew cleanup
+
+    # Upgrade Vagrant.
+    bash $HOME/bin/upgrade-vagrant
+
+    # Upgrade Vagrant plugins.
+    vagrant plugin update
+
+    # Upgrade Chrome.
+    readonly chromeupdater=/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/MacOS/GoogleSoftwareUpdateAgent
+    if [[ -x $chromeupdater ]]; then
+        echo -n "Requesting Chrome update... "
+        $chromeupdater -runMode oneshot -userInitiated YES
+        echo "done."
+    fi
+fi

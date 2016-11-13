@@ -6,6 +6,6 @@ set -eux -o pipefail
 sudo apt-get install -y yakuake
 
 # Set up configurations.
-mkdir -p ~/.kde/share/apps/konsole/
+mkdir -p $HOME/.kde/share/apps/konsole/
 cp ./files/.kde/share/apps/konsole/Shell.profile \
-	~/.kde/share/apps/konsole/
+	$HOME/.kde/share/apps/konsole/

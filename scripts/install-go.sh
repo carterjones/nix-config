@@ -7,6 +7,6 @@ sudo apt-get install -y \
     golang
 
 # Set up go folders.
-mkdir -p ~/code/go/bin
-mkdir -p ~/code/go/pkg
-mkdir -p ~/code/go/src
+mkdir -p $HOME/bin
+mkdir -p $HOME/pkg
+mkdir -p $HOME/src

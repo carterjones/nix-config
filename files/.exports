@@ -1,12 +1,13 @@
 #!/bin/bash
 
-set -o pipefail
+# Set up miscellaneous variables.
+export CODE=$HOME/src
 
-# Add the user's bin folder to the path.
-export PATH=$PATH:~/bin
+# Set up the path.
+export PATH=$HOME/bin:$PATH
 
 # Set up the go path.
-export GOPATH=~/code/go
+export GOPATH=$HOME
 
 # Set up an nmap log directory path.
-export NMAP_LOGS=~/.nmap/logs
+export NMAP_LOGS=$HOME/.nmap/logs

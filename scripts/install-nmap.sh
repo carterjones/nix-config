@@ -7,5 +7,4 @@ sudo apt-get install -y \
     nmap
 
 # Set up nmap directories.
-mkdir -p ~/.nmap
-mkdir -p ~/.nmap/logs
+mkdir -p $HOME/.nmap/logs

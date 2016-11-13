@@ -13,5 +13,5 @@ if [[ $(which subl &>/dev/null; echo $?) -ne 0 ]]; then
 fi
 
 # Set up config files.
-mkdir -p ~/.config/sublime-text-3/
-cp -r ./files/.config/sublime-text-3/* ~/.config/sublime-text-3/
+mkdir -p $HOME/.config/sublime-text-3/
+cp -r ./files/.config/sublime-text-3/* $HOME/.config/sublime-text-3/

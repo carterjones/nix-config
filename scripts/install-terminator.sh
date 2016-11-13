@@ -7,5 +7,5 @@ sudo apt-get install -y \
 	terminator
 
 # Set up config files.
-mkdir -p ~/.config/terminator
-cp ./files/.config/terminator/config ~/.config/terminator/config
+mkdir -p $HOME/.config/terminator
+cp ./files/.config/terminator/config $HOME/.config/terminator/config
