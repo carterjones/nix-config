@@ -12,5 +12,8 @@ alias grep='grep --color=auto -E'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# emacs alias
+alias e='emacs -nw'
+
 # Nmap customizations.
 alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'

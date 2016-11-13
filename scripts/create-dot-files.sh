@@ -7,6 +7,7 @@ cp ./files/.bash_aliases $HOME/
 cp ./files/.bash_prmpt $HOME/
 cp ./files/.bashrc $HOME/
 cp ./files/.exports $HOME/
+cp ./files/.emacs $HOME/
 cp ./files/.git-completion $HOME/
 cp ./files/.gitconfig $HOME/
 cp ./files/.nanorc $HOME/
