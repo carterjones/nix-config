@@ -2,19 +2,19 @@
 
 set -eux -o pipefail
 
-# Set paths for running shared scripts.
+# Set paths for running various scripts.
 export shared_files='./files/shared'
 export shared_scripts='./scripts/shared'
+export linux_files='./files/linux'
+export linux_scripts='./scripts/linux'
+export macos_files='./files/macos'
+export macos_scripts='./scripts/macos'
 
 # Make globally applicable customizations.
 bash ${shared_scripts}/create-user-dirs.sh
 
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
-
-	# Set paths for running Linux scripts.
-	export linux_files='./files/linux'
-	export linux_scripts='./scripts/linux'
 
 	# Determine if this is a GUI environment. If it is, install GUI-related
 	# customizations. Otherwise, skip installation of those tools.
@@ -50,5 +50,9 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Unset exported variables.
+unset shared_files
+unset shared_scripts
 unset linux_files
 unset linux_scripts
+unset macos_files
+unset macos_scripts
