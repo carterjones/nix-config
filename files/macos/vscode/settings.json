@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 16,
+    "editor.rulers": [72, 80, 120],
+    "files.trimTrailingWhitespace": true,
+    "projectManager.openInNewWindow": false,
+    "python.linting.pep8Enabled": true
+}

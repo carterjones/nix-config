@@ -2,6 +2,18 @@
 
 set -eux -o pipefail
 
+# Set paths for running various scripts.
+export shared_files='./files/shared'
+export shared_scripts='./scripts/shared'
+export linux_files='./files/linux'
+export linux_scripts='./scripts/linux'
+export macos_files='./files/macos'
+export macos_scripts='./scripts/macos'
+
+# Make globally applicable customizations.
+bash ${shared_scripts}/create-user-dirs.sh
+bash ${shared_scripts}/create-dot-files.sh
+
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
 
@@ -13,28 +25,43 @@ if [[ $(uname) == Linux ]]; then
 	readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
 
 	# Make globally applicable customizations.
-	bash scripts/install-base-debs.sh
-	bash scripts/create-user-dirs.sh
-	bash scripts/create-dot-files.sh
-	bash scripts/install-bgrep.sh
-	bash scripts/install-go.sh
-	bash scripts/install-nmap.sh
-	bash scripts/install-whois.sh
+	bash ${linux_scripts}/install-base-debs.sh
+	bash ${linux_scripts}/install-bgrep.sh
+	bash ${linux_scripts}/install-go.sh
+	bash ${linux_scripts}/install-nmap.sh
+	bash ${linux_scripts}/install-whois.sh
 
 	# Make customizations specific to GUI environments.
 	if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
-		bash scripts/install-terminator.sh
-		bash scripts/install-yakuake.sh
-		bash scripts/install-sublime.sh
-		bash scripts/install-chrome.sh
-		bash scripts/install-slack.sh
+		bash ${linux_scripts}/install-terminator.sh
+		bash ${linux_scripts}/install-yakuake.sh
+		bash ${linux_scripts}/install-sublime.sh
+		bash ${linux_scripts}/install-chrome.sh
+		bash ${linux_scripts}/install-slack.sh
 
 		# Make customizations specific to Gnome environments.
 		if [[ GNOME_INSTALLED ]]; then
-			bash scripts/configure-gnome.sh
-			bash scripts/install-compizconfig-settings-manager.sh
+			bash ${linux_scripts}/configure-gnome.sh
+			bash ${linux_scripts}/install-compizconfig-settings-manager.sh
 		fi
 	fi
 elif [[ $(uname) == Darwin ]]; then
-	echo
+	# Load .bash_profile.
+	set +u
+	source $HOME/.bash_profile
+	set -u
+
+	# Install software.
+	bash ${macos_scripts}/update-brew.sh
+	bash ${macos_scripts}/install-brew-packages.sh
+	bash ${macos_scripts}/install-vagrant.sh
+	bash ${macos_scripts}/install-vscode.sh
 fi
+
+# Unset exported variables.
+unset shared_files
+unset shared_scripts
+unset linux_files
+unset linux_scripts
+unset macos_files
+unset macos_scripts
