@@ -1,0 +1,15 @@
+[user]
+	name = Carter Jones
+	email = fake-email@mailinator.com
+[core]
+	editor = /usr/bin/nano
+[color]
+    ui = true
+[diff]
+    color = true
+[color "diff"]
+    new = bold blue
+    whitespace = normal yellow
+[color "status"]
+    changed = magenta
+    untracked = bold yellow
