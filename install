@@ -2,14 +2,16 @@
 
 set -eux -o pipefail
 
-filespath='./files/shared/'
+# Set paths for running shared scripts.
+export shared_files='./files/shared'
+export shared_scripts='./scripts/shared'
 
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
 
-	# Set the files path for running Linux scripts.
-	export filespath='./files/linux'
-	export scriptspath='./scripts/linux'
+	# Set paths for running Linux scripts.
+	export linux_files='./files/linux'
+	export linux_scripts='./scripts/linux'
 
 	# Determine if this is a GUI environment. If it is, install GUI-related
 	# customizations. Otherwise, skip installation of those tools.
@@ -19,26 +21,26 @@ if [[ $(uname) == Linux ]]; then
 	readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
 
 	# Make globally applicable customizations.
-	bash ${scriptspath}/install-base-debs.sh
-	bash ${scriptspath}/create-user-dirs.sh
-	bash ${scriptspath}/create-dot-files.sh
-	bash ${scriptspath}/install-bgrep.sh
-	bash ${scriptspath}/install-go.sh
-	bash ${scriptspath}/install-nmap.sh
-	bash ${scriptspath}/install-whois.sh
+	bash ${linux_scripts}/install-base-debs.sh
+	bash ${linux_scripts}/create-user-dirs.sh
+	bash ${linux_scripts}/create-dot-files.sh
+	bash ${linux_scripts}/install-bgrep.sh
+	bash ${linux_scripts}/install-go.sh
+	bash ${linux_scripts}/install-nmap.sh
+	bash ${linux_scripts}/install-whois.sh
 
 	# Make customizations specific to GUI environments.
 	if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
-		bash ${scriptspath}/install-terminator.sh
-		bash ${scriptspath}/install-yakuake.sh
-		bash ${scriptspath}/install-sublime.sh
-		bash ${scriptspath}/install-chrome.sh
-		bash ${scriptspath}/install-slack.sh
+		bash ${linux_scripts}/install-terminator.sh
+		bash ${linux_scripts}/install-yakuake.sh
+		bash ${linux_scripts}/install-sublime.sh
+		bash ${linux_scripts}/install-chrome.sh
+		bash ${linux_scripts}/install-slack.sh
 
 		# Make customizations specific to Gnome environments.
 		if [[ GNOME_INSTALLED ]]; then
-			bash ${scriptspath}/configure-gnome.sh
-			bash ${scriptspath}/install-compizconfig-settings-manager.sh
+			bash ${linux_scripts}/configure-gnome.sh
+			bash ${linux_scripts}/install-compizconfig-settings-manager.sh
 		fi
 	fi
 elif [[ $(uname) == Darwin ]]; then
@@ -46,5 +48,5 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Unset exported variables.
-unset filespath
-unset scriptspath
+unset linux_files
+unset linux_scripts

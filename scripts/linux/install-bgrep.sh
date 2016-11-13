@@ -3,8 +3,8 @@
 set -eux -o pipefail
 
 # Compile bgrep.
-gcc -O2 -x c -o ${filespath}/bin/bgrep ./lib/bgrep/bgrep.c
+gcc -O2 -x c -o ${linux_files}/bin/bgrep ./lib/bgrep/bgrep.c
 
 # Move it to the user's bin folder.
-mv ${filespath}/bin/bgrep $HOME/bin/bgrep
+mv ${linux_files}/bin/bgrep $HOME/bin/bgrep
 chmod +x $HOME/bin/bgrep
