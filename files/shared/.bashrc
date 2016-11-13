@@ -21,3 +21,8 @@ source $HOME/.bash_aliases
 source $HOME/.bash_completion
 source $HOME/.bash_prompt
 source $HOME/.exports
+
+# Source any private settings not tracked in this repo.
+if [ -f ~/.private ]; then
+   source ~/.private
+fi
