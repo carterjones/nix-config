@@ -11,7 +11,17 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
+function create_git_marker {
+	staged_changes_exist=$(git diff --staged --shortstat)
+	unstaged_changes_exist=$(git diff)
+	local marker=''
+	[ -n "${staged_changes_exist}" ]   && marker="+"
+	[ -n "${unstaged_changes_exist}" ] && marker="o"
+	echo ${marker}
+}
+
 prompt_git() {
+	local m='';
 	local branchName='';
 
 	# Check if the current directory is in a Git repository.
@@ -24,7 +34,11 @@ prompt_git() {
 			git rev-parse --short HEAD 2> /dev/null || \
 			echo '(unknown)')";
 
-		echo -e " ${1}[${branchName}]${2}";
+		local markers=$(create_git_marker)
+
+		[ -n "${markers}" ] && m="<${markers}>";
+
+		echo -e " ${1}[${branchName}]${2}${m}";
 	else
 		return;
 	fi;
