@@ -1,10 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
-if [[ -n "$PS1" ]]; then
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -44,6 +37,3 @@ source $HOME/.bash_aliases
 source $HOME/.bash_prompt
 source $HOME/.exports
 source $HOME/.git-completion
-
-# end the surrounding if statement
-fi
