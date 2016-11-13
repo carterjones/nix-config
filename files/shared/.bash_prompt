@@ -15,8 +15,8 @@ function create_git_marker {
 	staged_changes_exist=$(git diff --staged --shortstat)
 	unstaged_changes_exist=$(git diff)
 	local marker=''
-	[ -n "${staged_changes_exist}" ]   && marker="+"
-	[ -n "${unstaged_changes_exist}" ] && marker="o"
+	[ -n "${unstaged_changes_exist}" ] && marker+="u"
+	[ -n "${staged_changes_exist}" ]   && marker+="s"
 	echo ${marker}
 }
 
