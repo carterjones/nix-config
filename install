@@ -2,37 +2,38 @@
 
 set -eux -o pipefail
 
-# Determine if this is a GUI environment. If it is, install GUI-related
-# customizations. Otherwise, skip installation of those tools.
-readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$([[ -n "${DISPLAY+x}" ]]; echo $?)
+if [[ $(uname) == Linux ]]; then
+	# Note: this assumes Ubuntu Linux.
 
-# Determine if gnome-desktop is installed. If it is, install gnome-specific customizations.
-readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
+	# Determine if this is a GUI environment. If it is, install GUI-related
+	# customizations. Otherwise, skip installation of those tools.
+	readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$([[ -n "${DISPLAY+x}" ]]; echo $?)
 
-# Make globally applicable customizations.
-bash scripts/install-base-debs.sh
-bash scripts/create-user-dirs.sh
-bash scripts/create-dot-files.sh
-bash scripts/install-bgrep.sh
-bash scripts/install-go.sh
-bash scripts/install-nmap.sh
-bash scripts/install-whois.sh
+	# Determine if gnome-desktop is installed. If it is, install gnome-specific customizations.
+	readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
 
-# Make customizations specific to GUI environments.
-if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
+	# Make globally applicable customizations.
+	bash scripts/install-base-debs.sh
+	bash scripts/create-user-dirs.sh
+	bash scripts/create-dot-files.sh
+	bash scripts/install-bgrep.sh
+	bash scripts/install-go.sh
+	bash scripts/install-nmap.sh
+	bash scripts/install-whois.sh
 
-	bash scripts/install-terminator.sh
-	bash scripts/install-yakuake.sh
-	bash scripts/install-sublime.sh
-	bash scripts/install-chrome.sh
-	bash scripts/install-slack.sh
+	# Make customizations specific to GUI environments.
+	if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
+		bash scripts/install-terminator.sh
+		bash scripts/install-yakuake.sh
+		bash scripts/install-sublime.sh
+		bash scripts/install-chrome.sh
+		bash scripts/install-slack.sh
 
-	# Make customizations specific to Gnome environments.
-	if [[ GNOME_INSTALLED ]]; then
-
-		bash scripts/configure-gnome.sh
-		bash scripts/install-compizconfig-settings-manager.sh
-
+		# Make customizations specific to Gnome environments.
+		if [[ GNOME_INSTALLED ]]; then
+			bash scripts/configure-gnome.sh
+			bash scripts/install-compizconfig-settings-manager.sh
+		fi
 	fi
-
+elif [[ $(uname) == Darwin ]]; then
 fi
