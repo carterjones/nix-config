@@ -36,5 +36,5 @@ if [[ $(uname) == Linux ]]; then
 		fi
 	fi
 elif [[ $(uname) == Darwin ]]; then
-	echo "bla"
+	echo
 fi
