@@ -8,4 +8,4 @@ sudo apt-get install -y \
 
 # Set up config files.
 mkdir -p $HOME/.config/terminator
-cp ./files/.config/terminator/config $HOME/.config/terminator/config
+cp ${filespath}/.config/terminator/config $HOME/.config/terminator/config
