@@ -9,11 +9,11 @@ cp ${shared_files}/.bash_prompt $HOME/
 cp ${shared_files}/.bashrc $HOME/
 cp ${shared_files}/.exports $HOME/
 cp ${shared_files}/.emacs $HOME/
+cp ${shared_files}/.gitconfig $HOME/
 cp ${shared_files}/.git-completion $HOME/
 cp ${shared_files}/.tmux.conf $HOME/
 
 if [[ $(uname) == Linux ]]; then
-    cp ${linux_files}/.gitconfig $HOME/
     cp ${linux_files}/.nanorc $HOME/
 elif [[ $(uname) == Darwin ]]; then
     cp ${macos_files}/.bash_profile $HOME/
