@@ -1,10 +1,11 @@
+;; Disable backup files.
 (setq make-backup-files nil)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;;Load package-install sources
+;; Load package-install sources.
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -14,53 +15,53 @@
   (package-initialize))
 
 (defvar my-packages
-  '(;;;; Go stuff
+  '(;; Go stuff
     go-mode
     go-eldoc
     go-autocomplete
 
-    ;;;;;; Markdown
+    ;; Markdown
     markdown-mode
 
-    ;;;;;; Javascript
+    ;; Javascript
     json-mode
 
-    ;;;;;; Env
+    ;; Env
     project-explorer
     smooth-scroll
     buffer-move
     window-number)
   "My packages!")
 
-;; fetch the list of packages available
+;; Fetch the list of packages available.
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; install the missing packages
+;; Install the missing packages.
 (dolist (package my-packages)
   (unless (package-installed-p package)
     (package-install package)))
 
-;;Load Go-specific language syntax
+;; Load Go-specific language syntax.
 (defun go-mode-setup ()
   (go-eldoc-setup))
 
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-;;Format before saving
+;; Format before saving.
 (defun go-mode-setup ()
   (go-eldoc-setup)
   (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-;;Goimports
+;; Goimports.
 (defun go-mode-setup ()
   (go-eldoc-setup)
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-;;Godef, shows function definition when calling godef-jump
+;; Godef, shows function definition when calling godef-jump.
 (defun go-mode-setup ()
   (go-eldoc-setup)
   (setq gofmt-command "goimports")
@@ -68,7 +69,7 @@
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-;;Custom Compile Command
+;; Custom Compile Command.
 (defun go-mode-setup ()
   (setq compile-command "go build -v && go test -v && go vet && golint && errcheck")
   (define-key (current-local-map) "\C-c\C-c" 'compile)
@@ -78,7 +79,7 @@
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'go-mode-setup)
 
-;;Load auto-complete
+;; Load auto-complete.
 (ac-config-default)
 (require 'auto-complete-config)
 (require 'go-autocomplete)
@@ -86,7 +87,7 @@
 (add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
 (require 'golint)
 
-;;Project Explorer
+;; Project Explorer.
 (require 'project-explorer)
 (global-set-key (kbd "M-e") 'project-explorer-toggle)
 
