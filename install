@@ -62,6 +62,8 @@ elif [[ $(uname) == Darwin ]]; then
 	sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
 fi
 
+bash ${shared_scripts}/configure-go.sh
+
 # Unset exported variables.
 unset shared_files
 unset shared_scripts
