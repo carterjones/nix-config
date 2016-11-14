@@ -1,0 +1,1 @@
+- incorporate https://github.com/chrissimpkins/Hack (add to `~/Library/Fonts` for macos)
