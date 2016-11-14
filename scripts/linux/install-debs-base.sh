@@ -15,8 +15,7 @@ PACKAGES="${PACKAGES}
 
 # golang packages.
 PACKAGES="${PACKAGES}
-	golang
-	govendor"
+	golang"
 
 # Install the packages.
 sudo apt-get install -y "${PACKAGES}"
