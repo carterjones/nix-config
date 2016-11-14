@@ -18,4 +18,4 @@ PACKAGES="${PACKAGES}
 	golang"
 
 # Install the packages.
-sudo apt-get install -y "${PACKAGES}"
+sudo apt-get install -y ${PACKAGES}
