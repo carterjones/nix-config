@@ -29,7 +29,6 @@ if [[ $(uname) == Linux ]]; then
 	bash ${linux_scripts}/install-debs-base.sh
 	bash ${linux_scripts}/install-bgrep.sh
 	bash ${linux_scripts}/install-nmap.sh
-	bash ${linux_scripts}/install-tmux.sh
 
 	# Make customizations specific to GUI environments.
 	if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
