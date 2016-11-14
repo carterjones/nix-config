@@ -13,5 +13,9 @@ PACKAGES="${PACKAGES}
 PACKAGES="${PACKAGES}
     nmap"
 
+# Yakuake.
+PACKAGES="${PACKAGES}
+    yakuake"
+
 # Install the packages.
 sudo apt-get install -y ${PACKAGES}
