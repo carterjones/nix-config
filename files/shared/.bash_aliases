@@ -15,6 +15,9 @@ alias egrep='egrep --color=auto'
 # emacs alias
 alias e='emacs -nw'
 
+# tmux aliases
+alias t='tmux a'
+
 if [[ $(uname) == Linux ]]; then
     # Nmap customizations.
     alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
