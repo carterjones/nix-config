@@ -30,6 +30,7 @@ if [[ $(uname) == Linux ]]; then
 	bash ${linux_scripts}/install-bgrep.sh
 	bash ${linux_scripts}/install-go.sh
 	bash ${linux_scripts}/install-nmap.sh
+	bash ${linux_scripts}/install-tmux.sh
 	bash ${linux_scripts}/install-whois.sh
 
 	# Make customizations specific to GUI environments.
