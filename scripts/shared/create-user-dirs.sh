@@ -4,7 +4,8 @@ set -eux -o pipefail
 
 # Create commonly used directories.
 mkdir -p $HOME/bin
-mkdir -p $HOME/code
+mkdir -p $HOME/src
+mkdir -p $HOME/pkg # for golang
 
 # Copy bin scripts.
 cp -r ${shared_files}/bin/* $HOME/bin/
