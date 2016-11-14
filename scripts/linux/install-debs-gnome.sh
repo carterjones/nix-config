@@ -10,4 +10,4 @@ PACKAGES="${PACKAGES}
 	compizconfig-settings-manager"
 
 # Install the packages.
-sudo apt-get install -y "${PACKAGES}"
+sudo apt-get install -y ${PACKAGES}
