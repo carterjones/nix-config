@@ -18,32 +18,10 @@ bash ${shared_scripts}/configure-tmux-plugins.sh
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
 
-	# Determine if this is a GUI environment. If it is, install GUI-related
-	# customizations. Otherwise, skip installation of those tools.
-	readonly CONFIGURE_GUI_TOOLS_AND_SETTINGS=$([[ -n "${DISPLAY+x}" ]]; echo $?)
-
-	# Determine if gnome-desktop is installed. If it is, install gnome-specific customizations.
-	readonly GNOME_INSTALLED=$(apt list --installed 2>/dev/null | grep gnome-desktop; echo $?)
-
 	# Make globally applicable customizations.
 	bash ${linux_scripts}/install-debs-base.sh
 	bash ${linux_scripts}/install-bgrep.sh
 	bash ${linux_scripts}/install-nmap.sh
-
-	# Make customizations specific to GUI environments.
-	if [[ CONFIGURE_GUI_TOOLS_AND_SETTINGS -eq 0 ]]; then
-		bash ${linux_scripts}/install-debs-gui.sh
-		bash ${linux_scripts}/install-terminator.sh
-		bash ${linux_scripts}/install-yakuake.sh
-		bash ${linux_scripts}/install-sublime.sh
-		bash ${linux_scripts}/install-chrome.sh
-		bash ${linux_scripts}/install-slack.sh
-
-		# Make customizations specific to Gnome environments.
-		if [[ GNOME_INSTALLED ]]; then
-			bash ${linux_scripts}/configure-gnome.sh
-		fi
-	fi
 elif [[ $(uname) == Darwin ]]; then
 	# Load .bash_profile.
 	set +u
