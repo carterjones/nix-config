@@ -1,12 +1,8 @@
 (setq make-backup-files nil)
 
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
 
 ;;Load package-install sources
 (when (>= emacs-major-version 24)
@@ -18,17 +14,18 @@
   (package-initialize))
 
 (defvar my-packages
-  '(;;;; Go shit
+  '(;;;; Go stuff
     go-mode
     go-eldoc
     go-autocomplete
 
-        ;;;;;; Markdown
+    ;;;;;; Markdown
     markdown-mode
 
-        ;;;;;; Javascript
+    ;;;;;; Javascript
     json-mode
-        ;;;;;; Env
+
+    ;;;;;; Env
     project-explorer
     smooth-scroll
     buffer-move
@@ -43,7 +40,7 @@
 (dolist (package my-packages)
   (unless (package-installed-p package)
     (package-install package)))
-    
+
 ;;Load Go-specific language syntax
 (defun go-mode-setup ()
   (go-eldoc-setup))
