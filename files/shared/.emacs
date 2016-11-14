@@ -1,6 +1,17 @@
 ;; Disable backup files.
 (setq make-backup-files nil)
 
+;; Set the load path for emacs.
+(add-to-list 'load-path "~/.emacs.d/site-lisp/")
+
+;; Set up fill column indicator.
+(require 'fill-column-indicator)
+(setq-default fci-rule-column 80)
+(setq fci-rule-width 1)
+(setq fci-rule-color "grey80")
+(setq-default fci-rule-character-color "green")
+(add-hook 'after-change-major-mode-hook 'fci-mode)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
