@@ -61,7 +61,7 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Configure shared software.
-bash ${shared_scripts}/Configure-emacs.sh
+bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
 
 # Unset exported variables.
