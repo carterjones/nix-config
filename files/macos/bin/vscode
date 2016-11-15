@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Set up python environment for pep8 linting.
+source $HOME/.venv_setup
+if [[ $(lsvirtualenv -b | grep vscode &>/dev/null; echo $?) != 0 ]]; then
+    mkvirtualenv vscode
+    pip install --upgrade pep8
+fi
+workon vscode
+
+# Start up Visual Studio Code.
+"/Applications/Visual Studio Code.app/Contents/MacOS/Electron" $@ &
