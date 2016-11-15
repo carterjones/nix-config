@@ -17,6 +17,9 @@ if [[ $(uname) == Linux ]]; then
     # Make symlinks.
     ln -fs $(which ack-grep) $HOME/bin/ag
 elif [[ $(uname) == Darwin ]]; then
+    # Copy bin scripts.
+    cp -r ${macos_files}/bin/* $HOME/bin/
+
     # Reuse Vagrant install script for upgrades.
     cp ${macos_scripts}/install-vagrant.sh $HOME/bin/upgrade-vagrant
     chmod +x $HOME/bin/upgrade-vagrant

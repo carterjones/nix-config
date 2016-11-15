@@ -12,6 +12,7 @@ cp ${shared_files}/.emacs $HOME/
 cp ${shared_files}/.gitconfig $HOME/
 cp ${shared_files}/.git-completion $HOME/
 cp ${shared_files}/.tmux.conf $HOME/
+cp ${shared_files}/.venv_setup $HOME/
 
 if [[ $(uname) == Linux ]]; then
     cp ${linux_files}/.nanorc $HOME/

@@ -27,3 +27,6 @@ PACKAGES="${PACKAGES}
 
 # Install the packages.
 sudo apt-get install -y ${PACKAGES}
+
+# Remove unneeded packages.
+sudo apt-get autoremove -y
