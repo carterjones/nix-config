@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# bash aliases
+alias b='source ~/.bashrc'
+
 # ls aliases
 alias ls='ls -G'
 alias ll='ls -alFG'
