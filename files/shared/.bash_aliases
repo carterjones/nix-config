@@ -17,6 +17,7 @@ alias e='emacs -nw'
 
 # tmux aliases
 alias t='tmux a'
+alias tk='tmux kill-server'
 
 if [[ $(uname) == Linux ]]; then
     # Nmap customizations.
