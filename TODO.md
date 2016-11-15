@@ -1,1 +1,2 @@
 - incorporate https://github.com/chrissimpkins/Hack (add to `~/Library/Fonts` for macos)
+- figure out how to make copy/paste work from local tmux as well as remote tmux sessions
