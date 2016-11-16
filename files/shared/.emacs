@@ -1,6 +1,9 @@
 ;; Disable backup files.
 (setq make-backup-files nil)
 
+;; Use spaces instead of tabs.
+(setq-default indent-tabs-mode nil)
+
 ;; Set the load path for emacs.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
