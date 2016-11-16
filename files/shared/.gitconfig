@@ -1,5 +1,5 @@
 [core]
-    editor = /usr/bin/nano
+    editor = /usr/local/bin/emacs -nw
 [color]
     ui = true
 [diff]
