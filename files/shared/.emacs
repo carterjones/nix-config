@@ -4,6 +4,9 @@
 ;; Use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
 
+;; Set the fill column (for wrapping) to 72.
+(setq-default fill-column 72)
+
 ;; Show the current column.
 (setq column-number-mode t)
 
