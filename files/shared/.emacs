@@ -4,6 +4,9 @@
 ;; Use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
 
+;; Show the current column.
+(setq column-number-mode t)
+
 ;; Set the load path for emacs.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 
