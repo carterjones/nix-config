@@ -9,6 +9,9 @@ export PATH=$HOME/bin:$PATH
 # Set up the go path.
 export GOPATH=$HOME
 
+# Set the default editor.
+export EDITOR="emacs -nw"
+
 if [[ $(uname) == Linux ]]; then
     # Set up an nmap log directory path.
     export NMAP_LOGS=$HOME/.nmap/logs
