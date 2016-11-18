@@ -4,6 +4,9 @@
 ;; Use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
 
+;; Trip trailing whitespaces.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Set the fill column (for wrapping) to 72.
 (setq-default fill-column 72)
 
