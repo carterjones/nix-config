@@ -18,7 +18,8 @@ alias egrep='egrep --color=auto'
 # emacs alias
 alias e='emacs -nw'
 
-# grep aliases
+# git aliases
+alias ghist='git hist'
 alias gprune='git remote prune origin'
 
 # tmux aliases
