@@ -18,6 +18,9 @@ alias egrep='egrep --color=auto'
 # emacs alias
 alias e='emacs -nw'
 
+# grep aliases
+alias gprune='git remote prune origin'
+
 # tmux aliases
 alias t='tmux a'
 alias tk='tmux kill-server'
