@@ -28,6 +28,9 @@ alias tk='tmux kill-server'
 
 # OS-specific aliases
 if [[ $(uname) == Linux ]]; then
+    # overwrite the emacs alias
+    alias e='emacs-snapshot -nw'
+
     # nmap aliases
     alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
 fi
