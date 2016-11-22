@@ -18,6 +18,7 @@ PACKAGES="build-essential"
 PACKAGES="${PACKAGES}
 	ack-grep
 	emacs-snapshot
+	meld
 	tmux
 	whois"
 
