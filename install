@@ -13,6 +13,11 @@ export macos_scripts='./scripts/macos'
 # Make globally applicable customizations.
 bash ${shared_scripts}/create-user-dirs.sh
 bash ${shared_scripts}/create-dot-files.sh
+
+# Load newly installed bashrc file.
+source $HOME/.bashrc
+
+# Continue with globally applicable customizations.
 bash ${shared_scripts}/configure-tmux-plugins.sh
 
 if [[ $(uname) == Linux ]]; then
