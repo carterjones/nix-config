@@ -16,15 +16,16 @@ PACKAGES="build-essential"
 
 # Useful utilities.
 PACKAGES="${PACKAGES}
-	ack-grep
-	emacs-snapshot
-	meld
-	tmux
-	whois"
+    ack-grep
+    emacs-snapshot
+    git
+    meld
+    tmux
+    whois"
 
 # golang packages.
 PACKAGES="${PACKAGES}
-	golang"
+    golang"
 
 # Install the packages.
 sudo apt-get install -y ${PACKAGES}
