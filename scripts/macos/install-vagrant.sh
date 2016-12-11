@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -ux -o pipefail
+set +e
 
 # Determine if an installation or upgrade is required.
 which vagrant
@@ -15,6 +16,8 @@ if [[ "$?" == "0" ]]; then
         exit 0
     fi
 fi
+
+set -e
 
 # Set up variables.
 set +u
