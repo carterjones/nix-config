@@ -17,9 +17,6 @@ bash ${shared_scripts}/create-dot-files.sh
 # Load newly installed bashrc file.
 source $HOME/.bashrc
 
-# Continue with globally applicable customizations.
-bash ${shared_scripts}/configure-tmux-plugins.sh
-
 if [[ $(uname) == Linux ]]; then
 	# Note: this assumes Ubuntu Linux.
 
@@ -45,6 +42,7 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Configure shared software.
+bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
 
