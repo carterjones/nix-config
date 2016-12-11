@@ -23,10 +23,6 @@ PACKAGES="${PACKAGES}
     tmux
     whois"
 
-# golang packages.
-PACKAGES="${PACKAGES}
-    golang"
-
 # Install the packages.
 sudo apt-get install -y ${PACKAGES}
 

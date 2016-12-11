@@ -18,27 +18,28 @@ bash ${shared_scripts}/create-dot-files.sh
 source $HOME/.bashrc
 
 if [[ $(uname) == Linux ]]; then
-	# Note: this assumes Ubuntu Linux.
+    # Note: this assumes Ubuntu Linux.
 
-	# Make Linux-specific customizations.
-	bash ${linux_scripts}/install-debs-base.sh
-	bash ${linux_scripts}/install-bgrep.sh
-	bash ${linux_scripts}/install-nmap.sh
-	bash ${linux_scripts}/configure-git.sh
+    # Make Linux-specific customizations.
+    bash ${linux_scripts}/install-debs-base.sh
+    bash ${linux_scripts}/install-bgrep.sh
+    bash ${linux_scripts}/install-golang.sh
+    bash ${linux_scripts}/install-nmap.sh
+    bash ${linux_scripts}/configure-git.sh
 elif [[ $(uname) == Darwin ]]; then
-	# Load .bash_profile.
-	set +u
-	source $HOME/.bash_profile
-	set -u
+    # Load .bash_profile.
+    set +u
+    source $HOME/.bash_profile
+    set -u
 
-	# Install software.
-	bash ${macos_scripts}/update-brew.sh
-	bash ${macos_scripts}/install-brew-packages.sh
-	bash ${macos_scripts}/install-vagrant.sh
-	bash ${macos_scripts}/install-vscode.sh
+    # Install software.
+    bash ${macos_scripts}/update-brew.sh
+    bash ${macos_scripts}/install-brew-packages.sh
+    bash ${macos_scripts}/install-vagrant.sh
+    bash ${macos_scripts}/install-vscode.sh
 
-	# Fix the tmux config file.
-	sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
+    # Fix the tmux config file.
+    sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
 fi
 
 # Configure shared software.
