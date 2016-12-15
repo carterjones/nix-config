@@ -85,11 +85,13 @@ else
 fi;
 
 # Highlight the hostname when connected via SSH.
+set +u
 if [[ "${SSH_TTY}" ]]; then
 	hostStyle="${bold}${red}";
 else
 	hostStyle="${yellow}";
 fi;
+set -u
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
