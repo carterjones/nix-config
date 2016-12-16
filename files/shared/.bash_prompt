@@ -91,7 +91,6 @@ if [[ "${SSH_TTY}" ]]; then
 else
 	hostStyle="${yellow}";
 fi;
-set -u
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
