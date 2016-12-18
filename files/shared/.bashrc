@@ -17,7 +17,9 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Don't do anything fancy for non-interactive prompts.
+set +u
 if [ -z $PS1 ]; then exit; fi
+set -u
 
 # Source external files.
 source $HOME/.bash_aliases
