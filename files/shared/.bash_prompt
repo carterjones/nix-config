@@ -5,8 +5,6 @@
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
 
-if [ -z $PS1 ]; then exit; fi
-
 COLORTERM=${COLORTERM:-""}
 TERM=${TERM:-""}
 

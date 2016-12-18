@@ -16,6 +16,9 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# Don't do anything fancy for non-interactive prompts.
+if [ -z $PS1 ]; then exit; fi
+
 # Source external files.
 source $HOME/.bash_aliases
 source $HOME/.bash_completion
