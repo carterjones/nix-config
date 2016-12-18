@@ -16,7 +16,10 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Don't do anything fancy for non-interactive prompts.
+# Load exported settings.
+source $HOME/.exports
+
+# Stop processing if this is a non-interactive prompt.
 set +u
 [[ -z "$PS1" ]] && return
 set -u
@@ -25,7 +28,6 @@ set -u
 source $HOME/.bash_aliases
 source $HOME/.bash_completion
 source $HOME/.bash_prompt
-source $HOME/.exports
 
 # Source any private settings not tracked in this repo.
 if [ -f ~/.private ]; then
