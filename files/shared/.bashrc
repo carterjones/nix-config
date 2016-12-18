@@ -18,7 +18,7 @@ shopt -s checkwinsize
 
 # Don't do anything fancy for non-interactive prompts.
 set +u
-if [ -z $PS1 ]; then exit; fi
+[ -z "$PS1" ] && return
 set -u
 
 # Source external files.
