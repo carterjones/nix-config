@@ -43,6 +43,7 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Configure shared software.
+bash ${shared_scripts}/configure-ssh.sh
 bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
