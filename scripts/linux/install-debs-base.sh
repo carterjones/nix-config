@@ -24,7 +24,7 @@ PACKAGES="${PACKAGES}
     whois"
 
 # Install the packages.
-sudo apt-get install -y ${PACKAGES}
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" install ${PACKAGES}
 
 # Remove unneeded packages.
 sudo apt-get autoremove -y
