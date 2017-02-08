@@ -2,7 +2,7 @@
 
 set -eux -o pipefail
 
-dependency_path="${HOME}/.emacs.d/site-lisp"
+dependency_path="${HOME}/.emacs.d/"
 mkdir -p $dependency_path
 
-cp ${shared_files}/.emacs.d/site-lisp/* $dependency_path/
+cp -R ${shared_files}/.emacs.d/ $dependency_path
