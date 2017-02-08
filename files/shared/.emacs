@@ -15,6 +15,7 @@
 
 ;; Set the load path for emacs.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
+(add-to-list 'load-path "~/.emacs.d/carter/")
 
 ;; Set up fill column indicator.
 (require 'fill-column-indicator)
@@ -145,3 +146,6 @@
         (system-time-locale "en_US"))
     (insert (format-time-string format))))
 (global-set-key (kbd "C-c d") 'insert-date)
+
+;; Load TODO plugin.
+(require 'todo)
