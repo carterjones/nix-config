@@ -148,3 +148,7 @@
 
 ;; Load TODO plugin.
 (require 'todo)
+
+;; Git plugins.
+(require 'git-timemachine)
+(require 'egit)
