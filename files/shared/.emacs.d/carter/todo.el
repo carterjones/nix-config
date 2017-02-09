@@ -15,11 +15,11 @@
     (insert (format-time-string "%Y-%m-%d"
                                 (time-add (current-time)
                                           (days-to-time 1))))
-    (insert "\n\nDone:\n-\n\n")
+    (insert "\n\nDone:\n- \n\nKudos:\n- \n\n")
     (yank)
     (search-backward "Done")
     (next-line)
-    (move-end-of-line nil)
-    (insert " ")))
+    (move-end-of-line nil)))
 
+;; Set up a shortcut.
 (global-set-key (kbd "C-c t") 'add-todo)

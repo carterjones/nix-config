@@ -9,3 +9,6 @@
                  ((equal prefix '(16)) "%A, %d. %B %Y"))) ;; C-u C-u C-c d
         (system-time-locale "en_US"))
     (insert (format-time-string format))))
+
+;; Set up a shortcut.
+(global-set-key (kbd "C-c d") 'insert-date)
