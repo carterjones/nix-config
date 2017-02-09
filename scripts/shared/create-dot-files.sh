@@ -8,7 +8,6 @@ cp ${shared_files}/.bash_completion $HOME/
 cp ${shared_files}/.bash_prompt $HOME/
 cp ${shared_files}/.bashrc $HOME/
 cp ${shared_files}/.exports $HOME/
-cp ${shared_files}/.emacs $HOME/
 cp ${shared_files}/.gitconfig $HOME/
 cp ${shared_files}/.git-completion $HOME/
 cp ${shared_files}/.tmux.conf $HOME/
