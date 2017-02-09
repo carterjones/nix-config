@@ -16,6 +16,7 @@
 ;; Set the load path for emacs.
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (add-to-list 'load-path "~/.emacs.d/carter/")
+(add-to-list 'load-path "/usr/share/emacs24/site-lisp/git/")
 
 ;; Set up fill column indicator.
 (require 'fill-column-indicator)

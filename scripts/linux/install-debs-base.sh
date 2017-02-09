@@ -19,6 +19,7 @@ PACKAGES="${PACKAGES}
     ack-grep
     emacs-snapshot
     git
+    git-el
     meld
     tmux
     whois"
