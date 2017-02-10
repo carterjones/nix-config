@@ -1,7 +1,3 @@
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
-
 (defvar my-packages
   '(;; Go
     go-mode
@@ -18,12 +14,27 @@
     project-explorer
     smooth-scroll
     buffer-move
-    window-number)
-  "My packages!")
+    window-number
+
+    ;; move-text
+    move-text
+    ))
+
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;; Fetch the list of packages available.
-(unless package-archive-contents
-  (package-refresh-contents))
+;; Taken from http://stackoverflow.com/a/22296680
+(setq n 0)                                  ; set n as 0
+(dolist (pkg my-packages)                   ; for each pkg in list
+  (unless (or                               ; unless
+           (package-installed-p pkg)        ; pkg is installed or
+           (assoc pkg                       ; pkg is in the archive list
+                  package-archive-contents))
+    (setq n (+ n 1))))                      ; add one to n
+(when (> n 0)                               ; if n > 0,
+  (package-refresh-contents))               ; refresh packages
 
 ;; Install the missing packages.
 (dolist (package my-packages)
