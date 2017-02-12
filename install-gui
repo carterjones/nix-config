@@ -23,6 +23,7 @@ if [[ $(uname) == Linux ]]; then
     bash ${linux_scripts}/install-sublime.sh
     bash ${linux_scripts}/install-chrome.sh
     bash ${linux_scripts}/install-slack.sh
+    bash ${linux_scripts}/install-hack-font.sh
 
     # Make customizations specific to Gnome environments.
     if [[ GNOME_INSTALLED ]]; then
