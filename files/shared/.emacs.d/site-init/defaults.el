@@ -9,3 +9,6 @@
 
 ;; Show the current column.
 (setq-default column-number-mode t)
+
+;; Hide menu bar.
+(menu-bar-mode -1)
