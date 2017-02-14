@@ -12,3 +12,6 @@
 
 ;; Hide menu bar.
 (menu-bar-mode -1)
+
+;; Set the default browser to Chrome.
+(setq browse-url-browser-function 'browse-url-chrome)
