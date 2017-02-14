@@ -23,23 +23,23 @@
 (load-library "keyboard-shortcuts")
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ '(org-indent-mode-turns-on-hiding-stars t)
  '(package-selected-packages
-   (quote (window-number
-           buffer-move
-           smooth-scroll
-           project-explorer
-           json-mode
-           markdown-mode
-           go-autocomplete
-           go-eldoc
-           go-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+   (quote
+    (window-number
+     buffer-move
+     smooth-scroll
+     project-explorer
+     json-mode
+     markdown-mode
+     go-autocomplete
+     go-eldoc
+     go-mode))))
+
+(cond
+ ((eq system-type 'darwin)
+  (custom-set-faces
+   '(org-hide ((t (:foreground "black"))))))
+ ((eq system-type 'gnu/linux)
+  (custom-set-faces
+   '(org-hide ((t (:foreground "color-16")))))))
