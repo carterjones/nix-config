@@ -5,3 +5,7 @@
 (add-hook 'sh-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'c-mode-hook 'fci-mode)
+
+;; Activate org-indent-mode.
+;; Based on http://stackoverflow.com/a/1775652
+(add-hook 'org-mode-hook (lambda () (org-indent-mode t)) t)
