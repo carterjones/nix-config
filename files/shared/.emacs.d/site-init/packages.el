@@ -15,14 +15,10 @@
     smooth-scroll
     buffer-move
     window-number
-
-    ;; move-text
-    move-text
     ))
 
 (require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")))
 
 ;; Fetch the list of packages available.
 ;; Taken from http://stackoverflow.com/a/22296680
