@@ -15,3 +15,6 @@
 
 ;; Set the default browser to Chrome.
 (setq browse-url-browser-function 'browse-url-chrome)
+
+;; Load changes from disk into buffer if changes are made outside of Emacs.
+(global-auto-revert-mode t)
