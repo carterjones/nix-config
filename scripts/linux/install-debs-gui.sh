@@ -7,7 +7,7 @@ PACKAGES=""
 
 # Terminator.
 PACKAGES="${PACKAGES}
-    terminator"
+    xfce4-terminal"
 
 # Nmap.
 PACKAGES="${PACKAGES}
