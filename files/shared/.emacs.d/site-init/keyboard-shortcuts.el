@@ -6,3 +6,7 @@
 
 ;; Open URL.
 (global-set-key (kbd "C-c o") 'browse-url-at-point)
+
+;; Move-text.
+(global-set-key (kbd "ESC <up>") 'move-text-up)
+(global-set-key (kbd "ESC <down>") 'move-text-down)
