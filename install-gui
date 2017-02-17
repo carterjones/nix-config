@@ -18,7 +18,6 @@ if [[ $(uname) == Linux ]]; then
 
     # Make customizations specific to GUI environments.
     bash ${linux_scripts}/install-debs-gui.sh
-    bash ${linux_scripts}/install-terminator.sh
     bash ${linux_scripts}/install-yakuake.sh
     bash ${linux_scripts}/install-sublime.sh
     bash ${linux_scripts}/install-chrome.sh
