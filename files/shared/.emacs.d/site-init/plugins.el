@@ -35,3 +35,17 @@
 ;; git-related plugins
 (require 'git-timemachine)
 (require 'egit)
+
+;; org-mode
+(define-key global-map "\C-cc" 'org-capture)
+(setq org-directory
+      (if (f-directory? "~/Dropbox")
+          "~/Dropbox/org/"
+        "~/"))
+(setq org-capture-templates
+      '(("t" "Todo"
+         entry (file+headline (concat org-directory "todo.org") "ToDo list")
+         "* TODO %?\n  %i")
+        ("l" "Log Entry"
+         entry (file+headline (concat org-directory "log.org") "Log")
+         "* %<%Y-%m-%d %I:%M:%S %p>\n%i%?")))
