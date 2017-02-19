@@ -23,7 +23,6 @@ if [[ $(uname) == Linux ]]; then
     # Make Linux-specific customizations.
     bash ${linux_scripts}/install-debs-base.sh
     bash ${linux_scripts}/install-bgrep.sh
-    bash ${linux_scripts}/install-golang.sh
     bash ${linux_scripts}/install-nmap.sh
     bash ${linux_scripts}/configure-git.sh
 elif [[ $(uname) == Darwin ]]; then
@@ -44,6 +43,7 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Configure shared software.
+bash ${shared_scripts}/install-golang.sh
 bash ${shared_scripts}/configure-ssh.sh
 bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh

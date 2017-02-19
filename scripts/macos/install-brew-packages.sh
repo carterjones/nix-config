@@ -10,8 +10,6 @@ brew install \
     ag \
     emacs \
     git \
-    go \
-    govendor \
     jq \
     packer \
     tmux \
