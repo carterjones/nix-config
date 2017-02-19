@@ -27,8 +27,20 @@
       (previous-line)
       (insert (shell-command-to-string "p todo")))))
 
+(defun mark-as-done ()
+  (interactive)
+  (save-excursion
+    (progn
+      (move-beginning-of-line nil)
+      (kill-visual-line 1)
+      (search-backward "Done")
+      (search-forward "\n\n")
+      (previous-line)
+      (yank))))
+
 ;; Set up a shortcut.
 (global-set-key (kbd "C-c t") 'add-todo)
 (global-set-key (kbd "C-c p") 'add-pivotal-tasks)
+(global-set-key (kbd "C-c d") 'mark-as-done)
 
 (provide 'todo)
