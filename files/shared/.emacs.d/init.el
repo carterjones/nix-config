@@ -23,23 +23,15 @@
 (load-library "keyboard-shortcuts")
 
 (custom-set-variables
+ '(inhibit-startup-screen t)
  '(org-indent-mode-turns-on-hiding-stars t)
  '(package-selected-packages
    (quote
-    (window-number
-     buffer-move
-     smooth-scroll
-     project-explorer
-     json-mode
-     markdown-mode
-     go-autocomplete
-     go-eldoc
-     go-mode))))
+    (window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode))))
 
-(cond
- ((eq system-type 'darwin)
-  (custom-set-faces
-   '(org-hide ((t (:foreground "black"))))))
- ((eq system-type 'gnu/linux)
-  (custom-set-faces
-   '(org-hide ((t (:foreground "color-16")))))))
+(custom-set-faces
+ '(markdown-header-face ((t (:inherit (nil font-lock-function-name-face) :family "variable-pitch" :weight bold))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
+ '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2))))
+ '(org-hide ((t (:foreground "black")))))
