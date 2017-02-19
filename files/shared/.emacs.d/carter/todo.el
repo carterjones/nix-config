@@ -1,5 +1,3 @@
-(provide 'todo)
-
 (defun add-todo ()
   "Create a new TODO entry."
   (interactive)
@@ -21,5 +19,16 @@
     (next-line)
     (move-end-of-line nil)))
 
+(defun add-pivotal-tasks ()
+  (interactive)
+  (save-excursion
+    (progn
+      (search-forward "###")
+      (previous-line)
+      (insert (shell-command-to-string "p todo")))))
+
 ;; Set up a shortcut.
 (global-set-key (kbd "C-c t") 'add-todo)
+(global-set-key (kbd "C-c p") 'add-pivotal-tasks)
+
+(provide 'todo)
