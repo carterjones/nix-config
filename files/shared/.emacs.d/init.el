@@ -6,6 +6,10 @@
 (add-to-list 'load-path (concat (getenv "GOPATH")
                                 "/src/github.com/golang/lint/misc/emacs"))
 
+;; Set up theme.
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'monokai t)
+
 ;; Load/install packages.
 (package-initialize)
 (load-library "packages")
