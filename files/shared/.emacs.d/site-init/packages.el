@@ -15,6 +15,9 @@
     smooth-scroll
     buffer-move
     window-number
+
+    ;; Git
+    git
     ))
 
 (require 'package)
