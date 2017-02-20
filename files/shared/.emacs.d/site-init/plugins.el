@@ -49,3 +49,6 @@
         ("l" "Log Entry"
          entry (file+headline (concat org-directory "log.org") "Log")
          "* %<%Y-%m-%d %I:%M:%S %p>\n%i%?")))
+
+;; unfill
+(require 'unfill)
