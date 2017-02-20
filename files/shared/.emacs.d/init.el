@@ -45,5 +45,4 @@
  '(markdown-header-face ((t (:inherit (nil font-lock-function-name-face) :family "variable-pitch" :weight bold))))
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
- '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2))))
- '(org-hide ((t (:foreground "black")))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
