@@ -5,6 +5,8 @@ if [[ $(uname) == Linux ]]; then
     archive_name="go1.7.5.linux-amd64.tar.gz"
 elif [[ $(uname) == Darwin ]]; then
     archive_name="go1.7.5.darwin-amd64.pkg"
+elif [[ $(uname) == MINGW* ]]; then
+    exit
 fi
 
 golang_url="https://storage.googleapis.com/golang/${archive_name}"

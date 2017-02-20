@@ -100,7 +100,10 @@ PS1+="\[${white}\]|";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\]:";
 PS1+="\[${green}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\]\[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+if [[ $(uname) != MINGW* ]]; then
+    # Don't do this on Windows, since it is buggy.
+    PS1+="\$(prompt_git \"\[${white}\]\[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+fi
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;

@@ -16,6 +16,11 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# set username on Windows
+if [[ $(uname) == MINGW* ]]; then
+    export USER=$USERNAME
+fi
+
 # Load exported settings.
 source $HOME/.exports
 

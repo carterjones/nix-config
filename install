@@ -1,6 +1,10 @@
 #!/bin/bash
-
 set -eux -o pipefail
+
+# Fix the repo before copying anything on Windows.
+if [[ $(uname) == MINGW* ]]; then
+    find . -type f -print0 | xargs -0 -n 1 -P 4 dos2unix
+fi
 
 # Set paths for running various scripts.
 export shared_files='./files/shared'
