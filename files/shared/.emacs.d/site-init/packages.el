@@ -18,6 +18,9 @@
 
     ;; Git
     git
+
+    ;; persp-mode
+    persp-mode
     ))
 
 (require 'package)

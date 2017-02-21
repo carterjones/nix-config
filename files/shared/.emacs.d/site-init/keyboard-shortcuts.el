@@ -10,3 +10,7 @@
 ;; Move-text.
 (global-set-key (kbd "ESC <up>") 'move-text-up)
 (global-set-key (kbd "ESC <down>") 'move-text-down)
+
+
+(global-set-key (kbd "M-<down>") (quote scroll-up-line))
+(global-set-key (kbd "M-<up>") (quote scroll-down-line))
