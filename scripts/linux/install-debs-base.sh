@@ -8,6 +8,9 @@ sudo add-apt-repository -y ppa:pi-rho/dev
 # Set up apt repository for the latest version of emacs.
 sudo add-apt-repository -y ppa:ubuntu-elisp
 
+# Set up apt repository for the latest version of git.
+sudo add-apt-repository -y ppa:git-core/ppa
+
 # Update before any packages are installed.
 sudo apt-get update
 
