@@ -22,6 +22,9 @@
 
     ;; persp-mode
     persp-mode
+
+    ;; Fuzzy find
+    fiplr
     ))
 
 (require 'package)
