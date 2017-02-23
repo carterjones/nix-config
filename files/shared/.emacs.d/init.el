@@ -36,7 +36,7 @@
  '(org-indent-mode-turns-on-hiding-stars t)
  '(package-selected-packages
    (quote
-    (window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode))))
+    (magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

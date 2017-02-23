@@ -35,6 +35,7 @@
 ;; git-related plugins
 (require 'git-timemachine)
 (require 'egit)
+(require 'magit)
 
 ;; org-mode
 (define-key global-map "\C-cc" 'org-capture)

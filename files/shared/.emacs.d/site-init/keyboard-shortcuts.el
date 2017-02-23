@@ -14,3 +14,6 @@
 
 (global-set-key (kbd "M-<down>") (quote scroll-up-line))
 (global-set-key (kbd "M-<up>") (quote scroll-down-line))
+
+;; Magit.
+(global-set-key (kbd "C-x g") 'magit-status)

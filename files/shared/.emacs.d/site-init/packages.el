@@ -18,6 +18,7 @@
 
     ;; Git
     git
+    magit
 
     ;; persp-mode
     persp-mode
