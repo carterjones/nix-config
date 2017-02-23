@@ -13,7 +13,7 @@
     (insert (format-time-string "%Y-%m-%d"
                                 (time-add (current-time)
                                           (days-to-time 1))))
-    (insert "\n\nDone:\n- \n\nKudos:\n- \n\n")
+    (insert "\n\nDone:\n\nKudos:\n\n")
     (yank)
     (search-backward "Done")
     (next-line)
@@ -39,8 +39,8 @@
       (yank))))
 
 ;; Set up a shortcut.
-(global-set-key (kbd "C-c t") 'add-todo)
-(global-set-key (kbd "C-c p") 'add-pivotal-tasks)
-(global-set-key (kbd "C-c d") 'mark-as-done)
+(global-set-key (kbd "C-c t t") 'add-todo)
+(global-set-key (kbd "C-c t p") 'add-pivotal-tasks)
+(global-set-key (kbd "C-c t d") 'mark-as-done)
 
 (provide 'todo)
