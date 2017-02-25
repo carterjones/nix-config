@@ -30,7 +30,7 @@
 (require 'project-explorer)
 
 ;; my personal todo plugin
-(require 'todo)
+(require 'standup)
 
 ;; git-related plugins
 (require 'git-timemachine)
