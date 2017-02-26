@@ -25,6 +25,9 @@
 
     ;; Fuzzy find
     fiplr
+
+    ;; Go
+    golint
     ))
 
 (require 'package)
