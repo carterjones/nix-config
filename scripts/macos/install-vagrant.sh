@@ -50,5 +50,6 @@ popd
 rm -rf $TMP_DIR
 
 # Install vagrant plugins.
+vagrant plugin install vagrant-share
 vagrant plugin install vagrant-s3auth
 vagrant plugin install vagrant-vbguest
