@@ -2,6 +2,7 @@
 
 # bash aliases
 alias b='source ~/.bashrc'
+alias exti='exit'
 
 # emacs alias
 alias e='emacs -nw'
