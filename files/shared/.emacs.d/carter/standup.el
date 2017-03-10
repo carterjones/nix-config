@@ -25,7 +25,7 @@
     (progn
       (search-forward "###")
       (previous-line)
-      (insert (shell-command-to-string "p todo")))))
+      (insert (shell-command-to-string "/bin/bash --login $HOME/bin/p todo")))))
 
 (defun mark-as-done ()
   (interactive)
