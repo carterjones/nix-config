@@ -17,7 +17,8 @@
     (yank)
     (search-backward "Done")
     (next-line)
-    (move-end-of-line nil)))
+    (move-end-of-line nil)
+    (standup-todo-fold-except-top)))
 
 (defun standup-todo-mark-as-done ()
   (interactive)
