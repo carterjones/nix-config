@@ -1,4 +1,4 @@
-(defun add-todo ()
+(defun add-todo-section ()
   "Create a new TODO entry."
   (interactive)
   (let ((beg (progn (search-backward "###")
@@ -19,24 +19,51 @@
     (next-line)
     (move-end-of-line nil)))
 
-(defun add-pivotal-tasks ()
+(defun import-pivotal-tasks ()
   (interactive)
   (save-excursion
     (progn
       (search-forward "###")
       (previous-line)
-      (insert (shell-command-to-string "/bin/bash --login $HOME/bin/p todo")))))
+      (insert (shell-command-to-string
+               (concat
+                "/bin/bash --login $HOME/bin/pi | "
+                "/usr/local/bin/jq -r '.stories.stories[].name' | "
+                "sed 's,^,- [sec] ,'"))))))
 
-(defun mark-as-done ()
+(defun create-or-update-pivotal-task (action)
   (interactive)
   (save-excursion
     (progn
-      (move-beginning-of-line nil)
-      (kill-visual-line 1)
-      (search-backward "Done")
-      (search-forward "\n\n")
-      (previous-line)
-      (yank))))
+      (beginning-of-line)
+      (search-forward "] ")
+      (set-mark-command nil)
+      (end-of-line)
+      (shell-command
+       (concat
+        "/bin/bash --login $HOME/bin/pu \""
+        (buffer-substring (region-beginning) (region-end))
+        "\" "
+        action
+        "> /dev/null"))
+      (deactivate-mark))))
+
+(defun add-task-to-pivotal ()
+  (interactive)
+  (save-excursion
+    (create-or-update-pivotal-task "new-midweek-done")))
+
+(defun mark-as-done ()
+  (interactive)
+  (progn
+    (move-beginning-of-line nil)
+    (kill-visual-line 1)
+    (search-backward "Done")
+    (search-forward "\n\n")
+    (previous-line)
+    (yank)
+    (previous-line)
+    (create-or-update-pivotal-task "done")))
 
 (defun fold-todos-except-top ()
   (interactive)
@@ -54,9 +81,12 @@
   ;; Move to the end of the TODO line within this section.
   (search-forward "TODO:"))
 
+
+
 ;; Set up shortcuts.
-(global-set-key (kbd "C-c t t") 'add-todo)
-(global-set-key (kbd "C-c t p") 'add-pivotal-tasks)
+(global-set-key (kbd "C-c t t") 'add-todo-section)
+(global-set-key (kbd "C-c t a") 'add-task-to-pivotal)
+(global-set-key (kbd "C-c t i") 'import-pivotal-tasks)
 (global-set-key (kbd "C-c t d") 'mark-as-done)
 (global-set-key (kbd "C-c t f") 'fold-todos-except-top)
 
