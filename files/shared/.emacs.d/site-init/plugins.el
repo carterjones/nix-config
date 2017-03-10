@@ -63,3 +63,6 @@
   (setq wg-morph-on nil) ;; switch off animation
   (setq persp-autokill-buffer-on-remove 'kill-weak)
   (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
+
+;; load markdown-toc
+(require 'markdown-toc)
