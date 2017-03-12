@@ -1,3 +1,6 @@
+(require 'dash)
+(require 'request)
+
 (defun standup-todo-new-section ()
   "Create a new TODO section."
   (interactive)
@@ -47,17 +50,85 @@
   ;; Move to the end of the TODO line within this section.
   (search-forward "TODO:"))
 
+(defun get-pivotal-token ()
+  (replace-regexp-in-string
+   "\n"
+   ""
+   (with-temp-buffer
+     (insert-file "~/.secret")
+     (keep-lines "PIVOTAL_TOKEN")
+     (replace-regexp ".*='?" "")
+     (replace-regexp "'.*" "")
+     (buffer-string))))
+
+(defun extract-project-id-from-data (project-name data)
+  (let ((jdata (coerce (json-read-from-string data) 'list)))
+    (number-to-string
+     (assoc-default
+      'id
+      (--first
+       (string-match project-name (assoc-default 'name it))
+       jdata)))))
+
+(defun call-pivotal-api (type route handler &optional params)
+  (let (result)
+    (request
+     (concat "https://www.pivotaltracker.com/services/v5/" route)
+     :type type
+     :headers `(("X-TrackerToken" . ,(get-pivotal-token)))
+     :params params
+     :parser 'buffer-string
+     :sync t
+     :success (function*
+               (lambda (&key data &allow-other-keys)
+                 (when data
+                   (setq result (funcall handler data))))))
+    result))
+
+(defun get-project-id (project)
+  (call-pivotal-api
+   "GET"
+   "projects"
+   (lambda (data)
+     (extract-project-id-from-data project data))))
+
+(defun extract-stories (data)
+  (coerce
+   (assoc-default 'stories
+                  (assoc-default 'stories
+                                 (json-read-from-string data)))
+   'list))
+
+(defun extract-names-from-stories (data)
+  (--map
+   (assoc-default 'name it)
+   (extract-stories data)))
+
+(defun get-started-stories (project initials)
+  (let (stories
+        (route (concat "projects/"
+                       (get-project-id project)
+                       "/search"))
+        (query (concat "owner:"
+                       initials
+                       " AND state:started")))
+    (call-pivotal-api
+     "GET"
+     route
+     (lambda (data)
+       (setq stories (extract-names-from-stories data)))
+     `(("query" . ,query)))
+    stories))
+
 (defun standup-pivotal-import-tasks ()
   (interactive)
   (save-excursion
     (progn
       (search-forward "###")
       (previous-line)
-      (insert (shell-command-to-string
-               (concat
-                "/bin/bash --login $HOME/bin/pi | "
-                "/usr/local/bin/jq -r '.stories.stories[].name' | "
-                "sed 's,^,- [sec] ,'")))
+      (--each (get-started-stories "Security" "cj")
+        (insert (concat "- [sec] " it)))
+      (newline)
       (set-mark-command nil)
       (search-backward "TODO")
       (delete-duplicate-lines (region-beginning) (region-end))
@@ -85,6 +156,11 @@
   (save-excursion
     (standup-pivotal-create-or-update-task "new-midweek")))
 
+(defun standup-pivotal-start-task ()
+  (interactive)
+  (save-excursion
+    (standup-pivotal-create-or-update-task "start")))
+
 (defun standup-pivotal-deliver-task ()
   (interactive)
   (save-excursion
@@ -98,6 +174,7 @@
 ;; Set up shortcuts that interact with Pivotal.
 (global-set-key (kbd "C-c s p i") 'standup-pivotal-import-tasks)
 (global-set-key (kbd "C-c s p n") 'standup-pivotal-new-midweek-task)
+(global-set-key (kbd "C-c s p s") 'standup-pivotal-start-task)
 (global-set-key (kbd "C-c s p d") 'standup-pivotal-deliver-task)
 
 (provide 'standup)

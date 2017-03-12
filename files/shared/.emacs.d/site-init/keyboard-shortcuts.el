@@ -19,3 +19,6 @@
 
 ;; Magit.
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; Use this when testing lisp code.
+(global-set-key (kbd "C-c C-b") 'eval-buffer)
