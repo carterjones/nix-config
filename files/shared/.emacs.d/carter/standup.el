@@ -71,19 +71,35 @@
        jdata)))))
 
 (defun call-pivotal-api (type route handler &optional params)
-  (let (result)
+  (let (pivotal-api-result)
     (request
      (concat "https://www.pivotaltracker.com/services/v5/" route)
      :type type
-     :headers `(("X-TrackerToken" . ,(get-pivotal-token)))
-     :params params
+     :headers (let ((headers `(("X-TrackerToken" . ,(get-pivotal-token)))))
+                (if (string= type "GET")
+                    headers
+                  (cons '("Content-Type" . "application/json") headers)))
+     :params (if (string= type "GET")
+                 params
+               nil)
+     :data (if (string= type "GET")
+               nil
+             (json-encode params))
      :parser 'buffer-string
      :sync t
      :success (function*
                (lambda (&key data &allow-other-keys)
                  (when data
-                   (setq result (funcall handler data))))))
-    result))
+                   (setq pivotal-api-result (funcall handler data)))))
+     :error (function*
+             (lambda (&key data &allow-other-keys)
+               (let ((jdata (coerce
+                             (json-read-from-string data)
+                             'list)))
+                 (message "%S: %S"
+                          (assoc-default 'error jdata)
+                          (assoc-default 'general_problem jdata))))))
+    pivotal-api-result))
 
 (defun get-project-id (project)
   (call-pivotal-api
@@ -99,26 +115,109 @@
                                  (json-read-from-string data)))
    'list))
 
-(defun extract-names-from-stories (data)
-  (--map
-   (assoc-default 'name it)
-   (extract-stories data)))
+(defun extract-names-from-stories (stories)
+  (--map (assoc-default 'name it)
+         stories))
 
-(defun get-started-stories (project initials)
+(defun extract-ids-from-stories (stories)
+  (--map (assoc-default 'id it)
+         stories))
+
+(defun search-for-stories (project search-query)
   (let (stories
         (route (concat "projects/"
                        (get-project-id project)
                        "/search"))
-        (query (concat "owner:"
-                       initials
-                       " AND state:started")))
+        (query search-query))
     (call-pivotal-api
      "GET"
      route
      (lambda (data)
-       (setq stories (extract-names-from-stories data)))
+       (setq stories (extract-stories data)))
      `(("query" . ,query)))
     stories))
+
+(defun get-started-stories (project initials)
+  (search-for-stories
+   project
+   (concat "owner:" initials " AND state:started")))
+
+(defun get-stories-by-name (project name)
+  (search-for-stories
+   project
+   (concat "name:" name)))
+
+(defun create-story (project name)
+  (let (story
+        (project-id (get-project-id project)))
+    (call-pivotal-api
+     "POST"
+     (concat "projects/" project-id "/stories")
+     (lambda (data)
+       (setq story (json-read-from-string data)))
+     `(("name" . ,name)))
+    story))
+
+(defun get-or-create-story-id (project name)
+  (let (story-id)
+    (setq story-id (-first-item
+                    (extract-ids-from-stories
+                     (get-stories-by-name
+                      project
+                      name))))
+    (if (not story-id)
+        (setq
+         story-id
+         (assoc-default 'id (create-story project name))))
+    (number-to-string story-id)))
+
+(defun add-data-to-test-buffer (data)
+  (with-current-buffer (get-buffer-create "*test123*")
+  (erase-buffer)
+  (insert (format "%s" data))
+  (pop-to-buffer (current-buffer))))
+
+(defun get-account-id ()
+  (let (profile-id)
+    (call-pivotal-api
+     "GET"
+     "me"
+     (lambda (data)
+       (setq profile-id (assoc-default 'id (json-read-from-string data)))))
+    profile-id))
+
+(defun update-pivotal-story (project name params)
+  (let ((story-id (get-or-create-story-id project name)))
+    (call-pivotal-api
+     "PUT"
+     (concat "stories/" story-id)
+     (lambda (data)
+       (message
+        (concat
+         "Pivotal story update successful for '"
+         (assoc-default 'name
+                        (json-read-from-string data))
+         "'")))
+     params)))
+
+(defun set-story-estimate-zero (project name)
+  (update-pivotal-story project name '(("estimate" . 0))))
+
+(defun set-story-state-started (project name)
+  (let ((account-ids (vector (get-account-id))))
+    (update-pivotal-story
+     project
+     name
+     `(("current_state" . "started")
+       ("owner_ids" . ,account-ids)))))
+
+(defun set-story-state-delivered (project name)
+  (let ((account-ids (vector (get-account-id))))
+    (update-pivotal-story
+     project
+     name
+     `(("current_state" . "delivered")
+       ("owner_ids" . ,account-ids)))))
 
 (defun standup-pivotal-import-tasks ()
   (interactive)
@@ -126,7 +225,8 @@
     (progn
       (search-forward "###")
       (previous-line)
-      (--each (get-started-stories "Security" "cj")
+      (--each (extract-names-from-stories
+               (get-started-stories "Security" "cj"))
         (insert (concat "- [sec] " it)))
       (newline)
       (set-mark-command nil)
@@ -142,19 +242,16 @@
       (search-forward "] ")
       (set-mark-command nil)
       (end-of-line)
-      (shell-command
-       (concat
-        "/bin/bash --login $HOME/bin/pu \""
-        (buffer-substring (region-beginning) (region-end))
-        "\" "
-        action
-        "> /dev/null"))
+      (let ((story-name (buffer-substring (region-beginning) (region-end))))
+        (cond ((string= action "midweek") (set-story-estimate-zero "Security" story-name))
+              ((string= action "start") (set-story-state-started "Security" story-name))
+              ((string= action "done") (set-story-state-delivered "Security" story-name))))
       (deactivate-mark))))
 
 (defun standup-pivotal-new-midweek-task ()
   (interactive)
   (save-excursion
-    (standup-pivotal-create-or-update-task "new-midweek")))
+    (standup-pivotal-create-or-update-task "midweek")))
 
 (defun standup-pivotal-start-task ()
   (interactive)
