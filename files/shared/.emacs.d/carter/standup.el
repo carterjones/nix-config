@@ -1,3 +1,4 @@
+(require 'cl)
 (require 'dash)
 (require 'request)
 
@@ -87,11 +88,11 @@
              (json-encode params))
      :parser 'buffer-string
      :sync t
-     :success (function*
+     :success (cl-function
                (lambda (&key data &allow-other-keys)
                  (when data
                    (setq pivotal-api-result (funcall handler data)))))
-     :error (function*
+     :error (cl-function
              (lambda (&key data &allow-other-keys)
                (let ((jdata (coerce
                              (json-read-from-string data)
