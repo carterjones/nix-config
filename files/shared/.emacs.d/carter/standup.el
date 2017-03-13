@@ -62,15 +62,6 @@
      (replace-regexp "'.*" "")
      (buffer-string))))
 
-(defun extract-project-id-from-data (project-name data)
-  (let ((jdata (coerce (json-read-from-string data) 'list)))
-    (number-to-string
-     (assoc-default
-      'id
-      (--first
-       (string-match project-name (assoc-default 'name it))
-       jdata)))))
-
 (defun call-pivotal-api (type route handler &optional params)
   (let (pivotal-api-result)
     (request
@@ -102,27 +93,26 @@
                           (assoc-default 'general_problem jdata))))))
     pivotal-api-result))
 
+(defun get-account-id ()
+  (let (profile-id)
+    (call-pivotal-api
+     "GET"
+     "me"
+     (lambda (data)
+       (setq profile-id (assoc-default 'id (json-read-from-string data)))))
+    profile-id))
+
 (defun get-project-id (project)
   (call-pivotal-api
    "GET"
    "projects"
    (lambda (data)
-     (extract-project-id-from-data project data))))
-
-(defun extract-stories (data)
-  (coerce
-   (assoc-default 'stories
-                  (assoc-default 'stories
-                                 (json-read-from-string data)))
-   'list))
-
-(defun extract-names-from-stories (stories)
-  (--map (assoc-default 'name it)
-         stories))
-
-(defun extract-ids-from-stories (stories)
-  (--map (assoc-default 'id it)
-         stories))
+     (number-to-string
+      (assoc-default
+       'id
+       (--first
+        (string-match project (assoc-default 'name it))
+        (coerce (json-read-from-string data) 'list)))))))
 
 (defun search-for-stories (project search-query)
   (let (stories
@@ -134,7 +124,10 @@
      "GET"
      route
      (lambda (data)
-       (setq stories (extract-stories data)))
+       (setq stories
+             (coerce
+              (assoc-default 'stories (assoc-default 'stories (json-read-from-string data)))
+              'list)))
      `(("query" . ,query)))
     stories))
 
@@ -162,14 +155,10 @@
 (defun get-or-create-story-id (project name)
   (let (story-id)
     (setq story-id (-first-item
-                    (extract-ids-from-stories
-                     (get-stories-by-name
-                      project
-                      name))))
+                    (--map (assoc-default 'id it)
+                           (get-stories-by-name project name))))
     (if (not story-id)
-        (setq
-         story-id
-         (assoc-default 'id (create-story project name))))
+        (setq story-id (assoc-default 'id (create-story project name))))
     (number-to-string story-id)))
 
 (defun add-data-to-test-buffer (data)
@@ -177,15 +166,6 @@
   (erase-buffer)
   (insert (format "%s" data))
   (pop-to-buffer (current-buffer))))
-
-(defun get-account-id ()
-  (let (profile-id)
-    (call-pivotal-api
-     "GET"
-     "me"
-     (lambda (data)
-       (setq profile-id (assoc-default 'id (json-read-from-string data)))))
-    profile-id))
 
 (defun update-pivotal-story (project name params)
   (let ((story-id (get-or-create-story-id project name)))
@@ -226,8 +206,8 @@
     (progn
       (search-forward "###")
       (previous-line)
-      (--each (extract-names-from-stories
-               (get-started-stories "Security" "cj"))
+      (--each (--map (assoc-default 'name it)
+                     (get-started-stories "Security" "cj"))
         (insert (concat "- [sec] " it)))
       (newline)
       (set-mark-command nil)
