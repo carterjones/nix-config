@@ -28,6 +28,9 @@
 
     ;; Go
     golint
+
+    ;; Request.el
+    request
     ))
 
 (require 'package)
