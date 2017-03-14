@@ -1,4 +1,5 @@
 (require 'dash)
+(require 'json)
 (require 'pivotal)
 
 (defun standup-todo-new-section ()
@@ -58,8 +59,8 @@
       (previous-line)
       (--each (--map (assoc-default 'name it)
                      (get-started-stories "Security" "cj"))
-        (insert (concat "- [sec] " it)))
-      (newline)
+        (insert (concat "- [sec] " it))
+        (newline))
       (set-mark-command nil)
       (search-backward "TODO")
       (delete-duplicate-lines (region-beginning) (region-end))
