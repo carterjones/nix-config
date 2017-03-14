@@ -1,11 +1,26 @@
 #!/bin/bash
 set -eux -o pipefail
 
+target_version="go1.8"
+
+# Test to see if go is installed in the PATH.
+if which go &>/dev/null; then
+    # See which version is installed.
+    installed_version=$(go version | cut -d" " -f3)
+
+    if [[ "$target_version" == "$installed_version" ]]; then
+        # Exit if the target version matches the installed version.
+        echo "Version $target_version of go is already installed."
+        exit
+    fi
+fi
+
 if [[ $(uname) == Linux ]]; then
-    archive_name="go1.8.linux-amd64.tar.gz"
+    archive_name="${target_version}.linux-amd64.tar.gz"
 elif [[ $(uname) == Darwin ]]; then
-    archive_name="go1.8.darwin-amd64.pkg"
+    archive_name="${target_version}.darwin-amd64.pkg"
 elif [[ $(uname) == MINGW* ]]; then
+    echo "Windows installations are not supported by this installer."
     exit
 fi
 
