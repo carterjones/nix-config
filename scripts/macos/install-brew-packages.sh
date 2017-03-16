@@ -14,6 +14,7 @@ brew install \
     govendor \
     jq \
     packer \
+    tmux \
     tree \
     vagrant-completion \
     wget
