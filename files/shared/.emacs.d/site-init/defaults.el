@@ -10,8 +10,9 @@
 ;; Show the current column.
 (setq-default column-number-mode t)
 
-;; Hide menu bar.
+;; Hide menu bar and toolbar.
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; Set the default browser to Chrome.
 (if (eq system-type 'darwin)
@@ -21,3 +22,6 @@
 
 ;; Load changes from disk into buffer if changes are made outside of Emacs.
 (global-auto-revert-mode t)
+
+;; Disable warnings for various settings.
+(put 'narrow-to-region 'disabled nil)
