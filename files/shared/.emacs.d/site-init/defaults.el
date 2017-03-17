@@ -14,6 +14,9 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
+;; Cursor settings.
+(setq-default cursor-type 'bar)
+
 ;; Set the default browser to Chrome.
 (if (eq system-type 'darwin)
     (setq browse-url-generic-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
