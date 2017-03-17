@@ -1,3 +1,5 @@
+;; Figure out what key combos look like with "C-h k".
+
 ;; Keyboard shortcuts.
 (global-set-key (kbd "M-e") 'project-explorer-toggle)
 
@@ -10,8 +12,8 @@
 ;; Move-text.
 (global-set-key (kbd "ESC <up>") 'move-text-up)
 (global-set-key (kbd "ESC <down>") 'move-text-down)
-(global-set-key (kbd "M-P") 'move-text-up)
-(global-set-key (kbd "M-N") 'move-text-down)
+(global-set-key (kbd "M-S-<up>") 'move-text-up)
+(global-set-key (kbd "M-S-<down>") 'move-text-down)
 
 ;; Scrolling.
 (global-set-key (kbd "M-<down>") (quote scroll-up-line))
