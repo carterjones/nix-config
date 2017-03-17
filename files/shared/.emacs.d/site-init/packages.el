@@ -31,6 +31,9 @@
 
     ;; Request.el
     request
+
+    ;; ido-ubiquitous
+    ido-ubiquitous
     ))
 
 (require 'package)
