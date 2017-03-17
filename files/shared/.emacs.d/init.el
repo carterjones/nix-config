@@ -33,6 +33,9 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(inhibit-startup-screen t)
+ '(markdown-toc-header-toc-start "<!-- toc start -->")
+ '(markdown-toc-header-toc-title "**Table of Contents**")
+ '(markdown-toc-header-toc-end "<!-- toc end -->")
  '(org-indent-mode-turns-on-hiding-stars t)
  '(package-selected-packages
    (quote
