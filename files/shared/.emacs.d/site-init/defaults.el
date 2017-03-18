@@ -11,9 +11,11 @@
 (setq-default column-number-mode t)
 
 ;; Hide menu bar, toolbar, and scroll bar.
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 (menu-bar-mode -1)
-(tool-bar-mode -1)
-(toggle-scroll-bar -1)
 
 ;; Cursor settings.
 (bar-cursor-mode 1)
