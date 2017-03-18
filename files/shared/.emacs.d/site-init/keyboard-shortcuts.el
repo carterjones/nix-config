@@ -16,11 +16,16 @@
 (global-set-key (kbd "M-S-<down>") 'move-text-down)
 
 ;; Scrolling.
-(global-set-key (kbd "M-<down>") (quote scroll-up-line))
-(global-set-key (kbd "M-<up>") (quote scroll-down-line))
+(global-set-key (kbd "M-<down>") 'scroll-up-line)
+(global-set-key (kbd "M-<up>") 'scroll-down-line)
 
 ;; Magit.
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Use this when testing lisp code.
 (global-set-key (kbd "C-c C-b") 'eval-buffer)
+
+;; Multiple Cursors.
+(global-set-key (kbd "C-S-l") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)

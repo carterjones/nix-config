@@ -15,7 +15,7 @@
 (tool-bar-mode -1)
 
 ;; Cursor settings.
-(setq-default cursor-type 'bar)
+(bar-cursor-mode 1)
 
 ;; Set the default browser to Chrome.
 (if (eq system-type 'darwin)

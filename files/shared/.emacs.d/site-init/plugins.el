@@ -74,3 +74,9 @@
 
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
+
+;; Bar cursor works better with multiple cursors than the stock bar cursor face.
+(require 'bar-cursor)
+
+;; Multiple cursors
+(require 'multiple-cursors)

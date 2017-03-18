@@ -34,6 +34,9 @@
 
     ;; ido-ubiquitous
     ido-ubiquitous
+
+    ;; multiple cursors
+    multiple-cursors
     ))
 
 (require 'package)
