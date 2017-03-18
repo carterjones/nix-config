@@ -10,9 +10,10 @@
 ;; Show the current column.
 (setq-default column-number-mode t)
 
-;; Hide menu bar and toolbar.
+;; Hide menu bar, toolbar, and scroll bar.
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(toggle-scroll-bar -1)
 
 ;; Cursor settings.
 (bar-cursor-mode 1)
