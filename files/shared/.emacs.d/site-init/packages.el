@@ -32,6 +32,9 @@
     ;; Request.el
     request
 
+    ;; Bar cursor
+    bar-cursor
+
     ;; Projectile
     projectile
 
