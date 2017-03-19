@@ -37,6 +37,7 @@
  '(markdown-toc-header-toc-start "<!-- toc start -->")
  '(markdown-toc-header-toc-title "**Table of Contents**")
  '(org-indent-mode-turns-on-hiding-stars t)
+ '(org-support-shift-select t)
  '(package-selected-packages
    (quote
     (ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))

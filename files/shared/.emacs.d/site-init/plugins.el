@@ -64,6 +64,7 @@
 (require 'helm)
 (require 'helm-config)
 
+(helm-mode 1)
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
@@ -73,3 +74,7 @@
 
 ;; Multiple cursors
 (require 'multiple-cursors)
+
+;; Enable winner mode.
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
