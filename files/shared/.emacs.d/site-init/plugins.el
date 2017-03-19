@@ -57,23 +57,17 @@
 ;; make buffers behave
 (load-library "quiet-buffers")
 
-;; load perspectives
-(require 'persp-mode)
-(with-eval-after-load "persp-mode-autoloads"
-  (setq wg-morph-on nil) ;; switch off animation
-  (setq persp-autokill-buffer-on-remove 'kill-weak)
-  (add-hook 'after-init-hook #'(lambda () (persp-mode 1))))
-
 ;; load markdown-toc
 (require 'markdown-toc)
 
-;; I do mode.
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+;; Helm
+(require 'helm)
+(require 'helm-config)
 
-(require 'ido-ubiquitous)
-(ido-ubiquitous-mode 1)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(setq projectile-indexing-method 'alien)
+(helm-projectile-on)
 
 ;; Bar cursor works better with multiple cursors than the stock bar cursor face.
 (require 'bar-cursor)

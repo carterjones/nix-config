@@ -32,8 +32,9 @@
     ;; Request.el
     request
 
-    ;; ido-ubiquitous
-    ido-ubiquitous
+    ;; Projectile
+    helm-projectile
+    projectile
 
     ;; multiple cursors
     multiple-cursors

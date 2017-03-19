@@ -29,3 +29,8 @@
 (global-set-key (kbd "C-S-l") 'mc/edit-beginnings-of-lines)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(helm-mode 1)
