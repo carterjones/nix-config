@@ -39,7 +39,7 @@
  '(org-indent-mode-turns-on-hiding-stars t)
  '(package-selected-packages
    (quote
-    (helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
+    (ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
  '(persp-set-ido-hooks t))
 
 (custom-set-faces

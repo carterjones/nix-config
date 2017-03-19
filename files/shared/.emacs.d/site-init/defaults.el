@@ -35,3 +35,6 @@
 ;; Disable dired mode on Mac OS.
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
+
+;; Set search path.
+(setq exec-path (append exec-path '("/usr/local/bin")))

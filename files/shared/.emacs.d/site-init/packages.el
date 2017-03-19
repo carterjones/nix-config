@@ -1,5 +1,6 @@
 (defvar my-packages
-  '(bar-cursor
+  '(ag
+    bar-cursor
     buffer-move
     fiplr
     git
@@ -7,6 +8,7 @@
     go-eldoc
     go-mode
     golint
+    helm-ag
     helm-git-grep
     helm-projectile
     json-mode
