@@ -1,49 +1,24 @@
 (defvar my-packages
-  '(;; Go
-    go-mode
-    go-eldoc
-    go-autocomplete
-
-    ;; Markdown
-    markdown-mode
-
-    ;; Javascript
-    json-mode
-
-    ;; Env
-    project-explorer
-    smooth-scroll
+  '(bar-cursor
     buffer-move
-    window-number
-
-    ;; Git
-    git
-    magit
-
-    ;; persp-mode
-    persp-mode
-
-    ;; Fuzzy find
     fiplr
-
-    ;; Go
+    git
+    go-autocomplete
+    go-eldoc
+    go-mode
     golint
-
-    ;; Request.el
-    request
-
-    ;; Bar cursor
-    bar-cursor
-
-    ;; Projectile
-    projectile
-
-    ;; Helm
-    helm-projectile
     helm-git-grep
-
-    ;; multiple cursors
+    helm-projectile
+    json-mode
+    magit
+    markdown-mode
     multiple-cursors
+    persp-mode
+    project-explorer
+    projectile
+    request
+    smooth-scroll
+    window-number
     ))
 
 (require 'package)
