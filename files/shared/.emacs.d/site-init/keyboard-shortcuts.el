@@ -51,3 +51,7 @@
 (global-unset-key (kbd "C-j"))
 (global-set-key (kbd "C-j <left>") 'winner-undo)
 (global-set-key (kbd "C-j <right>") 'winner-redo)
+
+;; Home/End keys.
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
