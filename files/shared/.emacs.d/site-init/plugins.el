@@ -65,14 +65,6 @@
 (require 'helm-config)
 
 (projectile-global-mode)
-
-;; Set indexing method based on OS.
-(if (or
-     (string= system-type "cygwin")
-     (string= system-type "windows-nt"))
-    (setq projectile-indexing-method 'alien)
-  (setq projectile-indexing-method 'native))
-
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
