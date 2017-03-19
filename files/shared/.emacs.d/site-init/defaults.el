@@ -31,3 +31,7 @@
 
 ;; Disable warnings for various settings.
 (put 'narrow-to-region 'disabled nil)
+
+;; Disable dired mode on Mac OS.
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
