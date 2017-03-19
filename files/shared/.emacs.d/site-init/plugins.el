@@ -78,3 +78,6 @@
 ;; Enable winner mode.
 (when (fboundp 'winner-mode)
   (winner-mode 1))
+
+;; Enable Do Re Mi.
+(require 'doremi)

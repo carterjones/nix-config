@@ -2,6 +2,8 @@
   '(ag
     bar-cursor
     buffer-move
+    doremi
+    doremi-cmd
     fiplr
     git
     go-autocomplete
