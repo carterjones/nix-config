@@ -33,8 +33,11 @@
     request
 
     ;; Projectile
-    helm-projectile
     projectile
+
+    ;; Helm
+    helm-projectile
+    helm-git-grep
 
     ;; multiple cursors
     multiple-cursors
