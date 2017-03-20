@@ -55,3 +55,7 @@
 ;; Home/End keys.
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "<end>") 'end-of-line)
+
+;; Increase/decrease font size.
+(global-set-key (kbd "s-+") 'text-scale-increase)
+(global-set-key (kbd "s-_") 'text-scale-decrease)
