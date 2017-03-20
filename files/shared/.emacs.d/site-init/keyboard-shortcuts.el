@@ -58,5 +58,5 @@
 (global-set-key (kbd "<select>") 'end-of-line) ;; end key interpreted in a terminal session
 
 ;; Increase/decrease font size.
-(global-set-key (kbd "s-+") 'text-scale-increase)
-(global-set-key (kbd "s-_") 'text-scale-decrease)
+(global-set-key (kbd "s-=") 'text-scale-increase)
+(global-set-key (kbd "s--") 'text-scale-decrease)
