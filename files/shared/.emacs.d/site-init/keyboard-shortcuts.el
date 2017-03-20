@@ -55,6 +55,7 @@
 ;; Home/End keys.
 (global-set-key (kbd "<home>") 'beginning-of-line)
 (global-set-key (kbd "<end>") 'end-of-line)
+(global-set-key (kbd "<select>") 'end-of-line) ;; end key interpreted in a terminal session
 
 ;; Increase/decrease font size.
 (global-set-key (kbd "s-+") 'text-scale-increase)
