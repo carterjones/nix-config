@@ -81,3 +81,4 @@
 
 ;; Enable Do Re Mi.
 (require 'doremi)
+(defalias 'resize-window 'doremi-window-height+)
