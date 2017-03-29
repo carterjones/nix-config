@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ $(uname) == Linux ]]; then
     ifconfig | grep inet[^6] | cut -d : -f 2 | sed "s/ .*//"
