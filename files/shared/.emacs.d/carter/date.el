@@ -10,5 +10,13 @@
         (system-time-locale "en_US"))
     (insert (format-time-string format))))
 
+;; Time shortcut.
+(defun insert-time ()
+  (interactive)
+  (insert (format-time-string "[%H:%M]")))
+
 ;; Set up a shortcut.
 (global-set-key (kbd "C-c d") 'insert-date)
+(global-set-key (kbd "C-c t") 'insert-time)
+
+(provide 'date)

@@ -82,3 +82,6 @@
 ;; Enable Do Re Mi.
 (require 'doremi)
 (defalias 'resize-window 'doremi-window-height+)
+
+;; Enable date shortcuts.
+(require 'date)
