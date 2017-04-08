@@ -10,5 +10,6 @@
 ;; Based on http://stackoverflow.com/a/1775652
 (add-hook 'org-mode-hook (lambda () (org-indent-mode t)) t)
 
-;; Treate HCL files as JSON.
+;; Treate HCL and TF files as JSON.
 (add-to-list 'auto-mode-alist '("\\.hcl\\'" . json-mode))
+(add-to-list 'auto-mode-alist '("\\.tf\\'" . json-mode))
