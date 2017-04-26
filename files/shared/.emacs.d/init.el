@@ -6,10 +6,6 @@
 (add-to-list 'load-path (concat (getenv "GOPATH")
                                 "/src/github.com/golang/lint/misc/emacs"))
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
-
 ;; Set up theme.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'monokai t)
@@ -29,6 +25,10 @@
 
 ;; Add keyboard shortcuts.
 (load-library "keyboard-shortcuts")
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
