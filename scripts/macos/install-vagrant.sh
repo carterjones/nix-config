@@ -27,7 +27,7 @@ fi
 set -u
 
 readonly TMP_DIR=/tmp/vagrant-install
-readonly IMAGE="vagrant_${LATEST_VERSION}"
+readonly IMAGE="vagrant_${LATEST_VERSION}_x86_64"
 readonly FILENAME="${IMAGE}.dmg"
 readonly DL_URL="https://releases.hashicorp.com/vagrant/${LATEST_VERSION}/${FILENAME}"
 
