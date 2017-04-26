@@ -6,6 +6,10 @@
 (add-to-list 'load-path (concat (getenv "GOPATH")
                                 "/src/github.com/golang/lint/misc/emacs"))
 
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
+
 ;; Set up theme.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'monokai t)
@@ -40,7 +44,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (doremi-cmd doremi ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
+    (exec-path-from-shell doremi-cmd doremi ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
  '(persp-set-ido-hooks t))
 
 (custom-set-faces
