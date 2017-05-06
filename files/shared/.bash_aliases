@@ -23,6 +23,9 @@ alias la='ls -AG'
 alias lh='ls -alFhG'
 alias l='ls -CFG'
 
+# nmap aliases
+alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
+
 # tmux aliases
 alias t='tmux a'
 alias tk='tmux kill-server'
@@ -31,7 +34,4 @@ alias tk='tmux kill-server'
 if [[ $(uname) == Linux ]]; then
     # overwrite the emacs alias
     alias e='emacs-snapshot -nw'
-
-    # nmap aliases
-    alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
 fi
