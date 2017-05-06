@@ -12,10 +12,10 @@ export GOPATH=$HOME
 # Set the default editor.
 export EDITOR="emacs -nw"
 
+# Set up an nmap log directory path.
+export NMAP_LOGS=$HOME/.nmap/logs
+
 if [[ $(uname) == Linux ]]; then
     # Overwrite EDITOR for Linux.
     export EDITOR="emacs-snapshot -nw"
-
-    # Set up an nmap log directory path.
-    export NMAP_LOGS=$HOME/.nmap/logs
 fi
