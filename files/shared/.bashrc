@@ -38,3 +38,7 @@ source $HOME/.bash_prompt
 if [ -f ~/.private ]; then
    source ~/.private
 fi
+
+if [[ $(uname) == Linux* ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi

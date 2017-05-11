@@ -28,6 +28,7 @@ if [[ $(uname) == Linux ]]; then
     bash ${linux_scripts}/install-debs-base.sh
     bash ${linux_scripts}/install-bgrep.sh
     bash ${linux_scripts}/install-nmap.sh
+    bash ${linux_scripts}/install-python.sh
     bash ${linux_scripts}/configure-git.sh
 elif [[ $(uname) == Darwin ]]; then
     # Load .bash_profile.
