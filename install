@@ -37,6 +37,7 @@ elif [[ $(uname) == Darwin ]]; then
     set -u
 
     # Install software.
+    bash ${macos_scripts}/install-xcode-select.sh
     bash ${macos_scripts}/update-brew.sh
     bash ${macos_scripts}/install-brew-packages.sh
     bash ${macos_scripts}/install-vagrant.sh
