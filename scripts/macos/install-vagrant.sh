@@ -22,7 +22,7 @@ set -e
 # Set up variables.
 set +u
 if [[ -z "$LATEST_VERSION" ]]; then
-    LATEST_VERSION=$(curl -s "https://www.vagrantup.com/downloads.html" | grep dmg | sed "s/.*vagrant_//;s/.dmg.*//")
+    LATEST_VERSION=$(curl -s "https://www.vagrantup.com/downloads.html" | grep dmg | sed "s/.*vagrant_//;s/_x86_64.dmg.*//")
 fi
 set -u
 
