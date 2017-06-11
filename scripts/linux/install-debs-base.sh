@@ -25,6 +25,7 @@ PACKAGES="${PACKAGES}
     git-el
     meld
     python-pip
+    python3-pip
     tmux
     whois"
 
