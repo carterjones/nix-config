@@ -1,5 +1,7 @@
 #!/bin/bash
 
-# Set up virtualenvwrapper.
-export WORKON_HOME=$HOME/.virtualenvs
-source virtualenvwrapper.sh
+if [[ $(uname) == Linux* ]]; then
+    # Set up virtualenvwrapper.
+    export WORKON_HOME=$HOME/.virtualenvs
+    source virtualenvwrapper.sh
+fi

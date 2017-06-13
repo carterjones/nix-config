@@ -12,6 +12,8 @@ brew install \
     git \
     jq \
     packer \
+    pyenv \
+    pyenv-virtualenvwrapper \
     tmux \
     tree \
     vagrant-completion \

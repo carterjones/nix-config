@@ -41,4 +41,7 @@ fi
 
 if [[ $(uname) == Linux* ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
+elif [[ $(uname) == Darwin* ]]; then
+    eval "$(pyenv init -)"
+    pyenv virtualenvwrapper
 fi
