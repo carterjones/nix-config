@@ -43,6 +43,7 @@ elif [[ $(uname) == Darwin ]]; then
     bash ${macos_scripts}/install-vagrant.sh
     bash ${macos_scripts}/copy-misc-configs.sh
     bash ${macos_scripts}/install-emacs-app.sh
+    bash ${macos_scripts}/install-python.sh
 
     # Fix the tmux config file.
     sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
