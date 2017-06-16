@@ -7,7 +7,17 @@ if [[ $EUID -eq 0 ]]; then
     exit 1
 fi
 
+# Install pyenv.
 curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+# Install/update the virtualenvwrapper plugin.
+if [[ -d $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]]; then
+    pushd $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
+    git pull
+    popd
+else
+    git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
+fi
 
 latest_3_version=$(pyenv install --list | \
                        grep " 3." | \

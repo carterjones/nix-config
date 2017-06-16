@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# Set up virtualenvwrapper.
-if [[ $(uname) == Linux* ]]; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-elif [[ $(uname) == Darwin* ]]; then
-    eval "$(pyenv init -)"
-    pyenv virtualenvwrapper
-fi
+# Set up pyenv, virtualenv, and virtualenvwrapper.
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+pyenv virtualenvwrapper
