@@ -2,8 +2,8 @@
 
 # Set up virtualenvwrapper.
 if [[ $(uname) == Linux* ]]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source virtualenvwrapper.sh
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 elif [[ $(uname) == Darwin* ]]; then
     eval "$(pyenv init -)"
     pyenv virtualenvwrapper

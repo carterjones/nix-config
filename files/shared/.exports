@@ -5,6 +5,7 @@ export CODE=$HOME/src
 
 # Set up the path.
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.pyenv/bin:$PATH
 
 # Set up the go path.
 export GOPATH=$HOME
