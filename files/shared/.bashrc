@@ -39,8 +39,4 @@ if [ -f ~/.private ]; then
    source ~/.private
 fi
 
-if [[ $(uname) == Linux* ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
 source $HOME/.venv_setup
