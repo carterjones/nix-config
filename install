@@ -28,7 +28,6 @@ if [[ $(uname) == Linux ]]; then
     bash ${linux_scripts}/install-debs-base.sh
     bash ${linux_scripts}/install-bgrep.sh
     bash ${linux_scripts}/install-nmap.sh
-    bash ${linux_scripts}/install-python.sh
     bash ${linux_scripts}/configure-git.sh
 elif [[ $(uname) == Darwin ]]; then
     # Load .bash_profile.
@@ -43,7 +42,6 @@ elif [[ $(uname) == Darwin ]]; then
     bash ${macos_scripts}/install-vagrant.sh
     bash ${macos_scripts}/copy-misc-configs.sh
     bash ${macos_scripts}/install-emacs-app.sh
-    bash ${macos_scripts}/install-python.sh
 
     # Fix the tmux config file.
     sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
@@ -55,6 +53,7 @@ bash ${shared_scripts}/configure-ssh.sh
 bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
+bash ${shared_scripts}/configure-python.sh
 
 # Unset exported variables.
 unset shared_files
