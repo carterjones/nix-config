@@ -27,7 +27,8 @@ PACKAGES="${PACKAGES}
     python-pip
     python3-pip
     tmux
-    whois"
+    whois
+    zlib1g-dev"
 
 # Install the packages.
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" install ${PACKAGES}
