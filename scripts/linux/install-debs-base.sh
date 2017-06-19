@@ -24,10 +24,15 @@ PACKAGES="${PACKAGES}
     git
     git-el
     meld
+    tmux
+    whois"
+
+# Python.
+PACKAGES="${PACKAGES}
+    bzip2
+    libreadline-dev
     python-pip
     python3-pip
-    tmux
-    whois
     zlib1g-dev"
 
 # Install the packages.
