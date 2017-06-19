@@ -29,7 +29,7 @@ PACKAGES="${PACKAGES}
 
 # Python.
 PACKAGES="${PACKAGES}
-    bzip2
+    bzip2-devel
     libreadline-dev
     python-pip
     python3-pip
