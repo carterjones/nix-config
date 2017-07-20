@@ -3,6 +3,7 @@
 set -eux -o pipefail
 
 # Set up Bash related files.
+cp ${shared_files}/.aliases $HOME/
 cp ${shared_files}/.bash_aliases $HOME/
 cp ${shared_files}/.bash_completion $HOME/
 cp ${shared_files}/.bash_prompt $HOME/
@@ -12,6 +13,7 @@ cp ${shared_files}/.gitconfig $HOME/
 cp ${shared_files}/.git-completion $HOME/
 cp ${shared_files}/.tmux.conf $HOME/
 cp ${shared_files}/.venv_setup $HOME/
+cp ${shared_files}/.zshrc $HOME/
 
 if [[ $(uname) == Linux ]]; then
     cp ${linux_files}/.nanorc $HOME/
