@@ -21,5 +21,6 @@ antigen theme eendroroy/alien alien
 # Tell Antigen that you're done.
 antigen apply
 
-# Load aliases.
-source ~/.aliases
+# Load external files.
+source $HOME/.aliases
+source $HOME/.exports
