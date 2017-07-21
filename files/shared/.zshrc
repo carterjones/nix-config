@@ -43,13 +43,17 @@ POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='000'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='039'
 
 # Set right prompt colors.
+POWERLEVEL9K_PYENV_FOREGROUND='243'
+POWERLEVEL9K_PYENV_BACKGROUND='000'
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='243'
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='000'
 POWERLEVEL9K_TIME_FOREGROUND='243'
 POWERLEVEL9K_TIME_BACKGROUND='000'
 
 # Set up prompts.
 POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs pyenv virtualenv time)
 
 # Miscellaneous zsh settings.
 DISABLE_AUTO_TITLE="true"
@@ -60,3 +64,11 @@ antigen apply
 # Load external files.
 source $HOME/.aliases
 source $HOME/.exports
+
+# Source any private settings not tracked in this repo.
+if [ -f ~/.private ]; then
+   source ~/.private
+fi
+
+# Set up virtualenv.
+source $HOME/.venv_setup
