@@ -10,12 +10,14 @@
 ;; Show the current column.
 (setq-default column-number-mode t)
 
-;; Hide menu bar, toolbar, and scroll bar.
+;; Hide menu bar and toolbar.
 (if (display-graphic-p)
     (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
+      (tool-bar-mode -1)))
 (menu-bar-mode -1)
+
+;; Uncomment this line to disable scrollbars.
+;(scroll-bar-mode -1)))
 
 ;; Cursor settings.
 (bar-cursor-mode 1)
