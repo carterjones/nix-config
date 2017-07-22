@@ -30,3 +30,6 @@ elif [[ $(uname) == Darwin ]]; then
         echo "done."
     fi
 fi
+
+# Shared software.
+pyenv update

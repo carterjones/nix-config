@@ -19,6 +19,10 @@ else
     git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git $HOME/.pyenv/plugins/pyenv-virtualenvwrapper
 fi
 
+# Update the pyenv cache.
+pyenv update
+
+# Install the latest version.
 latest_3_version=$(pyenv install --list | \
                        grep " 3." | \
                        grep -v dev | \
