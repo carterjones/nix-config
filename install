@@ -17,6 +17,8 @@ export macos_scripts='./scripts/macos'
 # Make globally applicable customizations.
 bash ${shared_scripts}/create-user-dirs.sh
 bash ${shared_scripts}/create-dot-files.sh
+bash ${shared_scripts}/configure-zsh.sh
+bash ${shared_scripts}/use-bash.sh
 
 # Load newly installed bashrc file.
 source $HOME/.bashrc
@@ -54,7 +56,7 @@ bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
 bash ${shared_scripts}/configure-python.sh
-bash ${shared_scripts}/configure-shell.sh
+bash ${shared_scripts}/use-zsh.sh
 
 # Unset exported variables.
 unset shared_files
