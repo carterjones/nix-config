@@ -8,7 +8,6 @@ brew tap homebrew/completions
 # Install various brew packages.
 brew install \
      ag \
-     antigen \
      emacs \
      git \
      jq \

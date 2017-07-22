@@ -43,9 +43,6 @@ elif [[ $(uname) == Darwin ]]; then
     bash ${macos_scripts}/copy-misc-configs.sh
     bash ${macos_scripts}/install-emacs-app.sh
 
-    # Miscellaneous configurations.
-    bash ${macos_scripts}/configure-shell.sh
-
     # Fix the tmux config file.
     sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
 fi
@@ -57,6 +54,7 @@ bash ${shared_scripts}/configure-tmux-plugins.sh
 bash ${shared_scripts}/configure-emacs.sh
 bash ${shared_scripts}/configure-go.sh
 bash ${shared_scripts}/configure-python.sh
+bash ${shared_scripts}/configure-shell.sh
 
 # Unset exported variables.
 unset shared_files
