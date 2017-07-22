@@ -25,7 +25,8 @@ PACKAGES="${PACKAGES}
     git-el
     meld
     tmux
-    whois"
+    whois
+    zsh"
 
 # Python.
 PACKAGES="${PACKAGES}
