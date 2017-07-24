@@ -1,0 +1,2 @@
+# Enable pbcopy/pbpaste.
+set-option -g default-command "reattach-to-user-namespace -l $SHELL"
