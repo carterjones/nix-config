@@ -11,6 +11,7 @@ brew install \
      emacs \
      git \
      jq \
+     reattach-to-user-namespace \
      packer \
      pyenv \
      pyenv-virtualenvwrapper \
