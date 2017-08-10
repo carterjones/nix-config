@@ -19,5 +19,6 @@ if [[ $(uname) == Linux ]]; then
     cp ${linux_files}/.nanorc $HOME/
 elif [[ $(uname) == Darwin ]]; then
     cp ${macos_files}/.bash_profile $HOME/
+    cp ${macos_files}/.tmux.conf.macos $HOME/
     cp ${macos_files}/.nanorc $HOME/
 fi
