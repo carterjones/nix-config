@@ -58,6 +58,13 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs pyenv 
 # Miscellaneous zsh settings.
 DISABLE_AUTO_TITLE="true"
 
+# PoC screenshot settings. This makes the left prompt extremely simple for the
+# purpose of screenshotting the terminal. Uncomment these to use the
+# settings. They will overwrite settings above.
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="\n$"
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+
 # Tell Antigen that you're done.
 antigen apply
 
