@@ -20,7 +20,11 @@ else
 fi
 
 # Update the pyenv cache.
+# Note: this sometimes results in a nonzero error code, even though it is not a
+# total failure. We accept this and move on.
+set +e
 pyenv update
+set -e
 
 # Install the latest version.
 latest_3_version=$(pyenv install --list | \
