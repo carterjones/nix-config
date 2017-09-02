@@ -1,5 +1,12 @@
 source $HOME/src/github.com/zsh-users/antigen/antigen.zsh
 
+# Note: you can use the "cat" command to determine what various keystrokes get
+# converted to magical computer codes.
+
+# This binds Alt-left/right to move the cursor backward/forward one word.
+bindkey "^[[1;3D" backward-word
+bindkey "^[[1;3C" forward-word
+
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
