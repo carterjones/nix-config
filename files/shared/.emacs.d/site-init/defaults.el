@@ -22,6 +22,9 @@
 ;; Cursor settings.
 (bar-cursor-mode 1)
 
+;; Make selection get replaced on insert.
+(delete-selection-mode 1)
+
 ;; Set the default browser to Chrome.
 (if (eq system-type 'darwin)
     (setq browse-url-generic-program "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
