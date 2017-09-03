@@ -4,6 +4,10 @@ source $HOME/src/github.com/zsh-users/antigen/antigen.zsh
 # converted to magical computer codes.
 
 # This binds Alt-left/right to move the cursor backward/forward one word.
+# To find out what these magical commands are, run one of the following (they
+# each work on different systems):
+#   cat
+#   sed -n l
 bindkey "^[[1;3D" backward-word
 bindkey "^[[1;3C" forward-word
 
