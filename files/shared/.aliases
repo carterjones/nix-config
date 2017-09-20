@@ -34,4 +34,8 @@ alias tk='tmux kill-server'
 if [[ $(uname) == Linux ]]; then
     # overwrite the emacs alias
     alias e='emacs-snapshot -nw'
+
+    # Mimic the mac pbcopy/pbpaste functionality.
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
 fi
