@@ -36,7 +36,9 @@ fi
 source $HOME/.exports
 
 # Stop processing if this is a non-interactive prompt.
-[[ $- == *i* ]] || return
+set +u
+[[ -z "$PS1" ]] && return
+set -u
 
 # Source external files.
 source $HOME/.bash_aliases
