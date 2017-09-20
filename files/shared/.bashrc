@@ -1,10 +1,12 @@
-if [[ -f $HOME/.use_zsh ]]; then
-    # This is a horrible, but... elegant(?) hack to make zsh the default shell
-    # in the event that a user does not exist in /etc/password (such as in LDAP
-    # authenticated environments).
-    export SHELL=/bin/zsh
-    exec /bin/zsh -l
-    exit
+if [[ $- == *i* ]]; then
+    if [[ -f $HOME/.use_zsh ]]; then
+        # This is a horrible, but... elegant(?) hack to make zsh the default
+        # shell in the event that a user does not exist in /etc/password (such
+        # as in LDAP authenticated environments).
+        export SHELL=/bin/zsh
+        exec /bin/zsh -l
+        exit
+    fi
 fi
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -34,9 +36,7 @@ fi
 source $HOME/.exports
 
 # Stop processing if this is a non-interactive prompt.
-set +u
-[[ -z "$PS1" ]] && return
-set -u
+[[ $- == *i* ]] || return
 
 # Source external files.
 source $HOME/.bash_aliases
