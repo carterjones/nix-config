@@ -26,10 +26,10 @@ set +e
 pyenv update
 set -e
 
-# Install the latest version.
+# Install the latest non-labeled version.
 latest_3_version=$(pyenv install --list | \
                        grep " 3." | \
-                       grep -v dev | \
+                       grep -v [a-zA-Z] \
                        tail -1 | \
                        sed "s/.*3/3/")
 pyenv install -s $latest_3_version
