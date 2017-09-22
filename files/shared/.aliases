@@ -35,7 +35,6 @@ if [[ $(uname) == Linux ]]; then
     # overwrite the emacs alias
     alias e='emacs-snapshot -nw'
 
-    # Mimic the mac pbcopy/pbpaste functionality.
-    alias pbcopy='xclip -selection clipboard'
+    # Mimic the mac pbpaste functionality.
     alias pbpaste='xclip -selection clipboard -o'
 fi
