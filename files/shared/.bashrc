@@ -1,5 +1,6 @@
 if [[ $(uname) == Linux ]]; then
-    setxkbmap -option ctrl:swapcaps
+    setxkbmap -option altwin:ctrl_win \
+              -option caps:ctrl_modifier
 fi
 
 if [[ $- == *i* ]]; then
