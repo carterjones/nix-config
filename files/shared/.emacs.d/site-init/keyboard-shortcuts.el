@@ -29,6 +29,7 @@
 (global-set-key (kbd "C-S-l") 'mc/edit-beginnings-of-lines)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
+(define-key mc/keymap (kbd "<return>") nil)
 
 ;; Helm shortcuts.
 (global-set-key (kbd "M-x") 'helm-M-x)
