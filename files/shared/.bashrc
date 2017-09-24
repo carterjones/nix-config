@@ -1,3 +1,7 @@
+if [[ $(uname) == Linux ]]; then
+    setxkbmap -option ctrl:swapcaps
+fi
+
 if [[ $- == *i* ]]; then
     if [[ -f $HOME/.use_zsh ]]; then
         # This is a horrible, but... elegant(?) hack to make zsh the default
