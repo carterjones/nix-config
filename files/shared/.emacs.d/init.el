@@ -52,7 +52,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Hack" :foundry "outline" :slant normal :weight normal :height 140 :width normal))))
+ '(default ((t (:family "Hack" :foundry "outline" :slant normal :weight normal :height 120 :width normal))))
  '(markdown-header-face ((t (:inherit (nil font-lock-function-name-face) :family "variable-pitch" :weight bold))))
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
