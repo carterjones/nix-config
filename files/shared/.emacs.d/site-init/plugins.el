@@ -85,3 +85,6 @@
 
 ;; Enable date shortcuts.
 (require 'date)
+
+;; Change Alt-Backspace to delete rather than kill.
+(load-library "backward-delete-word")
