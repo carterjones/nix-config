@@ -61,3 +61,9 @@
 ;; Increase/decrease font size.
 (global-set-key (kbd "s-=") 'text-scale-increase)
 (global-set-key (kbd "s--") 'text-scale-decrease)
+
+;; Allow moving around between words in Markdown mode.
+(eval-after-load 'markdown-mode
+  (progn
+    (define-key markdown-mode-map (kbd "<M-right>") nil)
+    (define-key markdown-mode-map (kbd "<M-left>") nil)))

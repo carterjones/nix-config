@@ -13,3 +13,6 @@
 ;; Treate HCL and TF files as JSON.
 (add-to-list 'auto-mode-alist '("\\.hcl\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . json-mode))
+
+;; Use special settings for Markdown.
+(add-hook 'markdown-mode-hook 'visual-line-mode)
