@@ -34,3 +34,6 @@ latest_3_version=$(pyenv install --list | \
                        sed "s/.* 3/3/")
 pyenv install -s $latest_3_version
 pyenv global $latest_3_version
+
+# Update virtualenvwrapper.
+pip install --upgrade virtualenvwrapper
