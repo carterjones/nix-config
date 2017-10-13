@@ -17,6 +17,9 @@ export EDITOR="emacs -nw"
 # Set up an nmap log directory path.
 export NMAP_LOGS=$HOME/.nmap/logs
 
+# Export the path to the nix-config repo.
+export NIX_CONFIG=$HOME/src/github.com/carterjones/nix-config
+
 if [[ $(uname) == Linux ]]; then
     # Overwrite EDITOR for Linux.
     export EDITOR="emacs-snapshot -nw"
