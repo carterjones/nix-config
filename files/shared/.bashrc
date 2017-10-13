@@ -1,6 +1,8 @@
 if [[ $(uname) == Linux ]]; then
-    which setxkbmap && setxkbmap -option altwin:ctrl_win \
-                                 -option caps:ctrl_modifier
+    if which setxkbmap &> /dev/null; then
+        setxkbmap -option altwin:ctrl_win \
+                  -option caps:ctrl_modifier
+    fi
 fi
 
 if [[ $- == *i* ]]; then
