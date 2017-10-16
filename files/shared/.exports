@@ -23,4 +23,8 @@ export NIX_CONFIG=$HOME/src/github.com/carterjones/nix-config
 if [[ $(uname) == Linux ]]; then
     # Overwrite EDITOR for Linux.
     export EDITOR="emacs-snapshot -nw"
+elif [[ $(uname) == Darwin ]]; then
+    # Set up variables so the brew installation of openssl will work.
+    export LDFLAGS=-L/usr/local/opt/openssl/lib
+    export CPPFLAGS=-I/usr/local/opt/openssl/include
 fi
