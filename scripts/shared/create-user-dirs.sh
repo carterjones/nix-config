@@ -10,17 +10,27 @@ mkdir -p $HOME/pkg # for golang
 # Copy bin scripts.
 cp -r ${shared_files}/bin/* $HOME/bin/
 
-if [[ $(uname) == Linux ]]; then
-    # Copy bin scripts.
-    cp -r ${linux_files}/bin/* $HOME/bin/
+# Create a placeholder for the OS-specific files/scripts directories.
+os_files=""
+os_scripts=""
+
+case $(uname) in
+Linux)
+    os_files=${linux_files}
+    os_scripts=${linux_scripts}
 
     # Make symlinks.
     ln -fs $(which ack-grep) $HOME/bin/ag
-elif [[ $(uname) == Darwin ]]; then
-    # Copy bin scripts.
-    cp -r ${macos_files}/bin/* $HOME/bin/
+    ;;
+Darwin)
+    os_files=${macos_files}
+    os_scripts=${macos_scripts}
+    ;;
+esac
 
-    # Reuse Vagrant install script for upgrades.
-    cp ${macos_scripts}/install-vagrant.sh $HOME/bin/upgrade-vagrant
-    chmod +x $HOME/bin/upgrade-vagrant
-fi
+# Copy bin scripts.
+cp -r ${os_files}/bin/* $HOME/bin/
+
+# Reuse Vagrant install script for upgrades.
+cp ${os_scripts}/install-vagrant.sh $HOME/bin/upgrade-vagrant
+chmod +x $HOME/bin/upgrade-vagrant
