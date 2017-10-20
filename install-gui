@@ -1,6 +1,5 @@
 #!/bin/bash
-
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set paths for running various scripts.
 export shared_files='./files/shared'

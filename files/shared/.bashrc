@@ -1,9 +1,10 @@
-if [[ $(uname) == Linux ]]; then
-    if which setxkbmap &> /dev/null; then
-        setxkbmap -option altwin:ctrl_win \
-                  -option caps:ctrl_modifier
-    fi
+if which setxkbmap &> /dev/null; then
+    setxkbmap -option altwin:ctrl_win \
+              -option caps:ctrl_modifier
 fi
+
+# We don't need flow control, because we're not working in Bell Labs.
+stty stop ''
 
 if [[ $- == *i* ]]; then
     if [[ -f $HOME/.use_zsh ]]; then
@@ -15,6 +16,8 @@ if [[ $- == *i* ]]; then
         exit
     fi
 fi
+
+source $HOME/.connect-ssh-agent
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace

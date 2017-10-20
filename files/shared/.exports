@@ -20,10 +20,11 @@ export NMAP_LOGS=$HOME/.nmap/logs
 # Export the path to the nix-config repo.
 export NIX_CONFIG=$HOME/src/github.com/carterjones/nix-config
 
-if [[ $(uname) == Linux ]]; then
-    # Overwrite EDITOR for Linux.
-    export EDITOR="emacs-snapshot -nw"
-elif [[ $(uname) == Darwin ]]; then
+if which ksshaskpass &> /dev/null; then
+    SSH_ASKPASS=ksshaskpass ssh-add < /dev/null &>/dev/null
+fi
+
+if [[ $(uname) == Darwin ]]; then
     # Set up variables so the brew installation of openssl will work.
     export LDFLAGS=-L/usr/local/opt/openssl/lib
     export CPPFLAGS=-I/usr/local/opt/openssl/include

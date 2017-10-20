@@ -1,6 +1,5 @@
 #!/bin/bash
-
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up apt repository for the latest version of tmux.
 sudo add-apt-repository -y ppa:pi-rho/dev

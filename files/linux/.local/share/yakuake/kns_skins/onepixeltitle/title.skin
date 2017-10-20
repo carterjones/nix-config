@@ -1,0 +1,37 @@
+[Description]
+Skin=One Pixel Title
+Author=Alexander Potashev
+Email=aspotashev@gmail.com
+Icon=/icon.png
+
+[Border]
+red=199
+green=193
+blue=190
+width=0
+
+[Text]
+red=199
+green=193
+blue=190
+bold=false
+
+[Background]
+back_image=/back.png
+left_corner=/back.png
+right_corner=/back.png
+
+[FocusButton]
+up_image=/back.png
+over_image=/back.png
+down_image=/back.png
+
+[ConfigButton]
+up_image=/back.png
+over_image=/back.png
+down_image=/back.png
+
+[QuitButton]
+up_image=/back.png
+over_image=/back.png
+down_image=/back.png

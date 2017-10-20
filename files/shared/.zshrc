@@ -1,5 +1,6 @@
 export TERM="xterm-256color"
 
+source $HOME/.connect-ssh-agent
 source $HOME/src/github.com/zsh-users/antigen/antigen.zsh
 
 # Note: you can use the "cat" command to determine what various keystrokes get

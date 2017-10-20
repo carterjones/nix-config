@@ -33,8 +33,10 @@ wget -nc -q $golang_url
 if [[ $(uname) == Linux ]]; then
     sudo rm -rf /usr/local/go
     sudo tar -C /usr/local -xzf $archive_name
-    sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
-    sudo update-alternatives --set go /usr/local/go/bin/go
+    if which update-alternatives; then
+	sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
+	sudo update-alternatives --set go /usr/local/go/bin/go
+    fi
 elif [[ $(uname) == Darwin ]]; then
     sudo installer -pkg $archive_name -target /
 fi

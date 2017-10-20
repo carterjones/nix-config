@@ -20,7 +20,9 @@ Linux)
     os_scripts=${linux_scripts}
 
     # Make symlinks.
-    ln -fs $(which ack-grep) $HOME/bin/ag
+    if ! (cat /etc/issue | grep "Arch" -q); then
+        ln -fs $(which ack-grep) $HOME/bin/ag
+    fi
     ;;
 Darwin)
     os_files=${macos_files}

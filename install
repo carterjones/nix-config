@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux -o pipefail
+set -euxo pipefail
 
 # Fix the repo before copying anything on Windows.
 if [[ $(uname) == MINGW* ]]; then
@@ -24,13 +24,12 @@ bash ${shared_scripts}/use-bash.sh
 source $HOME/.bashrc
 
 if [[ $(uname) == Linux ]]; then
-    # Note: this assumes Ubuntu Linux.
-
     # Make Linux-specific customizations.
-    bash ${linux_scripts}/install-debs-base.sh
+    bash ${linux_scripts}/install-packages.sh
     bash ${linux_scripts}/install-bgrep.sh
     bash ${linux_scripts}/install-nmap.sh
     bash ${linux_scripts}/configure-git.sh
+    bash ${linux_scripts}/configure-system.sh
 elif [[ $(uname) == Darwin ]]; then
     # Load .bash_profile.
     set +u
