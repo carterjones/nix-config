@@ -1,0 +1,17 @@
+#!/bin/bash
+
+usage() {
+    echo "usage: $0 <search> <replace>"
+}
+
+if [ -z "$1" ]; then
+    echo "First argument must not be empty."
+    usage
+    exit
+elif [ -z "$2" ]; then
+    echo "Second argument must not be empty."
+    usage
+    exit
+fi
+
+ag -0 -l $1 | xargs -0 sed -ri"" -e "s/$1/$2/g"
