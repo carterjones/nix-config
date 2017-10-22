@@ -1,33 +1,18 @@
 #!/bin/bash
-
-mkdir -p $HOME/src/aur.archlinux.org
-pushd $HOME/src/aur.archlinux.org
+set -euxo pipefail
 
 aur_packages=(
-    cower
     dropbox
-    emacs-git
     google-chrome
+    pacaur
     spotify
 )
 
-for package in "${aur_packages[@]}"; do
-    echo $package
-    if [ ! -d $package ]; then
-	git clone "https://aur.archlinux.org/${package}.git"
-        pushd $package
-        makepkg -si
-        popd
-    fi
-done
-
-popd
-
-# Look for updates to AUR packages.
-cower -vdu
+# There is a bit of a catch 22 with this. dealwithit.jpg
+pacaur -Syu --needed "${aur_packages[@]}"
 
 # Install regular packages.
-sudo pacman --needed -S \
+sudo pacman --needed -Syu \
      community/synergy \
      community/tmux \
      community/the_silver_searcher \
@@ -40,6 +25,7 @@ sudo pacman --needed -S \
      core/openvpn \
      extra/cmake \
      extra/dolphin \
+     extra/emacs \
      extra/networkmanager-openvpn \
      extra/wget \
      extra/xdg-utils \
