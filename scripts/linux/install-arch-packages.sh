@@ -26,6 +26,7 @@ popd
 # Look for updates to AUR packages.
 cower -vdu
 
+# Install regular packages.
 sudo pacman --needed -S \
      community/synergy \
      community/tmux \
