@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Configure brew.
 brew tap homebrew/completions

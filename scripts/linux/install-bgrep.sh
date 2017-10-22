@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Compile bgrep.
 gcc -O2 -x c -o ${linux_files}/bin/bgrep ./lib/bgrep/bgrep.c

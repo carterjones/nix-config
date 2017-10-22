@@ -1,5 +1,5 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 cp -R ${shared_files}/.emacs.d $HOME/

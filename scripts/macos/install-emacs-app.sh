@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux -o pipefail
+set -euxo pipefail
 
 if ! $(ls $HOME/Applications/ | grep -q "Emacs.app"); then
     readonly TMP_DIR=/tmp/emacs-install

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Check for Sublime, move on if it exists.
 if [[ $(which subl &>/dev/null; echo $?) -ne 0 ]]; then

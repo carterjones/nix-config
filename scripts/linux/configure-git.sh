@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up Linux-specific configuration.
 git config --global diff.tool meld

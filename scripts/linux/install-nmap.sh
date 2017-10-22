@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up nmap directories.
 mkdir -p $HOME/.nmap/logs

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux -o pipefail
+set -euxo pipefail
 
 # Install the latest version of OpenVPN.
 wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg|apt-key add -

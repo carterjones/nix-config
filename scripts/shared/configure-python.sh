@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux -o pipefail
+set -euxo pipefail
 
 # Note: this is *not* getting run as root.
 if [[ $EUID -eq 0 ]]; then

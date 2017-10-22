@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux -o pipefail
+set -euxo pipefail
 
 # Configure oh-my-zsh.
 if [[ ! -d $HOME/src/github.com/robbyrussell/oh-my-zsh/ ]]; then

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up terminal settings.
 PROFILE_PATH=/org/gnome/terminal/legacy/profiles:/

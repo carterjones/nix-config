@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up apt repository for skippy-xd.
 sudo add-apt-repository ppa:landronimirc/skippy-xd-daily

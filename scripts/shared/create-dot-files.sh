@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up Bash related files.
 cp ${shared_files}/.aliases $HOME/

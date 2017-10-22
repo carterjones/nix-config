@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up the tmux plugins.
 mkdir -p $CODE/github.com/tmux-plugins

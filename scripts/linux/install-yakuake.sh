@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux -o pipefail
+set -euxo pipefail
 
 # Set up configurations.
 mkdir -p $HOME/.kde/share/apps/konsole/
