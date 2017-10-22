@@ -69,6 +69,12 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+;; Add in a workaround for a projectile issue:
+;; https://github.com/bbatsov/projectile/issues/1183
+(setq projectile-mode-line
+      '(:eval (format " Projectile[%s]"
+                      (projectile-project-name))))
+
 ;; Bar cursor works better with multiple cursors than the stock bar cursor face.
 (require 'bar-cursor)
 
