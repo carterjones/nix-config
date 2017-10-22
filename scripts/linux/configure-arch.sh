@@ -9,6 +9,3 @@ for svc in fnmode; do
     sudo systemctl enable "${svc}.service"
     sudo systemctl start "${svc}.service"
 done
-
-# Install AUR package helper.
-go get -u github.com/Jguer/yay

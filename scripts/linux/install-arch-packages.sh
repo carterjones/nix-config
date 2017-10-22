@@ -5,6 +5,7 @@ aur_packages=(
     dropbox
     google-chrome
     pacaur
+    slack-desktop
     spotify
 )
 
