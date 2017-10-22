@@ -4,7 +4,9 @@ mkdir -p $HOME/src/aur.archlinux.org
 pushd $HOME/src/aur.archlinux.org
 
 aur_packages=(
+    cower
     dropbox
+    emacs-git
     google-chrome
     spotify
 )
@@ -13,13 +15,16 @@ for package in "${aur_packages[@]}"; do
     echo $package
     if [ ! -d $package ]; then
 	git clone "https://aur.archlinux.org/${package}.git"
-	pushd $package
-	makepkg -si
-	popd
+        pushd $package
+        makepkg -si
+        popd
     fi
 done
 
 popd
+
+# Look for updates to AUR packages.
+cower -vdu
 
 sudo pacman --needed -S \
      community/synergy \
@@ -34,7 +39,6 @@ sudo pacman --needed -S \
      core/openvpn \
      extra/cmake \
      extra/dolphin \
-     extra/emacs \
      extra/networkmanager-openvpn \
      extra/wget \
      extra/xdg-utils \
