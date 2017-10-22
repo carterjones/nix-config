@@ -10,7 +10,7 @@ popd
 
 if [[ $(uname) == Linux ]]; then
     if cat /etc/issue | grep "Arch" -q; then
-        sudo pacman -Syu
+        pacaur -Syu
     else
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" upgrade
