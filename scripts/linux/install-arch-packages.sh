@@ -14,6 +14,7 @@ pacaur -Syu --needed "${aur_packages[@]}"
 
 # Install regular packages.
 sudo pacman --needed -Syu \
+     community/redshift \
      community/synergy \
      community/tmux \
      community/the_silver_searcher \
@@ -28,6 +29,7 @@ sudo pacman --needed -Syu \
      extra/dolphin \
      extra/emacs \
      extra/networkmanager-openvpn \
+     extra/python-xdg \
      extra/wget \
      extra/xdg-utils \
      lib32-mesa \
