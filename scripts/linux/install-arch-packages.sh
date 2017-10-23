@@ -31,6 +31,7 @@ sudo pacman --needed -Syu \
      extra/networkmanager-openvpn \
      extra/python-xdg \
      extra/wget \
+     extra/xclip \
      extra/xdg-utils \
      lib32-mesa \
      multilib/wine \
