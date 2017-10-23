@@ -30,6 +30,7 @@ sudo pacman --needed -Syu \
      extra/emacs \
      extra/networkmanager-openvpn \
      extra/python-xdg \
+     extra/spectacle \
      extra/wget \
      extra/xclip \
      extra/xdg-utils \
