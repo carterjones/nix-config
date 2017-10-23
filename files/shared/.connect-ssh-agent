@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Get the info about a single SSH agent. If everything is working, there should
-# only be one at system start, which should be started by ksshaskpass.
-tmp_agent=$(ls /tmp/ | grep ssh- | head -1)
-agent_pid_file=$(ls "/tmp/${tmp_agent}")
-agent_pid=$(echo $agent_pid_file | cut -f2 -d.)
+if [[ $(uname) == Linux ]]; then
+    # Get the info about a single SSH agent. If everything is working, there should
+    # only be one at system start, which should be started by ksshaskpass.
+    tmp_agent=$(ls /tmp/ | grep ssh- | head -1)
+    agent_pid_file=$(ls "/tmp/${tmp_agent}")
+    agent_pid=$(echo $agent_pid_file | cut -f2 -d.)
 
-# Export the SSH variables.
-export SSH_AUTH_SOCK="/tmp/${tmp_agent}/${agent_pid_file}"
-export SSH_AGENT_PID="${agent_pid}"
+    # Export the SSH variables.
+    export SSH_AUTH_SOCK="/tmp/${tmp_agent}/${agent_pid_file}"
+    export SSH_AGENT_PID="${agent_pid}"
+fi
