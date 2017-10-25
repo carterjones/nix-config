@@ -31,6 +31,7 @@ sudo pacman --needed -Syu \
      extra/dolphin \
      extra/emacs \
      extra/networkmanager-openvpn \
+     extra/nmap \
      extra/python-xdg \
      extra/spectacle \
      extra/wget \
