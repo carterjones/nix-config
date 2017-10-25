@@ -10,7 +10,11 @@ popd
 
 if [[ $(uname) == Linux ]]; then
     if cat /etc/issue | grep "Arch" -q; then
+        # Install updates.
         pacaur -Syu
+
+        # Remove unneeded packages.
+        pacman -Rns $(pacman -Qtdq)
     else
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" upgrade
