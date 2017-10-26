@@ -34,9 +34,11 @@ PACKAGES="${PACKAGES}
 PACKAGES="${PACKAGES}
     libbz2-dev
     libreadline-dev
+    libsqlite3-dev
     libssl-dev
     python-pip
-    python3-pip"
+    python3-pip
+    zlib1g-dev"
 
 # Install the packages.
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" install ${PACKAGES}
