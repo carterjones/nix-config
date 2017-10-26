@@ -1,6 +1,8 @@
 if which setxkbmap &> /dev/null; then
-    setxkbmap -option altwin:ctrl_win \
-              -option caps:ctrl_modifier
+    if ! [ -z "${DISPLAY:-}" ]; then
+        setxkbmap -option altwin:ctrl_win \
+                  -option caps:ctrl_modifier
+    fi
 fi
 
 if which localectl &> /dev/null; then
