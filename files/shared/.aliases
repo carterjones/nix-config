@@ -41,11 +41,6 @@ alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
 alias t='tmux a'
 alias tk='tmux kill-server'
 
-# overwrite the emacs alias
-if which emacs-snapshot &>/dev/null; then
-    alias e='emacs-snapshot -nw'
-fi
-
 # OS-specific aliases
 if [[ $(uname) == Linux ]]; then
     # Mimic the mac pbpaste functionality.

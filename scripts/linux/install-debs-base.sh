@@ -22,7 +22,7 @@ PACKAGES="build-essential"
 # Useful utilities.
 PACKAGES="${PACKAGES}
     ack-grep
-    emacs-snapshot
+    emacs
     git
     git-el
     meld
