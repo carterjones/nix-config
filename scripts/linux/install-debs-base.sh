@@ -1,14 +1,17 @@
 #!/bin/bash
 set -euxo pipefail
 
-# Set up apt repository for the latest version of tmux.
-sudo add-apt-repository -y ppa:pi-rho/dev
+# Set up special PPAs for Ubuntu.
+if which lsb_release &>/dev/null && lsb_release -i | grep -q Ubuntu; then
+    # Set up apt repository for the latest version of tmux.
+    sudo add-apt-repository -y ppa:pi-rho/dev
 
-# Set up apt repository for the latest version of emacs.
-sudo add-apt-repository -y ppa:ubuntu-elisp
+    # Set up apt repository for the latest version of emacs.
+    sudo add-apt-repository -y ppa:ubuntu-elisp
 
-# Set up apt repository for the latest version of git.
-sudo add-apt-repository -y ppa:git-core/ppa
+    # Set up apt repository for the latest version of git.
+    sudo add-apt-repository -y ppa:git-core/ppa
+fi
 
 # Update before any packages are installed.
 sudo apt-get update
