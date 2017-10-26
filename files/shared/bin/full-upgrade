@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -euxo pipefail
 
 # Update nix-config. Install any updates.
@@ -14,7 +13,12 @@ if [[ $(uname) == Linux ]]; then
         pacaur -Syu
 
         # Remove unneeded packages.
-        pacman -Rns $(pacman -Qtdq)
+        set +ue
+        packages=$(sudo pacman -Qtdq)
+        if ! [ -z "${packages}" ]; then
+            pacman -Rns "${packages}"
+        fi
+        set -ue
     else
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" upgrade
