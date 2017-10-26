@@ -1,3 +1,6 @@
+# ag alias
+alias ag='ag --hidden'
+
 # bash aliases
 alias b='source ~/.bashrc'
 alias exti='exit'
