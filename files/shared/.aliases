@@ -2,6 +2,14 @@
 alias b='source ~/.bashrc'
 alias exti='exit'
 
+# docker alias
+# Rather than adding the current user to the `docker` group, which effectively
+# makes the user equivalent with root, I am aliasing `docker` with `sudo
+# docker`. More details can be found here about the implications of allowing
+# users to directly run docker commands:
+# https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+alias docker='sudo docker'
+
 # emacs alias
 alias e='emacs -nw'
 

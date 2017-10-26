@@ -14,6 +14,7 @@ pacaur -Syu --needed "${aur_packages[@]}"
 
 # Install regular packages.
 sudo pacman --needed -Syu \
+     community/docker \
      community/nodejs \
      community/npm \
      community/redshift \

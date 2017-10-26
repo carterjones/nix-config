@@ -3,7 +3,12 @@ set -euxo pipefail
 
 sudo cp -r ${linux_files}/etc /
 
-for svc in fnmode; do
+services=(
+    docker
+    fnmode
+)
+
+for svc in "${services[@]}"; do
     sudo systemctl enable "${svc}.service"
     sudo systemctl start "${svc}.service"
 done
