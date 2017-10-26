@@ -1,10 +1,12 @@
 #!/bin/bash
 set -euxo pipefail
 
-# Note: this is *not* getting run as root.
+# Note: this is *not* getting run as root (unless this is Kali Linux).
 if [[ $EUID -eq 0 ]]; then
-    echo "Do not run this script as root."
-    exit 1
+    if ! (uname -r | grep -q kali); then
+        echo "Do not run this script as root."
+        exit 1
+    fi
 fi
 
 # Install pyenv.
