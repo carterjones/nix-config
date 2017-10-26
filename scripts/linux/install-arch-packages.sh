@@ -9,8 +9,11 @@ aur_packages=(
     spotify
 )
 
-# There is a bit of a catch 22 with this. dealwithit.jpg
-pacaur -Syu --needed "${aur_packages[@]}"
+# Don't run pacaur if user is root.
+if [[ "$UID" != 0 ]]; then
+    # There is a bit of a catch 22 with this. dealwithit.jpg
+    pacaur -Syu --needed "${aur_packages[@]}"
+fi
 
 # Install regular packages.
 sudo pacman --needed -Syu \
