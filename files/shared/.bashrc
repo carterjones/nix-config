@@ -3,6 +3,13 @@ if which setxkbmap &> /dev/null; then
               -option caps:ctrl_modifier
 fi
 
+if which localectl &> /dev/null; then
+    if ! (localectl status | grep -q "VC Keymap: dvorak"); then
+            echo "Changing system keyboard layout to dvorak..."
+            sudo localectl set-keymap dvorak
+    fi
+fi
+
 # We don't need flow control, because we're not working in Bell Labs.
 stty stop ''
 
