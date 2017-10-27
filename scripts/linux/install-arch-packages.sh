@@ -34,6 +34,7 @@ sudo pacman --needed -Syu \
      extra/cmake \
      extra/dolphin \
      extra/emacs \
+     extra/mplayer \
      extra/networkmanager-openvpn \
      extra/nmap \
      extra/python-xdg \
