@@ -20,6 +20,7 @@ sudo pacman --needed -Syu \
      community/docker \
      community/nodejs \
      community/npm \
+     community/redis \
      community/redshift \
      community/synergy \
      community/tmux \
