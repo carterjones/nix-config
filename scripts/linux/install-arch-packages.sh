@@ -7,6 +7,7 @@ aur_packages=(
     pacaur
     slack-desktop
     spotify
+    sslyze
 )
 
 # Don't run pacaur if user is root.
