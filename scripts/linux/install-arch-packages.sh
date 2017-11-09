@@ -22,6 +22,7 @@ sudo pacman --needed -Syu \
      community/npm \
      community/redis \
      community/redshift \
+     community/sslscan \
      community/synergy \
      community/tmux \
      community/the_silver_searcher \
