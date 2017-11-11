@@ -43,6 +43,7 @@ sudo pacman --needed -Syu \
      extra/networkmanager-openvpn \
      extra/nmap \
      extra/python-xdg \
+     extra/samba \
      extra/spectacle \
      extra/wget \
      extra/xclip \
@@ -51,6 +52,7 @@ sudo pacman --needed -Syu \
      multilib/lib32-gnutls \
      multilib/lib32-libldap \
      multilib/lib32-mesa \
+     multilib/lib32-mpg123 \
      multilib/wine \
      multilib/wine_gecko
 
