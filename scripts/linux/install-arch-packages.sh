@@ -50,9 +50,13 @@ sudo pacman --needed -Syu \
      extra/xdg-utils \
      extra/xf86-video-ati \
      multilib/lib32-gnutls \
+     multilib/lib32-gtk2 \
      multilib/lib32-libldap \
+     multilib/lib32-libpulse \
+     multilib/lib32-libxtst \
      multilib/lib32-mesa \
      multilib/lib32-mpg123 \
+     multilib/lib32-openal \
      multilib/wine \
      multilib/wine_gecko
 
