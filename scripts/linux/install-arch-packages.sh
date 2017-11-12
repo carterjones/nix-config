@@ -39,6 +39,7 @@ sudo pacman --needed -Syu \
      extra/dolphin \
      extra/emacs \
      extra/gimp \
+     extra/hplip \
      extra/mplayer \
      extra/networkmanager-openvpn \
      extra/nmap \
