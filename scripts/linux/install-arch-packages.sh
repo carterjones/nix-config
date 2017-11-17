@@ -4,6 +4,7 @@ set -euxo pipefail
 aur_packages=(
     dropbox
     google-chrome
+    imagewriter
     pacaur
     slack-desktop
     spotify
