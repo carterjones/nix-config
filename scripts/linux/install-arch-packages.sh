@@ -39,6 +39,7 @@ sudo pacman --needed -Syu \
      extra/cmake \
      extra/dolphin \
      extra/emacs \
+     extra/firefox \
      extra/gimp \
      extra/hplip \
      extra/mplayer \
