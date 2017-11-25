@@ -7,7 +7,7 @@ aur_packages=(
     imagewriter
     pacaur
     slack-desktop
-    spotify
+#    spotify
     sslyze
 )
 
