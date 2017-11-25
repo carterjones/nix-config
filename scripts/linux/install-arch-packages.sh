@@ -3,6 +3,7 @@ set -euxo pipefail
 
 aur_packages=(
     dropbox
+    glxinfo
     google-chrome
     imagewriter
     pacaur
@@ -42,6 +43,7 @@ sudo pacman --needed -Syu \
      extra/firefox \
      extra/gimp \
      extra/hplip \
+     extra/mesa \
      extra/mplayer \
      extra/networkmanager-openvpn \
      extra/nmap \
