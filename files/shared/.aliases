@@ -46,3 +46,7 @@ if [[ $(uname) == Linux ]]; then
     # Mimic the mac pbpaste functionality.
     alias pbpaste='xclip -selection clipboard -o'
 fi
+
+if [[ $(uname -a) == *ARCH* ]]; then
+   alias clean-packages='sudo pacman -Rns $(pacman -Qtdq)'
+fi
