@@ -8,7 +8,7 @@ git pull
 popd
 
 if [[ $(uname) == Linux ]]; then
-    if cat /etc/issue | grep "Arch" -q; then
+    if cat /etc/issue | grep -E "(Arch|Manjaro)" -q; then
         # Install updates.
         pacaur -Syu
 
