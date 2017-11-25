@@ -3,7 +3,6 @@ set -euxo pipefail
 
 aur_packages=(
     dropbox
-    glxinfo
     google-chrome
     imagewriter
     pacaur
@@ -31,7 +30,6 @@ sudo pacman --needed -Syu \
      community/the_silver_searcher \
      community/vagrant \
      community/virtualbox \
-     community/virtualbox-host-modules-arch \
      community/wine-mono \
      community/yakuake \
      community/winetricks \
@@ -40,7 +38,6 @@ sudo pacman --needed -Syu \
      extra/cmake \
      extra/dolphin \
      extra/emacs \
-     extra/firefox \
      extra/gimp \
      extra/hplip \
      extra/mesa \
@@ -53,7 +50,6 @@ sudo pacman --needed -Syu \
      extra/wget \
      extra/xclip \
      extra/xdg-utils \
-     extra/xf86-video-ati \
      multilib/lib32-gnutls \
      multilib/lib32-gtk2 \
      multilib/lib32-libldap \
