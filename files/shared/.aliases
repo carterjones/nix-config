@@ -41,6 +41,9 @@ alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
 alias t='tmux a'
 alias tk='tmux kill-server'
 
+# wine aliases
+alias wine-steam-prep='export WINEARCH=win32; export WINEPREFIX=~/.wine-steam'
+
 # OS-specific aliases
 if [[ $(uname) == Linux ]]; then
     # Mimic the mac pbpaste functionality.
