@@ -50,6 +50,6 @@ if [[ $(uname) == Linux ]]; then
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
-if [[ $(uname -a) == *ARCH* ]]; then
+if [[ $(uname -a) == *ARCH* ]] || [[ $(uname -a) == *MANJARO* ]]; then
    alias clean-packages='sudo pacman -Rns $(pacman -Qtdq)'
 fi
