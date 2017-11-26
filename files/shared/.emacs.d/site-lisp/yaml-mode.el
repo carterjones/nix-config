@@ -125,7 +125,7 @@ that key is pressed to begin a block literal."
 (defconst yaml-directive-re "^\\(?:--- \\)? *%\\(\\w+\\)"
   "Regexp matching a line contatining a YAML directive.")
 
-(defconst yaml-document-delimiter-re "^ *\\(?:---\\|[.][.][.]\\)"
+(defconst yaml-document-delimiter-re "^\\(?:---\\|[.][.][.]\\)"
   "Rexexp matching a YAML document delimiter line.")
 
 (defconst yaml-node-anchor-alias-re "[&*][a-zA-Z0-9_-]+"
@@ -203,6 +203,8 @@ that key is pressed to begin a block literal."
     (modify-syntax-entry ?\\ "\\" syntax-table)
     (modify-syntax-entry ?- "_" syntax-table)
     (modify-syntax-entry ?_ "_" syntax-table)
+    (modify-syntax-entry ?& "." syntax-table)
+    (modify-syntax-entry ?* "." syntax-table)
     (modify-syntax-entry ?\( "." syntax-table)
     (modify-syntax-entry ?\) "." syntax-table)
     (modify-syntax-entry ?\{ "(}" syntax-table)
@@ -426,7 +428,7 @@ cross boundaries of block literals."
 
 
 (defun yaml-mode-version ()
-  "Diplay version of `yaml-mode'."
+  "Display version of `yaml-mode'."
   (interactive)
   (message "yaml-mode %s" yaml-mode-version)
   yaml-mode-version)
