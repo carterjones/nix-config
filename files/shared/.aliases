@@ -28,11 +28,13 @@ if [[ $(echo $0) == "bash" ]]; then
 fi
 
 # ls aliases
-alias ls='ls -G'
-alias ll='ls -alFG'
-alias la='ls -AG'
-alias lh='ls -alFhG'
 alias l='ls -CFG'
+alias la='ls -AG'
+alias ld='ls -alFG | grep --color=never /'
+alias lf='ls -alFG | grep -v /'
+alias lh='ls -alFhG'
+alias ll='ls -alFG'
+alias ls='ls -G'
 
 # nmap aliases
 alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
