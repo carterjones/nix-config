@@ -28,6 +28,7 @@ sudo pacman --needed -Syu \
      community/synergy \
      community/tmux \
      community/the_silver_searcher \
+     community/ufw \
      community/vagrant \
      community/virtualbox \
      community/wine-mono \
