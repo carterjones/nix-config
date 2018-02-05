@@ -16,7 +16,8 @@ if which localectl &> /dev/null; then
 fi
 
 # We don't need flow control, because we're not working in Bell Labs.
-stty stop ''
+# We force a true statement here because when it fails, we don't care.
+stty stop '' || true
 
 if [[ $- == *i* ]]; then
     if [[ -f $HOME/.use_zsh ]]; then
