@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-target_version="go1.9.3"
+target_version="go1.9.4"
 
 # Test to see if go is installed in the PATH.
 if which go &>/dev/null; then
