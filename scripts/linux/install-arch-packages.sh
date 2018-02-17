@@ -9,6 +9,7 @@ aur_packages=(
     slack-desktop
 #    spotify
     sslyze
+    visual-studio-code-bin
 )
 
 # Don't run pacaur if user is root.
