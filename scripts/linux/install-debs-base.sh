@@ -11,6 +11,11 @@ if which lsb_release &>/dev/null && lsb_release -i | grep -q Ubuntu; then
 
     # Set up apt repository for the latest version of git.
     sudo add-apt-repository -y ppa:git-core/ppa
+
+    if cat /etc/lsb-release | grep 14.04 &> /dev/null; then
+        # Set up apt repository for emacs25.
+        sudo add-apt-repository -y ppa:kelleyk/emacs
+    fi
 fi
 
 # Update before any packages are installed.
@@ -39,6 +44,11 @@ PACKAGES="${PACKAGES}
     python-pip
     python3-pip
     zlib1g-dev"
+
+if cat /etc/lsb-release | grep 14.04 &> /dev/null; then
+    PACKAGES="${PACKAGES}
+    emacs25"
+fi
 
 # Install the packages.
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" install ${PACKAGES}

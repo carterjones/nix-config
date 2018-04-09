@@ -14,7 +14,11 @@ alias exti='exit'
 alias docker='sudo docker'
 
 # emacs alias
-alias e='emacs -nw'
+if which emacs25 &> /dev/null; then
+   alias e='emacs25 -nw'
+else
+   alias e='emacs -nw'
+fi
 
 # git aliases
 alias ghist='git hist'
