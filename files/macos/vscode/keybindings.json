@@ -1,5 +1,0 @@
-// Place your key bindings in this file to overwrite the defaults
-[
-{ "key": "shift+cmd+l",           "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-                                     "when": "editorTextFocus" }
-]

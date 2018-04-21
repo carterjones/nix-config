@@ -1,0 +1,43 @@
+#!/bin/bash
+set -euxo pipefail
+
+if [[ $(uname) == Linux ]]; then
+    if cat /etc/issue | grep -E "(Arch|Manjaro)" -q; then
+        # Install updates.
+        pacaur -Syu
+
+        # Remove unneeded packages.
+        set +ue
+        packages=$(sudo pacman -Qtdq)
+        if ! [ -z "${packages}" ]; then
+            pacman -Rns "${packages}"
+        fi
+        set -ue
+    else
+        sudo apt-get update
+        sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" upgrade
+        sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" dist-upgrade
+        sudo apt-get -y autoremove
+    fi
+elif [[ $(uname) == Darwin ]]; then
+    # Upgrade everything from the App Store.
+    softwareupdate -i --all
+
+    # Upgrade all brew packages.
+    brew update
+    brew upgrade
+    brew cleanup
+
+    # Upgrade Chrome.
+    readonly chromeupdater=/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/GoogleSoftwareUpdateAgent.app/Contents/MacOS/GoogleSoftwareUpdateAgent
+    if [[ -x $chromeupdater ]]; then
+        echo -n "Requesting Chrome update... "
+        $chromeupdater -runMode oneshot -userInitiated YES
+        echo "done."
+    fi
+fi
+
+# Update nix-config. Install any updates.
+pushd $HOME/src/github.com/carterjones/nix-config
+./install
+popd

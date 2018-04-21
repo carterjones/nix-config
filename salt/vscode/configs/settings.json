@@ -1,0 +1,11 @@
+{
+    "editor.fontFamily": "Hack",
+    "editor.rulers": [80, 120],
+    "files.trimTrailingWhitespace": true,
+    "go.inferGopath": true,
+    "python.linting.pep8Enabled": true,
+    "python.pythonPath": "${env:HOME}/.pyenv/versions/3.6.5/bin/python",
+    "window.restoreWindows": "all",
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile"
+}

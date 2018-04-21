@@ -1,66 +1,29 @@
 #!/bin/bash
-set -euxo pipefail
 
-# Fix the repo before copying anything on Windows.
-if [[ $(uname) == MINGW* ]]; then
-    find . -type f -print0 | xargs -0 -n 1 -P 4 dos2unix
+# Check for salt-call and move on if it exists.
+if [[ $(which salt-call &>/dev/null; echo $?) -ne 0 ]]; then
+    if cat /etc/lsb-release 2>&1 | grep -q Ubuntu; then
+        version=$(cat /etc/lsb-release | grep RELEASE | cut -d"=" -f2)
+        codename=$(cat /etc/lsb-release | grep CODENAME | cut -d"=" -f2)
+        if [[ "${version}" == "14.04" ]]; then
+            # The version in the apt repos is from 2014, so we sudo pip install.
+            # YOLO!
+            sudo pip install salt
+        else
+            wget -O - "https://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest/SALTSTACK-GPG-KEY.pub" | sudo apt-key add -
+            sudo bash -c "echo deb http://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest ${codename} main > /etc/apt/sources.list.d/saltstack.list"
+            sudo apt-get update
+            sudo apt-get install salt-minion -y
+        fi
+    elif cat /etc/issue 2>&1 | grep -E "(Arch|Manjaro)" -q; then
+        sudo pacman --needed -Syu community/salt
+    elif [[ $(uname) == Darwin ]]; then
+        brew install saltstack
+    fi
 fi
 
-# Set paths for running various scripts.
-export shared_files='./files/shared'
-export shared_scripts='./scripts/shared'
-export linux_files='./files/linux'
-export linux_scripts='./scripts/linux'
-export macos_files='./files/macos'
-export macos_scripts='./scripts/macos'
+# Update the repository.
+git pull
 
-# Make globally applicable customizations.
-bash ${shared_scripts}/create-user-dirs.sh
-bash ${shared_scripts}/create-dot-files.sh
-bash ${shared_scripts}/configure-zsh.sh
-bash ${shared_scripts}/use-bash.sh
-
-# Load newly installed bashrc file.
-source $HOME/.bashrc
-
-if [[ $(uname) == Linux ]]; then
-    # Make Linux-specific customizations.
-    bash ${linux_scripts}/install-packages.sh
-    bash ${linux_scripts}/install-bgrep.sh
-    bash ${linux_scripts}/install-nmap.sh
-    bash ${linux_scripts}/configure-git.sh
-    bash ${linux_scripts}/configure-system.sh
-elif [[ $(uname) == Darwin ]]; then
-    # Load .bash_profile.
-    set +u
-    source $HOME/.bash_profile
-    set -u
-
-    # Install software.
-    bash ${macos_scripts}/install-xcode-select.sh
-    bash ${macos_scripts}/update-brew.sh
-    bash ${macos_scripts}/install-brew-packages.sh
-    bash ${macos_scripts}/install-vagrant.sh
-    bash ${macos_scripts}/copy-misc-configs.sh
-    bash ${macos_scripts}/install-emacs-app.sh
-
-    # Fix the tmux config file.
-    sed -i "" "s/mode-mouse/mouse/" $HOME/.tmux.conf
-fi
-
-# Configure shared software.
-bash ${shared_scripts}/install-golang.sh
-bash ${shared_scripts}/configure-ssh.sh
-bash ${shared_scripts}/configure-tmux-plugins.sh
-bash ${shared_scripts}/configure-emacs.sh
-bash ${shared_scripts}/configure-go.sh
-bash ${shared_scripts}/configure-python.sh
-bash ${shared_scripts}/use-zsh.sh
-
-# Unset exported variables.
-unset shared_files
-unset shared_scripts
-unset linux_files
-unset linux_scripts
-unset macos_files
-unset macos_scripts
+# Run salt.
+sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed state.apply"

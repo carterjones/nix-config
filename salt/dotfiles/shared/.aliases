@@ -1,0 +1,67 @@
+# ag alias
+{%- if grains['os'] == 'Arch' %}
+alias ag='ack-grep'
+{%- endif %}
+alias ag='ag --hidden'
+
+# bash aliases
+alias b='source ~/.bashrc'
+alias exti='exit'
+
+# docker alias
+# Rather than adding the current user to the `docker` group, which effectively
+# makes the user equivalent with root, I am aliasing `docker` with `sudo
+# docker`. More details can be found here about the implications of allowing
+# users to directly run docker commands:
+# https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+alias docker='sudo docker'
+
+# emacs alias
+if which emacs25 &> /dev/null; then
+   alias e='emacs25 -nw'
+else
+   alias e='emacs -nw'
+fi
+
+# git aliases
+alias ghist='git hist'
+alias gprune='git remote prune origin'
+
+# grep aliases
+if [[ $(echo $0) == "bash" ]]; then
+    alias grep='grep --color=auto -E'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# ls aliases
+alias l='ls -CFG'
+alias la='ls -AG'
+alias ld='ls -alFG | grep --color=never /'
+alias lf='ls -alFG | grep -v /'
+alias lh='ls -alFhG'
+alias ll='ls -alFG'
+alias ls='ls -G'
+
+# nmap aliases
+alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
+
+# silver searcher aliases
+alias todo='ag -i todo --ignore-dir=vendor --ignore-dir=.git'
+
+# tmux aliases
+alias t='tmux a'
+alias tk='tmux kill-server'
+
+# wine aliases
+alias wine-steam-prep='export WINEARCH=win32; export WINEPREFIX=~/.wine-steam'
+
+# OS-specific aliases
+if [[ $(uname) == Linux ]]; then
+    # Mimic the mac pbpaste functionality.
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
+if [[ $(uname -a) == *ARCH* ]] || [[ $(uname -a) == *MANJARO* ]]; then
+   alias clean-packages='sudo pacman -Rns $(pacman -Qtdq)'
+fi
