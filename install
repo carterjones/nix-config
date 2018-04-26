@@ -26,4 +26,4 @@ fi
 git pull
 
 # Run salt.
-sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed state.apply"
+sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed --force-color state.apply 2>&1" | grep --color=never -v stty
