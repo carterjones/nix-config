@@ -40,4 +40,8 @@ Install docker:
     pkg.installed:
         - name: docker
 
+Install docker-compose:
+    pkg.installed:
+        - name: docker-compose
+
 {% endif %}
