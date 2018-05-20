@@ -4,6 +4,8 @@
     { "key": "shift+cmd+]",     "command": "workbench.action.nextEditorInGroup" },
     { "key": "shift+cmd+[",     "command": "workbench.action.previousEditorInGroup" },
     { "key": "ctrl+e",          "command": "cursorLineEnd" },
+    { "key": "cmd+right",       "command": "cursorLineEnd" },
+    { "key": "cmd+left",        "command": "cursorLineStart" },
     { "key": "cmd+z",           "command": "undo",
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+shift+z",     "command": "redo",
