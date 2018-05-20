@@ -35,4 +35,6 @@
     { "key": "meta+a",          "command": "workbench.action.terminal.selectAll" },
     { "key": "alt+backspace",   "command": "deleteWordLeft",
                                    "when": "textInputFocus && !editorReadonly" },
+    { "key": "cmd+/",           "command": "editor.action.commentLine",
+                                   "when": "editorTextFocus && !editorReadonly" },
 ]
