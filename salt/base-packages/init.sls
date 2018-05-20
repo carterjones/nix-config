@@ -100,7 +100,7 @@ tmux:
         - name: tmux
         - refresh: True
 
-{% elif grains['os'] == 'Arch' %}
+{% elif grains['os'] == 'Manjaro' %}
 
 /etc/pacman.conf:
     file.managed:

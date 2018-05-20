@@ -34,7 +34,7 @@ docker-ce:
         - require:
             - pkgrepo: docker-repo
 
-{% elif grains['os'] == 'Arch' %}
+{% elif grains['os'] == 'Manjaro' %}
 
 Install docker:
     pkg.installed:

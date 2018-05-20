@@ -1,5 +1,5 @@
 # ag alias
-{%- if grains['os'] == 'Arch' %}
+{%- if grains['os'] == 'Manjaro' %}
 alias ag='ack-grep'
 {%- endif %}
 alias ag='ag --hidden'

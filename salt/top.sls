@@ -6,7 +6,7 @@ base:
         - match: grain
         - gnome
         - openvpn
-    'os:Arch':
+    'os:Manjaro':
         - match: grain
         - fnmode
     '*':

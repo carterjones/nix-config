@@ -41,7 +41,7 @@ Update alternatives:
             update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
             update-alternatives --set go /usr/local/go/bin/go
 
-{% elif grains['os'] == 'Arch' %}
+{% elif grains['os'] == 'Manjaro' %}
 
 /usr/local/bin/go:
     file.symlink:
