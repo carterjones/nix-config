@@ -7,10 +7,12 @@ Make sure Docker is running:
         - stateful: True
         - unless: ps -A | grep '[/]Applications/Docker.app/Contents/MacOS/Docker'
 
-{% elif grains['kernel'] == 'Linux' %}
+{% elif grains['os'] == 'Manjaro' %}
 
-docker:
-    service.running:
-        - enable: True
+Make sure Docker is running:
+    cmd.run:
+        - name: systemctl start docker
+        - stateful: True
+        - unless: systemctl is-active --quiet docker
 
 {% endif %}
