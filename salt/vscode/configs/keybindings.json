@@ -8,7 +8,7 @@
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+shift+z",     "command": "redo",
                                    "when": "textInputFocus && !editorReadonly" },
-    { "key": "cmd+v",           "command": "redo",
+    { "key": "cmd+x",           "command": "cut",
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+v",           "command": "editor.action.clipboardPasteAction",
                                    "when": "textInputFocus && !editorReadonly" },
@@ -31,4 +31,6 @@
     { "key": "cmd+w",           "command": "workbench.action.closeActiveEditor" },
     { "key": "cmd+shift+t",     "command": "workbench.action.reopenClosedEditor" },
     { "key": "meta+a",          "command": "workbench.action.terminal.selectAll" },
+    { "key": "alt+backspace",   "command": "deleteWordLeft",
+                                   "when": "textInputFocus && !editorReadonly" },
 ]
