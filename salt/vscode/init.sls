@@ -19,4 +19,12 @@ Extract VSCode:
         {{ user() }}
         {{ group() }}
 
+{% elif grains['kernel'] == 'Linux' %}
+
+{{ salt['environ.get']('HOME') }}/.config/Code/User/:
+    file.recurse:
+        - source: salt://vscode/configs
+        {{ user() }}
+        {{ group() }}
+
 {% endif %}
