@@ -8,7 +8,7 @@
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+shift+z",     "command": "redo",
                                    "when": "textInputFocus && !editorReadonly" },
-    { "key": "cmd+x",           "command": "cut",
+    { "key": "cmd+x",           "command": "editor.action.clipboardCutAction",
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+v",           "command": "editor.action.clipboardPasteAction",
                                    "when": "textInputFocus && !editorReadonly" },
