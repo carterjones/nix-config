@@ -36,6 +36,10 @@ stop=none
 stop_after_current=none
 toggleMainWindow=none
 
+[krunner][Global Shortcuts]
+run command=Alt+Space; Meta+Space
+run command on clipboard contents=Alt+Shift+F2
+
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=none
@@ -118,7 +122,7 @@ Window Fullscreen=none
 Window Grow Horizontal=none
 Window Grow Vertical=none
 Window Lower=none
-Window Maximize=none
+Window Maximize=Ctrl+Alt+Return
 Window Maximize Horizontal=none
 Window Maximize Vertical=none
 Window Minimize=none
