@@ -32,7 +32,7 @@
                                    "when": "textInputFocus" },
     { "key": "cmd+w",           "command": "workbench.action.closeActiveEditor" },
     { "key": "cmd+shift+t",     "command": "workbench.action.reopenClosedEditor" },
-    { "key": "meta+a",          "command": "workbench.action.terminal.selectAll" },
+    { "key": "meta+a",          "command": "editor.action.selectAll" },
     { "key": "alt+backspace",   "command": "deleteWordLeft",
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+/",           "command": "editor.action.commentLine",
