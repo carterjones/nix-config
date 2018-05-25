@@ -9,8 +9,8 @@ alias b='source ~/.bashrc'
 alias exti='exit'
 
 # emacs alias
-if which emacs25 &> /dev/null; then
-   alias e='emacs25 -nw'
+if which emacs-snapshot &> /dev/null; then
+   alias e='emacs-snapshot -nw'
 else
    alias e='emacs -nw'
 fi

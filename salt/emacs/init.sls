@@ -20,6 +20,19 @@ Install Emacs app:
 
 {% endif %}
 
+{% elif grains['os'] == 'Ubuntu' %}
+
+{% if grains['osrelease'] == '14.04' %}
+
+Install Emacs:
+    pkgrepo.managed:
+        - ppa: ubuntu-elisp/ppa
+    pkg.latest:
+        - name: emacs-snapshot
+        - refresh: True
+
+{% endif %}
+
 {% endif %}
 
 {{ salt['environ.get']('HOME') }}/.emacs.d/:
