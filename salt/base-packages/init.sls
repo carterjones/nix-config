@@ -166,7 +166,6 @@ Install AUR packages:
     cmd.run:
         - name: |
             aur_packages=(
-                dropbox
                 google-chrome
                 imagewriter
                 slack-desktop
