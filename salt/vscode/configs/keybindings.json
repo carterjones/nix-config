@@ -37,4 +37,7 @@
                                    "when": "textInputFocus && !editorReadonly" },
     { "key": "cmd+/",           "command": "editor.action.commentLine",
                                    "when": "editorTextFocus && !editorReadonly" },
+    { "key": "cmd+shift+left",  "command": "cursorHomeSelect" },
+    { "key": "cmd+shift+right", "command": "cursorEndSelect" },
+    { "key": "cmd+backspace",   "command": "deleteAllLeft" },
 ]
