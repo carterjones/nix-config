@@ -6,7 +6,7 @@
     color = true
     tool = meld
 [color "diff"]
-    new = bold blue
+    new = bold cyan
     whitespace = normal yellow
 [color "status"]
     changed = magenta
