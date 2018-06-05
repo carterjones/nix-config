@@ -18,5 +18,6 @@
         "**/*.sh"
     ],
     "todohighlight.isCaseSensitive": true,
-    "todohighlight.keywordsPattern": "TODO|DEBUG|FIXME|[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy"
+    "todohighlight.keywordsPattern": "TODO|DEBUG|FIXME|[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy",
+    "workbench.colorTheme": "Monokai"
 }
