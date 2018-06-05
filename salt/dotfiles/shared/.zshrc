@@ -93,6 +93,13 @@ DISABLE_AUTO_TITLE="true"
 # Tell Antigen that you're done.
 antigen apply
 
+# Disable glob highlighting.
+ZSH_HIGHLIGHT_STYLES[globbing]='none'
+
+# Disable adding a percent sign after printing to standard out without a
+# trailing newline.
+PROMPT_EOL_MARK=""
+
 # Load external files.
 source $HOME/.aliases
 source $HOME/.exports
