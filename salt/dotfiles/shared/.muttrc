@@ -45,3 +45,7 @@ set imap_idle
 set imap_check_subscribed
 unset imap_passive
 unset imap_peek
+
+# Make HTML emails nicer to read.
+auto_view text/html
+set tmpdir=$HOME/tmp
