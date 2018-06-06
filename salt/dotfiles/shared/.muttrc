@@ -5,7 +5,7 @@ set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set ssl_force_tls = yes
 
-# Load private settings. Use this guide to create the private file.
+# Load private settings. This file was created using the following steps:
 #
 # 1. Create ~/.mutt-private with contents filled in appropriately:
 #
@@ -32,7 +32,16 @@ set charset = "utf-8"
 set record = ''
 
 # Set up shortcuts.
-macro index,pager e "<save-message>=[All]/Gmail Mail<enter><enter><sync-mailbox>n<refresh>" "Archive conversation"
+macro index,pager a "<save-message>=[All]/Gmail Mail<enter><enter><sync-mailbox>n<refresh>" "Archive conversation"
 
 # Disable beep.
 set beep=no
+
+# Refresh semi-frequently.
+set timeout = 15
+
+# Try to prevent connections to Gmail from closing.
+set imap_idle
+set imap_check_subscribed
+unset imap_passive
+unset imap_peek
