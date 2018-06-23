@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 # Check for salt-call and move on if it exists.
-if [[ $(which salt-call &>/dev/null; echo $?) -ne 0 ]]; then
+if ! $(which salt-call 1>/dev/null); then
     if cat /etc/lsb-release 2>&1 | grep -q Ubuntu; then
         # Ensure sudo exists.
         if [[ $(which sudo &>/dev/null; echo $?) -ne 0 ]]; then
