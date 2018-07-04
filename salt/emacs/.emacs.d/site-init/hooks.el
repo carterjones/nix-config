@@ -1,5 +1,9 @@
-;; Trim trailing whitespaces.
+;; Trim trailing whitespaces, except for when editing diffs since that causes
+;; issues after + and - characters.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'diff-mode-hook
+          '(lambda ()
+             (remove-hook 'before-save-hook 'delete-trailing-whitespace)))
 
 ;; Enable fci-mode for certain major modes.
 (add-hook 'sh-mode-hook 'fci-mode)
