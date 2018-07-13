@@ -103,6 +103,7 @@ PROMPT_EOL_MARK=""
 # Load external files.
 source $HOME/.aliases
 source $HOME/.exports
+source $HOME/.functions
 
 # Source any private settings not tracked in this repo.
 if [ -f ~/.private ]; then
