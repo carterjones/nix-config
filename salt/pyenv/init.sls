@@ -7,6 +7,13 @@ Prepare pyenv installer:
         {{ user() }}
         {{ group() }}
 
+Make sure the pyenv git repo exists and is up to date:
+    git.latest:
+        - name: https://github.com/pyenv/pyenv
+        - target: {{ salt['environ.get']('HOME') }}/.pyenv
+        - force_clone: True
+        {{ user () }}
+
 su {{ salt['user.current']() }} -c 'bash /tmp/pyenv-installer':
     cmd.run:
         - stateful: True

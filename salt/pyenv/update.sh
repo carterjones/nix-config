@@ -4,6 +4,9 @@ export PATH="/home/{{ salt['user.current']() }}/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# Refresh the local list of python versions.
+pyenv update 1> /dev/null
+
 # Identify the latest Python version.
 latest_version=$(pyenv install --list | \
                        grep " 3." | \
