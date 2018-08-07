@@ -18,6 +18,7 @@ fi
 # git aliases
 alias ghist='git hist'
 alias gprune='git remote prune origin'
+alias gfc='git diff-tree --no-commit-id --name-status -r HEAD'
 
 # grep aliases
 if [[ $(echo $0) == "bash" ]]; then
