@@ -27,4 +27,4 @@ git pull
 
 # Run salt.
 # add "-l debug" to the salt-call command to produce verbose output
-sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed --force-color state.apply 2>&1" | grep --color=never -v stty
+sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed --force-color --log-level=info state.apply 2>&1" | grep --color=never -v stty
