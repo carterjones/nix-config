@@ -77,6 +77,7 @@ Install apt software:
             - build-essential
             - fontconfig
             - git-el
+            - iproute2
             - meld
             - nmap
             - tmux
