@@ -28,13 +28,11 @@ docker-repo:
         - file: /etc/apt/sources.list.d/docker.list
         - gpgcheck: 1
         - key_url: https://download.docker.com/linux/ubuntu/gpg
+    pkg.latest:
+        - name: docker-ce
+        - refresh: True
 
-docker-ce:
-    pkg.installed:
-        - require:
-            - pkgrepo: docker-repo
-
-{% elif grains['os'] == 'Manjaro' %}
+{% elif grains['os'] == 'Arch' %}
 
 Install docker:
     pkg.installed:

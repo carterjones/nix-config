@@ -32,7 +32,7 @@ Install Vagrant:
             - vagrant: /tmp/vagrant_installer
 {% endif %}
 
-{% elif grains['os'] == 'Manjaro' %}
+{% elif grains['os'] == 'Arch' %}
 
 vagrant:
     pkg.installed

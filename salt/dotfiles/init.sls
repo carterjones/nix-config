@@ -5,6 +5,7 @@ Copy shared dotfiles:
         - name: {{ salt['environ.get']('HOME') }}
         - source: salt://dotfiles/shared
         - template: jinja
+        - show_changes: False # https://github.com/saltstack/salt/issues/46858#issuecomment-378658104
         {{ user() }}
         {{ group() }}
 

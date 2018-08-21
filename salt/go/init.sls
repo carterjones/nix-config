@@ -41,7 +41,7 @@ Update alternatives:
             update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
             update-alternatives --set go /usr/local/go/bin/go
 
-{% elif grains['os'] == 'Manjaro' %}
+{% elif grains['os'] == 'Arch' %}
 
 /usr/local/bin/go:
     file.symlink:
@@ -53,11 +53,8 @@ Update alternatives:
 
 {% endif %}
 
-Install Go utilities:
+go get -u github.com/golang/dep/cmd/dep && go get -u github.com/carterjones/awsinfo/...:
     cmd.run:
-        - name: |
-            go get -u github.com/golang/dep/cmd/dep
-            go get -u github.com/carterjones/awsinfo/...
         - runas: {{ salt['user.current']() }}
         - env:
             - GOPATH: {{ salt['environ.get']('HOME') }}

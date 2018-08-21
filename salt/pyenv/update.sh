@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH="/home/{{ salt['user.current']() }}/.pyenv/bin:$PATH"
+export PATH="{{ salt['environ.get']('HOME') }}/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 

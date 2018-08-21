@@ -22,6 +22,16 @@ Extract Hack {{ file }} font:
 
 {%- if grains['kernel'] == 'Linux' %}
 
+{%- if grains['os'] == 'Arch' %}
+
+Install fc-cache:
+    pkg.installed:
+        - pkgs:
+            - fontconfig
+        - refresh: True
+
+{%- endif %}
+
 Update the font cache:
     cmd.run:
         - name: bash -c "fc-cache -f -v 1> /dev/null"

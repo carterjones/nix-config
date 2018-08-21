@@ -13,7 +13,7 @@ gcc -O2 -x c -o /tmp/bgrep/bgrep /tmp/bgrep/bgrep.c:
 {{ salt['environ.get']('HOME') }}/bin/bgrep:
     file.managed:
         - source: /tmp/bgrep/bgrep
-        - mkdirs: True
+        - makedirs: True
         - mode: 755
         {{ user() }}
         {{ group() }}
