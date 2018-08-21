@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  test-arch:
+    docker:
+      - image: carterjones/arch:latest
+    steps:
+      - checkout
+      - run: ./install
+  test-manjaro:
+    docker:
+      - image: carterjones/manjaro:latest
+    steps:
+      - checkout
+      - run: ./install
+  test-ubuntu-14.04:
+    docker:
+      - image: carterjones/ubuntu-14.04:latest
+    steps:
+      - checkout
+      - run: ./install
+  test-ubuntu-16.04:
+    docker:
+      - image: carterjones/ubuntu-16.04:latest
+    steps:
+      - checkout
+      - run: ./install
+  test-ubuntu-18.04:
+    docker:
+      - image: carterjones/ubuntu-18.04:latest
+    steps:
+      - checkout
+      - run: ./install
+
+workflows:
+  version: 2
+  always:
+    jobs:
+      - test-arch
+      - test-manjaro
+      - test-ubuntu-14.04
+      - test-ubuntu-16.04
+      - test-ubuntu-18.04
