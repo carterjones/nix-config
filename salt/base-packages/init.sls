@@ -237,17 +237,19 @@ Install trizen:
             - which trizen
 
 # 2018-08-20: sslyze package is broken
-Install AUR packages:
+{% for pkg in [
+    'google-chrome',
+    'imagewriter',
+    'slack-desktop',
+    'visual-studio-code-bin'
+] %}
+
+Install {{ pkg }} from AUR:
     cmd.run:
-        - name: |
-            aur_packages=(
-                google-chrome
-                imagewriter
-                slack-desktop
-                visual-studio-code-bin
-            )
-            sudo -u notroot trizen -Syu --needed --noconfirm "${aur_packages[@]}"
+        - name: sudo -u notroot trizen -Syu --needed --noconfirm {{ pkg }}
         - runas: {{ salt['user.current']() }}
+
+{% endfor %}
 
 {% elif grains['os'] == 'Kali' %}
 
