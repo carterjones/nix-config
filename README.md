@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/carterjones/nix-config.svg?branch=master)](https://travis-ci.org/carterjones/nix-config)
+
 # Overview
 
 This install script is designed to fully cofigure a *nix-based system to my
@@ -17,6 +19,11 @@ cd nix-config
 ./install
 ```
 
+# Supported Operating Systems
+
+The install script is tested against Arch, Manjaro, Ubuntu 14.04, Ubuntu 16.04,
+and Ubuntu 18.04.
+
 # Design Philosophy
 
 Rather than just having a "[dotfiles](https://www.google.com/search?q=dotfiles)"
@@ -25,4 +32,5 @@ config repo as possible. This means also installing software. I provision
 systems for myself constantly and every second where I repeat myself adds up, so
 this repo helps me streamline my efforts and be efficient.
 
-For more info about this concept, please see http://growsmethod.com/practices/EverythingInVC.html
+For more info about this concept, please see
+http://growsmethod.com/practices/EverythingInVC.html
