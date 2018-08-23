@@ -2,10 +2,10 @@
 set -euxo pipefail
 
 # Check for salt-call and move on if it exists.
-if ! $(which salt-call 1>/dev/null); then
-    if cat /etc/lsb-release 2>&1 | grep -q Ubuntu; then
+if ! command -v salt-call 1>/dev/null; then
+    if grep -q Ubuntu /etc/lsb-release; then
         # Ensure sudo exists.
-        if [[ $(which sudo &>/dev/null; echo $?) -ne 0 ]]; then
+        if [[ $(command -v sudo &>/dev/null; echo $?) -ne 0 ]]; then
             apt-get update
             apt-get install -y sudo
         fi
@@ -18,8 +18,8 @@ if ! $(which salt-call 1>/dev/null); then
             gnupg \
             wget
 
-        version=$(cat /etc/lsb-release | grep RELEASE | cut -d"=" -f2)
-        codename=$(cat /etc/lsb-release | grep CODENAME | cut -d"=" -f2)
+        version=$(grep RELEASE /etc/lsb-release | cut -d"=" -f2)
+        codename=$(grep CODENAME /etc/lsb-release | cut -d"=" -f2)
         if [[ "${version}" == "14.04" ]]; then
             # https://unix.stackexchange.com/a/362157
             sudo mkdir /dev/fuse
@@ -44,7 +44,7 @@ if ! $(which salt-call 1>/dev/null); then
             sudo apt-get update
             sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
         fi
-    elif cat /etc/issue 2>&1 | grep -E "(Arch|Manjaro)" -q; then
+    elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
         sudo pacman --noconfirm --needed -Syu community/salt lsb-release
     elif [[ $(uname) == Darwin ]]; then
         brew install saltstack
@@ -59,14 +59,14 @@ fi
 set -ue
 
 # Set a custom OS grain for Manjaro.
-if cat /etc/lsb-release | grep Manjaro; then
+if grep Manjaro /etc/lsb-release; then
     sudo bash -c "echo os: Arch > /etc/salt/grains"
 fi
 
 # Run salt.
 # add "-l debug" to the salt-call command to produce verbose output
 sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed -l info --force-color --out-file=/tmp/salt-call.log state.apply 2>&1"
-cat /tmp/salt-call.log | grep --color=never -v stty
+grep --color=never -v stty /tmp/salt-call.log
 
 # Exit with non-zero status if a failure occurred.
-cat /tmp/salt-call.log | grep Failed | sed -E "s/[[:space:]]+/ /g" | grep -q ": 0" || exit 1
+grep Failed /tmp/salt-call.log | sed -E "s/[[:space:]]+/ /g" | grep -q ": 0" || exit 1
