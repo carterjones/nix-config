@@ -1,6 +1,7 @@
 /etc/systemd/system/fnmode.service:
     file.managed:
         - source: salt://fnmode/fnmode.service
+        - makedirs: True
 
 Make sure fnmode is running:
     cmd.run:
