@@ -45,7 +45,7 @@ if ! command -v salt-call 1>/dev/null; then
             sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
         fi
     elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
-        sudo pacman --noconfirm --needed -Syu community/salt lsb-release
+        sudo pacman --noconfirm --needed -Syu community/salt
     elif [[ $(uname) == Darwin ]]; then
         brew install saltstack
     fi
@@ -59,7 +59,7 @@ fi
 set -ue
 
 # Set a custom OS grain for Manjaro.
-if grep Manjaro /etc/lsb-release; then
+if grep Manjaro /etc/issue; then
     sudo bash -c "echo os: Arch > /etc/salt/grains"
 fi
 
