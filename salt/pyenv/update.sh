@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 export PATH="{{ salt['environ.get']('HOME') }}/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
