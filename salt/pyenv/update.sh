@@ -16,7 +16,7 @@ latest_version=$(pyenv install --list | \
                        sed "s/.* 3/3/")
 
 # Install the latest Python version.
-pyenv install -s $latest_version
+pyenv install -s $latest_version | grep -v "python-build: use.*from homebrew"
 
 # Set the latest Python version as the global default.
 pyenv global $latest_version

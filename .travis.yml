@@ -1,20 +1,33 @@
+os:
+  - linux
+  - osx
+
 sudo: required
 
-services:
-  - docker
-
-jobs:
-  include:
-    - stage: Shellcheck
-      script: shellcheck install
-    - stage: Operating System tests
-      script: docker run -v $(pwd):/nix-config carterjones/arch /bin/bash -c "cd /nix-config && ./install"
+matrix:
+  exclude:
+    - os: osx
+      env: TASK=Shellcheck
+    - os: osx
       env: OS=Arch
-    - script: docker run -v $(pwd):/nix-config carterjones/manjaro /bin/bash -c "cd /nix-config && ./install"
+    - os: osx
       env: OS=Manjaro
-    - script: docker run -v $(pwd):/nix-config carterjones/ubuntu-14.04 /bin/bash -c "cd /nix-config && ./install"
-      env: OS=Ubuntu 14.04
-    - script: docker run -v $(pwd):/nix-config carterjones/ubuntu-16.04 /bin/bash -c "cd /nix-config && ./install"
-      env: OS=Ubuntu 16.04
-    - script: docker run -v $(pwd):/nix-config carterjones/ubuntu-18.04 /bin/bash -c "cd /nix-config && ./install"
-      env: OS=Ubuntu 18.04
+    - os: osx
+      env: OS=Ubuntu_14.04
+    - os: osx
+      env: OS=Ubuntu_16.04
+    - os: osx
+      env: OS=Ubuntu_18.04
+    - os: linux
+      env: OS=Mac_OS_X
+
+env:
+  - TASK=Shellcheck
+  - OS=Arch
+  - OS=Manjaro
+  - OS=Ubuntu_14.04
+  - OS=Ubuntu_16.04
+  - OS=Ubuntu_18.04
+  - OS=Mac_OS_X
+
+script: travis_wait 30 ./ci/test.sh
