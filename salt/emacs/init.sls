@@ -11,6 +11,13 @@ Download the Emacs app:
         - source_hash: 5a11c3e2aadaa45455fedefcc4fb96532b02baeeb0db0a6cc3ae5beaac7dc7d732c0b5c647305cd6f45c69aa65b63d51f92a6fe7ba55ae2dd07981f9ec3c228e
         - require_in: Install Emacs app
 
+{{ salt['environ.get']('HOME') }}/Applications:
+    file.directory:
+        - user: {{ user() }}
+        - group: staff
+        - mode: 700
+        - makedirs: True
+
 Install Emacs app:
     macpackage.installed:
         - name: /tmp/emacs.dmg
