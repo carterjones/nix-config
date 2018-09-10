@@ -1,3 +1,5 @@
+{% from 'macros.sls' import user, group with context %}
+
 {% set golang_version = "go1.11" %}
 {% set current_version = salt['cmd.run']('bash -c \'which go &> /dev/null && (go version | cut -d" " -f3) || true\'') %}
 
@@ -60,9 +62,15 @@ go get -u github.com/golang/dep/cmd/dep:
             - GOPATH: {{ salt['environ.get']('HOME') }}
         - stateful: True
 
-GIT_CONFIG_NOGLOBAL=true go get -u github.com/carterjones/awsinfo/...:
+/tmp/fakehome:
+    file.directory:
+        {{ user() }}
+        {{ group() }}
+
+go get -u github.com/carterjones/awsinfo/...:
     cmd.run:
         - runas: {{ salt['user.current']() }}
         - env:
             - GOPATH: {{ salt['environ.get']('HOME') }}
+            - HOME: /tmp/fakehome
         - stateful: True
