@@ -1,4 +1,4 @@
-{% set golang_version = "go1.10.1" %}
+{% set golang_version = "go1.11" %}
 {% set current_version = salt['cmd.run']('bash -c \'which go &> /dev/null && (go version | cut -d" " -f3) || true\'') %}
 
 {% if golang_version != current_version %}
