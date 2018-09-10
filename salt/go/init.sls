@@ -53,7 +53,14 @@ Update alternatives:
 
 {% endif %}
 
-go get -u github.com/golang/dep/cmd/dep && go get -u github.com/carterjones/awsinfo/...:
+go get -u github.com/golang/dep/cmd/dep:
+    cmd.run:
+        - runas: {{ salt['user.current']() }}
+        - env:
+            - GOPATH: {{ salt['environ.get']('HOME') }}
+        - stateful: True
+
+GIT_CONFIG_NOGLOBAL=true go get -u github.com/carterjones/awsinfo/...:
     cmd.run:
         - runas: {{ salt['user.current']() }}
         - env:
