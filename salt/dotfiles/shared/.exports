@@ -20,7 +20,7 @@ export NMAP_LOGS=$HOME/.nmap/logs
 # Export the path to the nix-config repo.
 export NIX_CONFIG=$HOME/src/github.com/carterjones/nix-config
 
-if which ksshaskpass &> /dev/null; then
+if command -v ksshaskpass &> /dev/null; then
     SSH_ASKPASS=ksshaskpass ssh-add < /dev/null &>/dev/null
 fi
 

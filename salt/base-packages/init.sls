@@ -234,7 +234,7 @@ Install trizen:
             cd trizen
             sudo -u notroot makepkg -si --noconfirm
         - unless:
-            - which trizen
+            - command -v trizen
 
 # 2018-08-20: sslyze package is broken
 {% for pkg in [

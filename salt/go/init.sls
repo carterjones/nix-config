@@ -1,7 +1,7 @@
 {% from 'macros.sls' import user, group with context %}
 
 {% set golang_version = "go1.11" %}
-{% set current_version = salt['cmd.run']('bash -c \'which go &> /dev/null && (go version | cut -d" " -f3) || true\'') %}
+{% set current_version = salt['cmd.run']('bash -c \'command -v go &> /dev/null && (go version | cut -d" " -f3) || true\'') %}
 
 {% if golang_version != current_version %}
 
