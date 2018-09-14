@@ -22,8 +22,10 @@ if ! command -v salt-call 1>/dev/null; then
         codename=$(grep CODENAME /etc/lsb-release | cut -d"=" -f2)
         if [[ "${version}" == "14.04" ]]; then
             # https://unix.stackexchange.com/a/362157
-            sudo mkdir /dev/fuse
-            sudo chmod 777 /dev/fuse
+            if [[ ! -d /dev/fuse ]] && [[ ! -f /dev/fuse ]] && [[ ! -w /dev/fuse ]]; then
+                sudo mkdir -p /dev/fuse
+                sudo chmod 777 /dev/fuse
+            fi
 
             # The version in the apt repos is from 2014, so we sudo pip install.
             # YOLO!
