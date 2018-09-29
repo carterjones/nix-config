@@ -20,6 +20,8 @@ matrix:
       env: OS=Ubuntu_16.04
     - os: osx
       env: OS=Ubuntu_18.04
+    - os: osx
+      env: OS=Ubuntu_18.10
     - os: linux
       env: OS=Mac_OS_X
 
@@ -30,6 +32,7 @@ env:
   - OS=Ubuntu_14.04
   - OS=Ubuntu_16.04
   - OS=Ubuntu_18.04
+  - OS=Ubuntu_18.10
   - OS=Mac_OS_X
 
 script: travis_wait 30 ./ci/test.sh

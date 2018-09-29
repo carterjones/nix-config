@@ -18,7 +18,9 @@ Install Docker app:
 
 {% endif %}
 
-{% elif grains['os'] == 'Ubuntu' %}
+# TODO: check for cosmic under https://download.docker.com/linux/ubuntu/dists/
+#       Once that is available, we can remove the check for 18.10.
+{% elif grains['os'] == 'Ubuntu' and grains['osrelease'] != '18.10' %}
 
 docker-repo:
     pkgrepo.managed:
