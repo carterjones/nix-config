@@ -10,3 +10,18 @@ listening() {
         lsof -PiTCP -sTCP:LISTEN
     fi
 }
+
+# tmux
+t() {
+    if ps -A | grep tmux | grep -v grep >/dev/null; then
+        # tmux is running, so we attach
+        tmux a
+    else
+        # otherwise, we start tmux
+        tmux
+    fi
+}
+
+tk() {
+    tmux kill-server
+}
