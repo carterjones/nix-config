@@ -45,3 +45,5 @@
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (add-to-list 'exec-path (concat (getenv "HOME") "/bin"))
 
+;; Set the mouse pointer shape in non-text contexts.
+(setq void-text-area-pointer 'text)
