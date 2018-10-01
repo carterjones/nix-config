@@ -67,7 +67,7 @@ go get -u github.com/golang/dep/cmd/dep:
         {{ user() }}
         {{ group() }}
 
-go get -u github.com/carterjones/awsinfo/...:
+go get -u github.com/carterjones/awsinfo/cmd/...:
     cmd.run:
         - runas: {{ salt['user.current']() }}
         - env:
