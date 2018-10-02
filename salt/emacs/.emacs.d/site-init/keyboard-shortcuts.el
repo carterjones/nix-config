@@ -69,3 +69,17 @@
     (define-key markdown-mode-map (kbd "<M-left>") nil)
     (define-key markdown-mode-map (kbd "<M-S-right>") nil)
     (define-key markdown-mode-map (kbd "<M-S-left>") nil)))
+
+;; Create a simple way to save the current org-mode view to the clipboard in
+;; ASCII format.
+(defun cj/org-export-ascii-to-clipboard (&optional b e)
+  (interactive)
+  (org-ascii-export-as-ascii nil nil nil t)
+  (mark-whole-buffer)
+  (shell-command-on-region b e "pbcopy")
+  (kill-buffer-and-window)
+  (message "Org notes have been copied in ASCII format successfully."))
+(eval-after-load 'org-mode
+  (progn
+    (require 'org)
+    (define-key org-mode-map (kbd "C-c e") 'cj/org-export-ascii-to-clipboard)))
