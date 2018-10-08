@@ -99,3 +99,6 @@
 
 ;; Change Alt-Backspace to delete rather than kill.
 (load-library "backward-delete-word")
+
+;; Load yet another folding plugin.
+(require 'yafolding)

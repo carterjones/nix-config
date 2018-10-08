@@ -83,3 +83,6 @@
   (progn
     (require 'org)
     (define-key org-mode-map (kbd "C-c e") 'cj/org-export-ascii-to-clipboard)))
+
+;; Toggle folding with "Cmd-."
+(global-set-key (kbd "s-.") 'yafolding-toggle-element)
