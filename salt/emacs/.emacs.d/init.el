@@ -26,6 +26,11 @@
 ;; Add keyboard shortcuts.
 (load-library "keyboard-shortcuts")
 
+;; Configure the default shell.
+(setq explicit-shell-file-name "/bin/zsh")
+(setq shell-file-name "zsh")
+
+;; Set the GOPATH variable.
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
