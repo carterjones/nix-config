@@ -83,3 +83,6 @@
 
 ;; Load yet another folding plugin.
 (require 'yafolding)
+
+;; Load the Dynaflowy plugin.
+(load-library "dynaflowy")

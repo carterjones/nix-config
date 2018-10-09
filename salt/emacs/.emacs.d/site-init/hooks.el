@@ -22,3 +22,6 @@
           (lambda ()
             (require 'yafolding)
             (yafolding-mode 1)))
+
+;; Enable Dynaflowy for .txt files.
+(add-hook 'text-mode-hook 'dynaflowy-mode)
