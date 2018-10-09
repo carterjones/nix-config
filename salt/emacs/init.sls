@@ -7,8 +7,8 @@
 Download the Emacs app:
     file.managed:
         - name: /tmp/emacs.dmg
-        - source: https://emacsformacosx.com/download/emacs-builds/Emacs-25.2-universal.dmg
-        - source_hash: 5a11c3e2aadaa45455fedefcc4fb96532b02baeeb0db0a6cc3ae5beaac7dc7d732c0b5c647305cd6f45c69aa65b63d51f92a6fe7ba55ae2dd07981f9ec3c228e
+        - source: https://emacsformacosx.com/emacs-builds/Emacs-26.1-2-universal.dmg
+        - source_hash: 9be6c895fbb61a0fc0f29248fae1d677b3af4f4edb66328c05158d3bf0c1fc8be841012dbb5c6c4d8609f8a2bbf9159ea3651740de655fb5015ff44e428a12d7
         - require_in: Install Emacs app
 
 {{ salt['environ.get']('HOME') }}/Applications:
