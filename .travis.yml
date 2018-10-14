@@ -7,6 +7,10 @@ os:
 sudo: required
 
 matrix:
+  allow_failures:
+    - env: OS=Arch
+    - env: OS=Manjaro
+    - env: OS=Ubuntu_18.10
   exclude:
     - os: osx
       env: TASK=Shellcheck
