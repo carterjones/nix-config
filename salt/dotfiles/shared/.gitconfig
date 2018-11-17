@@ -19,3 +19,5 @@
     default = simple
 [url "ssh://git@github.com/carterjones/"]
     insteadOf = https://github.com/carterjones/
+[url "https://github.com/carterjones/awsinfo"]
+    insteadOf = https://github.com/carterjones/awsinfo
