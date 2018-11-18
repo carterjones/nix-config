@@ -112,3 +112,11 @@ fi
 
 # Set up virtualenv.
 source $HOME/.venv_setup
+
+# Set up Google Cloud SDK.
+if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then
+    . "$HOME/bin/google-cloud-sdk/path.zsh.inc"
+fi
+if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then
+    . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
+fi
