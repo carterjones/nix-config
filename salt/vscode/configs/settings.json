@@ -1,6 +1,6 @@
 {
     "editor.fontFamily": "Hack",
-    "editor.rulers": [80, 120],
+    "editor.rulers": [80, 100, 120],
     "files.trimTrailingWhitespace": true,
     "go.inferGopath": true,
     "python.linting.pep8Enabled": true,
@@ -19,5 +19,6 @@
     ],
     "todohighlight.isCaseSensitive": true,
     "todohighlight.keywordsPattern": "TODO|DEBUG|FIXME|[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy",
-    "workbench.colorTheme": "Monokai"
+    "workbench.colorTheme": "Monokai",
+    "python.linting.pep8Args": ["--max-line-length=100"],
 }
