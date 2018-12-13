@@ -22,7 +22,7 @@ pyenv install -s $latest_version | grep -v "python-build: use.*from homebrew"
 pyenv global $latest_version
 
 # Upgrade pyenv-virtualenvwrapper.
-pip install --upgrade virtualenvwrapper 1> /dev/null
+pip3 install --upgrade virtualenvwrapper 1> /dev/null
 
 # Upgrade pip.
-pip install --upgrade pip 1> /dev/null
+pip3 install --upgrade pip 1> /dev/null
