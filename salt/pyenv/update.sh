@@ -16,6 +16,11 @@ latest_version=$(pyenv install --list | \
                        sed "s/.* 3/3/")
 
 # Install the latest Python version.
+if [ $(uname) == Darwin ]; then
+    # Mojave has issues with zlib, so we need this hack.
+    # https://github.com/pyenv/pyenv/issues/1219#issuecomment-429331397
+    export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+fi
 pyenv install -s $latest_version | grep -v "python-build: use.*from homebrew"
 
 # Set the latest Python version as the global default.
