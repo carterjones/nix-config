@@ -3,4 +3,5 @@
 # Set up pyenv, virtualenv, and virtualenvwrapper.
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python)
 pyenv virtualenvwrapper
