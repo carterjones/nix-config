@@ -51,7 +51,22 @@ if ! command -v salt-call 1>/dev/null; then
     elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
         sudo pacman --noconfirm --needed -Syu community/salt
     elif [[ $(uname) == Darwin ]]; then
-        brew install saltstack
+        # There is a regression in 2018.3.3 documented here:
+        # https://github.com/saltstack/salt/pull/51012
+        #
+        # I tried to use `brew install salt@2018.3.2` but that doesn't work, so
+        # we're falling back on pip.
+        if ! which pip3 >/dev/null; then
+            sudo easy_install pip3
+        fi
+        sudo pip3 install salt==2018.3.3
+
+        # I can't figure out how to pip install a specific git hash, so this
+        # applies the fix listed here:
+        # https://github.com/saltstack/salt/pull/51012/files
+        install_path=$(pip3 show salt | grep Location | cut -d' ' -f2)
+        target="${install_path}/salt/modules/cmdmod.py"
+        sudo cp ./salt/bugfix-cmdmod.py "${target}"
     fi
 fi
 
