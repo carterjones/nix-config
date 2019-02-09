@@ -19,7 +19,7 @@ Install brew software:
 
 Clean up brew:
     cmd.run:
-        - name: brew cleanup 1> /dev/null
+        - name: /usr/local/bin/brew cleanup 1> /dev/null
         - runas: {{ salt['cmd.run']('logname') }}
         - stateful: True
 

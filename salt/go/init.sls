@@ -55,7 +55,7 @@ Update alternatives:
 
 {% endif %}
 
-go get -u github.com/golang/dep/cmd/dep:
+/usr/local/go/bin/go get -u github.com/golang/dep/cmd/dep:
     cmd.run:
         - runas: {{ salt['user.current']() }}
         - env:
@@ -67,7 +67,7 @@ go get -u github.com/golang/dep/cmd/dep:
         {{ user() }}
         {{ group() }}
 
-go get -u github.com/carterjones/awsinfo/cmd/...:
+/usr/local/go/bin/go get -u github.com/carterjones/awsinfo/cmd/...:
     cmd.run:
         - runas: {{ salt['user.current']() }}
         - env:
