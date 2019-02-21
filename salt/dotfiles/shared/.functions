@@ -11,21 +11,6 @@ listening() {
     fi
 }
 
-# tmux
-t() {
-    if pgrep [t]mux; then
-        # tmux is running, so we attach
-        tmux a
-    else
-        # otherwise, we start tmux
-        tmux
-    fi
-}
-
-tk() {
-    tmux kill-server
-}
-
 # Credit to https://github.com/thealanberman for these conversion functions.
 json2yaml () {
     ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))' < "${1:-/dev/stdin}"

@@ -42,6 +42,12 @@ alias nmap='nmap -oA $NMAP_LOGS/$(date +"%F-%I:%M:%S-%p") -vv'
 # silver searcher aliases
 alias todo='ag -i todo --ignore-dir=vendor --ignore-dir=.git'
 
+# tmux aliases
+# t: attach to tmux if is running. otherwise, start tmux.
+# tk: kill th tmux server
+alias t="pgrep [t]mux && tmux a || tmux"
+alias tk="tmux kill-server"
+
 # wine aliases
 alias wine-steam-prep='export WINEARCH=win32; export WINEPREFIX=~/.wine-steam'
 
