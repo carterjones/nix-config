@@ -25,3 +25,11 @@ t() {
 tk() {
     tmux kill-server
 }
+
+# Credit to https://github.com/thealanberman for these conversion functions.
+json2yaml () {
+    ruby -ryaml -rjson -e 'puts YAML.dump(JSON.parse(STDIN.read))' < "${1:-/dev/stdin}"
+}
+yaml2json () {
+    ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' < "${1:-/dev/stdin}"
+}
