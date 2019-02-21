@@ -13,7 +13,7 @@ listening() {
 
 # tmux
 t() {
-    if ps -A | grep tmux | grep -v grep >/dev/null; then
+    if pgrep [t]mux; then
         # tmux is running, so we attach
         tmux a
     else
