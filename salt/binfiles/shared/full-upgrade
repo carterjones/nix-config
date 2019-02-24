@@ -3,7 +3,13 @@ set -euxo pipefail
 
 if [[ $(uname) == Linux ]]; then
     if cat /etc/issue | grep -E "(Arch|Manjaro)" -q; then
-        # Install updates.
+        # Upgrade the keyring.
+        sudo pacman -Sy archlinux-keyring
+
+        # Upgrade standard packages.
+        sudo pacman -Syu
+
+        # Upgrade nonstandard packages.
         pacaur -Syu
 
         # Remove unneeded packages.
