@@ -25,49 +25,6 @@ Clean up brew:
 
 {% elif grains['os'] == 'Ubuntu' %}
 
-{% if grains['osrelease'] == '14.04' %}
-
-git-ppa:
-    pkgrepo.managed:
-        - humanname: Git
-        - name: deb http://ppa.launchpad.net/git-core/ppa/ubuntu {{ grains['oscodename'] }} main
-        - dist: {{ grains['oscodename'] }}
-        - file: /etc/apt/sources.list.d/git.list
-        - gpgcheck: 1
-        - keyid: E1DD270288B4E6030699E45FA1715D88E1DF1F24
-        - keyserver: keyserver.ubuntu.com
-    pkg.latest:
-        - name: git
-        - refresh: True
-
-skippy-xd-daily-ppa:
-    pkgrepo.managed:
-        - humanname: Skippy XD
-        - name: deb http://ppa.launchpad.net/landronimirc/skippy-xd-daily/ubuntu {{ grains['oscodename'] }} main
-        - dist: {{ grains['oscodename'] }}
-        - file: /etc/apt/sources.list.d/skippy-xd.list
-        - gpgcheck: 1
-        - keyid: 28773E94D114BC47F55B0333A80C8DFE23A187B2
-        - keyserver: keyserver.ubuntu.com
-    pkg.latest:
-        - name: skippy-xd
-        - refresh: True
-
-tmux-ppa:
-    pkgrepo.managed:
-        - humanname: tmux
-        - name: deb http://ppa.launchpad.net/pi-rho/dev/ubuntu {{ grains['oscodename'] }} main
-        - dist: {{ grains['oscodename'] }}
-        - file: /etc/apt/sources.list.d/tmux.list
-        - gpgcheck: 1
-        - keyid: 3823B5A8A54746CA6CBED237CC892FC6779C27D7
-        - keyserver: keyserver.ubuntu.com
-    pkg.latest:
-        - name: tmux
-        - refresh: True
-
-{% endif %}
-
 Install apt software:
     pkg.installed:
         - pkgs:
@@ -106,7 +63,7 @@ Install gui software:
 
 {% endif %}
 
-{% if grains['lsb_distrib_release'] == '14.04' or grains['lsb_distrib_release'] == '16.04' %}
+{% if grains['lsb_distrib_release'] == '16.04' %}
 
 emacs-ppa:
     pkgrepo.managed:
@@ -118,9 +75,7 @@ emacs-ppa:
         - keyid: 873503A090750CDAEB0754D93FF0E01EEAAFC9CD
         - keyserver: keyserver.ubuntu.com
     pkg.latest:
-{% if grains['lsb_distrib_release'] == '14.04' %}
-        - name: emacs25
-{% elif grains['lsb_distrib_release'] == '16.04' %}
+{% if grains['lsb_distrib_release'] == '16.04' %}
         - name: emacs26
 {% endif %}
         - refresh: True
@@ -128,9 +83,7 @@ emacs-ppa:
 Update emacs alternative:
     alternatives.set:
         - name: emacs
-{% if grains['lsb_distrib_release'] == '14.04' %}
-        - path: /usr/bin/emacs25
-{% elif grains['lsb_distrib_release'] == '16.04' %}
+{% if grains['lsb_distrib_release'] == '16.04' %}
         - path: /usr/bin/emacs26
 {% endif %}
 

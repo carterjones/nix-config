@@ -15,7 +15,6 @@ fi
 case "${OS}" in
 Arch)         docker run -v $(pwd):/nix-config carterjones/arch         /bin/bash -c "cd /nix-config && ./install";;
 Manjaro)      docker run -v $(pwd):/nix-config carterjones/manjaro      /bin/bash -c "cd /nix-config && ./install";;
-Ubuntu_14.04) docker run -v $(pwd):/nix-config carterjones/ubuntu-14.04 /bin/bash -c "cd /nix-config && ./install";;
 Ubuntu_16.04) docker run -v $(pwd):/nix-config carterjones/ubuntu-16.04 /bin/bash -c "cd /nix-config && ./install";;
 Ubuntu_18.04) docker run -v $(pwd):/nix-config carterjones/ubuntu-18.04 /bin/bash -c "cd /nix-config && ./install";;
 Ubuntu_18.10) docker run -v $(pwd):/nix-config carterjones/ubuntu-18.10 /bin/bash -c "cd /nix-config && ./install";;

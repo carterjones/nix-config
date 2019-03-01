@@ -20,27 +20,7 @@ if ! command -v salt-call 1>/dev/null; then
 
         version=$(grep RELEASE /etc/lsb-release | cut -d"=" -f2)
         codename=$(grep CODENAME /etc/lsb-release | cut -d"=" -f2)
-        if [[ "${version}" == "14.04" ]]; then
-            # https://unix.stackexchange.com/a/362157
-            if [[ ! -d /dev/fuse ]] && [[ ! -f /dev/fuse ]] && [[ ! -w /dev/fuse ]]; then
-                sudo mkdir -p /dev/fuse
-                sudo chmod 777 /dev/fuse
-            fi
-
-            # The version in the apt repos is from 2014, so we sudo pip install.
-            # YOLO!
-            sudo apt-get update
-            sudo apt-get install -y \
-                python3-apt \
-                python3-dev \
-                python3-gdbm \
-                python3-pip \
-                python3-tk
-            sudo pip3 install --upgrade setuptools
-            sudo pip3 install --upgrade pip
-            sudo pip3 install --upgrade --ignore-installed six
-            sudo pip3 install salt
-        elif [[ "${version}" == "18.10" ]]; then
+        if [[ "${version}" == "18.10" ]]; then
             sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
         else
             wget -O - "https://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest/SALTSTACK-GPG-KEY.pub" | sudo apt-key add -

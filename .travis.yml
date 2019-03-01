@@ -19,8 +19,6 @@ matrix:
     - os: osx
       env: OS=Manjaro
     - os: osx
-      env: OS=Ubuntu_14.04
-    - os: osx
       env: OS=Ubuntu_16.04
     - os: osx
       env: OS=Ubuntu_18.04
@@ -33,7 +31,6 @@ env:
   - TASK=Shellcheck
   - OS=Arch
   - OS=Manjaro
-  - OS=Ubuntu_14.04
   - OS=Ubuntu_16.04
   - OS=Ubuntu_18.04
   - OS=Ubuntu_18.10
