@@ -17,6 +17,5 @@ Arch)         docker run -v $(pwd):/nix-config carterjones/arch         /bin/bas
 Manjaro)      docker run -v $(pwd):/nix-config carterjones/manjaro      /bin/bash -c "cd /nix-config && ./install";;
 Ubuntu_16.04) docker run -v $(pwd):/nix-config carterjones/ubuntu-16.04 /bin/bash -c "cd /nix-config && ./install";;
 Ubuntu_18.04) docker run -v $(pwd):/nix-config carterjones/ubuntu-18.04 /bin/bash -c "cd /nix-config && ./install";;
-Ubuntu_18.10) docker run -v $(pwd):/nix-config carterjones/ubuntu-18.10 /bin/bash -c "cd /nix-config && ./install";;
 Mac_OS_X)     ./install;;
 esac

@@ -18,22 +18,6 @@ Install Docker app:
 
 {% endif %}
 
-# TODO: check for cosmic under https://download.docker.com/linux/ubuntu/dists/
-#       Once that is available, we can remove the check for 18.10.
-{% elif grains['os'] == 'Ubuntu' and grains['osrelease'] != '18.10' %}
-
-docker-repo:
-    pkgrepo.managed:
-        - humanname: Docker
-        - name: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ grains['oscodename'] }} stable
-        - dist: {{ grains['oscodename'] }}
-        - file: /etc/apt/sources.list.d/docker.list
-        - gpgcheck: 1
-        - key_url: https://download.docker.com/linux/ubuntu/gpg
-    pkg.latest:
-        - name: docker-ce
-        - refresh: True
-
 {% elif grains['os'] == 'Arch' %}
 
 Install docker:

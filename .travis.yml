@@ -10,7 +10,6 @@ matrix:
   allow_failures:
     - env: OS=Arch
     - env: OS=Manjaro
-    - env: OS=Ubuntu_18.10
   exclude:
     - os: osx
       env: TASK=Shellcheck
@@ -22,8 +21,6 @@ matrix:
       env: OS=Ubuntu_16.04
     - os: osx
       env: OS=Ubuntu_18.04
-    - os: osx
-      env: OS=Ubuntu_18.10
     - os: linux
       env: OS=Mac_OS_X
 
@@ -33,7 +30,6 @@ env:
   - OS=Manjaro
   - OS=Ubuntu_16.04
   - OS=Ubuntu_18.04
-  - OS=Ubuntu_18.10
   - OS=Mac_OS_X
 
 script: travis_wait 30 ./ci/test.sh

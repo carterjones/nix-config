@@ -20,14 +20,10 @@ if ! command -v salt-call 1>/dev/null; then
 
         version=$(grep RELEASE /etc/lsb-release | cut -d"=" -f2)
         codename=$(grep CODENAME /etc/lsb-release | cut -d"=" -f2)
-        if [[ "${version}" == "18.10" ]]; then
-            sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
-        else
-            wget -O - "https://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest/SALTSTACK-GPG-KEY.pub" | sudo apt-key add -
-            sudo bash -c "echo deb http://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest ${codename} main > /etc/apt/sources.list.d/saltstack.list"
-            sudo apt-get update
-            sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
-        fi
+        wget -O - "https://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest/SALTSTACK-GPG-KEY.pub" | sudo apt-key add -
+        sudo bash -c "echo deb http://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest ${codename} main > /etc/apt/sources.list.d/saltstack.list"
+        sudo apt-get update
+        sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
     elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
         sudo pacman --noconfirm --needed -Syu community/salt
     elif [[ $(uname) == Darwin ]]; then
