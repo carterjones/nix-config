@@ -32,7 +32,7 @@ if ! command -v salt-call 1>/dev/null; then
         #
         # I tried to use `brew install salt@2018.3.2` but that doesn't work, so
         # we're falling back on pip.
-        if ! which pip3 >/dev/null; then
+        if [[ $(command -v pip3 >/dev/null; echo $?) -ne 0 ]]; then
             sudo easy_install pip3
         fi
         sudo pip3 install salt==2018.3.3

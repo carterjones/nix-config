@@ -7,7 +7,7 @@ cd $(git rev-parse --show-toplevel)
 # If specified in the TASK environment variable, run shellcheck instead of
 # performing a test installation.
 if [[ "${TASK}" == "Shellcheck" ]]; then
-  shellcheck install
+  shellcheck -x install
   exit $?
 fi
 
