@@ -37,7 +37,7 @@ if ! command -v salt-call 1>/dev/null; then
         sudo yum update -y
 
         # Ensure required software exists.
-        yum install -y \
+        sudo yum install -y \
             git \
             python2-devel
         sudo yum groupinstall -y "Development tools"
