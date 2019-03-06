@@ -26,6 +26,27 @@ if ! command -v salt-call 1>/dev/null; then
         sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
     elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
         sudo pacman --noconfirm --needed -Syu community/salt
+    elif [ -f /etc/centos-release ]; then
+        # Ensure sudo exists.
+        if [[ $(command -v sudo &>/dev/null; echo $?) -ne 0 ]]; then
+            yum update -y
+            yum install -y sudo
+        fi
+
+        # Update the system repos.
+        sudo yum update -y
+
+        # Ensure required software exists.
+        yum install -y \
+            git \
+            python2-devel
+        sudo yum groupinstall -y "Development tools"
+
+        # Install pip.
+        sudo python ./salt/get-pip.py
+
+        # Install salt.
+        sudo pip install salt
     elif [[ $(uname) == Darwin ]]; then
         # There is a regression in 2018.3.3 documented here:
         # https://github.com/saltstack/salt/pull/51012
@@ -60,7 +81,7 @@ fi
 
 # Run salt.
 # add "-l debug" to the salt-call command to produce verbose output
-sudo bash -c "export HOME=${HOME}; salt-call --local --file-root=./salt --state-output=mixed -l info --force-color --out-file=/tmp/salt-call.log state.apply 2>&1"
+sudo /bin/bash -c "PATH=${PATH} HOME=${HOME} salt-call --local --file-root=./salt --state-output=mixed -l info --force-color --out-file=/tmp/salt-call.log state.apply 2>&1"
 grep --color=never -v stty /tmp/salt-call.log
 
 # Exit with non-zero status if a failure occurred.
