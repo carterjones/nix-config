@@ -214,4 +214,24 @@ Install Kali software:
             - desktop-base
             - kde-plasma-desktop
 
+{% elif grains['os'] == 'CentOS' %}
+
+Install CentOS software:
+    pkg.installed:
+        - pkgs:
+            # Python requirements.
+            - bzip2
+            - bzip2-devel
+            - findutils
+            - libffi-devel
+            - libffi-devel
+            - openssl-devel
+            - readline-devel
+            - sqlite
+            - sqlite-devel
+            - xz
+            - xz-devel
+            # Other stuff.
+            - fontconfig
+
 {% endif %}

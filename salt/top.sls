@@ -1,14 +1,23 @@
 base:
     'os:MacOS':
         - match: grain
+        - base-packages
         - xcode
+        - packer
+        - pyenv
     'os:Ubuntu':
         - match: grain
+        - base-packages
         - gnome
         - openvpn
+        - packer
+        - pyenv
     'os:Arch':
         - match: grain
+        - base-packages
         - fnmode
+        - packer
+        - pyenv
     '*':
         - base-packages
         - bgrep
@@ -20,8 +29,6 @@ base:
         - hack-font
         - nano
         - nmap
-        - packer
-        - pyenv
         - ramdisk
         - tmux
         - vagrant

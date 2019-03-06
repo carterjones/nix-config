@@ -7,6 +7,7 @@
 
 Download Go package:
     file.managed:
+        - unless: /usr/local/go/bin/go version | grep -q {{ golang_version }}
 {% if grains['kernel'] == 'Darwin' %}
         - name: /tmp/go_package.pkg
         - source: https://dl.google.com/go/{{ golang_version }}.darwin-amd64.pkg
@@ -26,14 +27,13 @@ Download Go package:
 
 {% elif grains['kernel'] == 'Linux' %}
 
-/usr/local/go:
-    file.directory:
-        - clean: True
-
-/usr/local:
-    archive.extracted:
-        - source: /tmp/go_package.tar.gz
-        - archive_format: tar
+Install go to /usr/local:
+    cmd.run:
+        - unless: /usr/local/go/bin/go version | grep -q {{ golang_version }}
+        - name: |
+            mkdir -p /usr/local/go
+            rm -rf /usr/local/go/*
+            tar -C /usr/local/ -xvf /tmp/go_package.tar.gz 1> /dev/null
 
 {% if grains['os'] == 'Ubuntu' %}
 
