@@ -1,6 +1,9 @@
 [Appearance]
 ColorScheme=Linux
-Font=DejaVu Sans Mono,12,-1,2,50,0,0,0,0,0
+Font=Hack,12,-1,5,50,0,0,0,0,0
+
+[Cursor Options]
+CursorShape=1
 
 [General]
 Name=Shell
