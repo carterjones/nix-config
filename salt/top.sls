@@ -1,20 +1,17 @@
 base:
     'os:MacOS':
         - match: grain
-        - base-packages
+        - vscode
         - xcode
-        - pyenv
     'os:Ubuntu':
         - match: grain
-        - base-packages
         - gnome
         - openvpn
-        - pyenv
+        - vscode
     'os:Arch':
         - match: grain
-        - base-packages
         - fnmode
-        - pyenv
+        - vscode
     '*':
         - base-packages
         - bgrep
@@ -27,8 +24,8 @@ base:
         - nano
         - nmap
         - packer
+        - pyenv
         - ramdisk
         - tmux
         - vagrant
-        - vscode
         - zsh
