@@ -20,7 +20,6 @@ antigen use oh-my-zsh
 # Load standard plugins.
 antigen bundle brew
 antigen bundle dircycle
-antigen bundle dirhistory
 antigen bundle docker
 antigen bundle encode64
 antigen bundle git
