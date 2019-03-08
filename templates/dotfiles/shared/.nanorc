@@ -1,0 +1,13 @@
+set autoindent
+unset backup
+set const
+set cut
+unset historylog
+set mouse
+set regexp
+set smarthome
+set tabsize 4
+set tabstospaces
+{{- if .IsLinux }}
+set softwrap
+{{- end }}

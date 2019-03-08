@@ -12,8 +12,6 @@ matrix:
     - env: OS=Manjaro
   exclude:
     - os: osx
-      env: TASK=Shellcheck
-    - os: osx
       env: OS=Arch
     - os: osx
       env: OS=Manjaro
@@ -27,7 +25,6 @@ matrix:
       env: OS=Mac_OS_X
 
 env:
-  - TASK=Shellcheck
   - OS=Arch
   - OS=Manjaro
   - OS=Ubuntu_16.04
@@ -35,4 +32,7 @@ env:
   - OS=CentOS_7
   - OS=Mac_OS_X
 
-script: travis_wait 30 ./ci/test.sh
+# Note: if this fails due to timeouts in stdout, replace the following line
+# with:
+#   script: travis_wait 30 ./ci/test.sh
+script: ./ci/test.sh

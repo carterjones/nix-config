@@ -1,88 +1,66 @@
 #!/bin/bash
 set -euxo pipefail
 
-# Check for salt-call and move on if it exists.
-if ! command -v salt-call 1>/dev/null; then
-    if grep -q Ubuntu /etc/lsb-release; then
-        # Ensure sudo exists.
-        if [[ $(command -v sudo &>/dev/null; echo $?) -ne 0 ]]; then
-            apt-get update
-            apt-get install -y sudo
-        fi
+os="???"
 
-        # Ensure core utilities exist.
-        sudo apt-get update
-        sudo apt-get install -y \
-            curl \
-            git \
-            gnupg \
-            wget
+if [[ $(uname) == "Darwin" ]]; then
+    os="mac"
+elif [[ -f /etc/manjaro-release ]]; then
+    os="manjaro"
+elif [[ -f /etc/arch-release ]]; then
+    os="arch"
+elif [[ -f /etc/centos-release ]]; then
+    os="centos"
+elif grep -q Ubuntu /etc/lsb-release; then
+    os="ubuntu"
+fi
 
-        version=$(grep RELEASE /etc/lsb-release | cut -d"=" -f2)
-        codename=$(grep CODENAME /etc/lsb-release | cut -d"=" -f2)
-        wget -O - "https://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest/SALTSTACK-GPG-KEY.pub" | sudo apt-key add -
-        sudo bash -c "echo deb http://repo.saltstack.com/py3/ubuntu/${version}/amd64/latest ${codename} main > /etc/apt/sources.list.d/saltstack.list"
-        sudo apt-get update
-        sudo /bin/bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -y salt-minion"
-    elif grep -q -E "(Arch|Manjaro)" /etc/issue; then
-        sudo pacman --noconfirm --needed -Syu community/salt
-    elif [ -f /etc/centos-release ]; then
-        # Ensure sudo exists.
-        if [[ $(command -v sudo &>/dev/null; echo $?) -ne 0 ]]; then
-            yum update -y
-            yum install -y sudo
-        fi
+if [[ "${os}" == "???" ]]; then
+    echo "unsupported operating system. bye."
+    exit 1
+fi
 
-        # Update the system repos.
-        sudo yum update -y
-
-        # Ensure required software exists.
-        sudo yum install -y \
-            git \
-            python2-devel
-        sudo yum groupinstall -y "Development tools"
-
-        # Install pip.
-        sudo python ./salt/get-pip.py
-
-        # Install salt.
-        sudo pip install salt
-    elif [[ $(uname) == Darwin ]]; then
-        # There is a regression in 2018.3.3 documented here:
-        # https://github.com/saltstack/salt/pull/51012
-        #
-        # I tried to use `brew install salt@2018.3.2` but that doesn't work, so
-        # we're falling back on pip.
-        if [[ $(command -v pip3 >/dev/null; echo $?) -ne 0 ]]; then
-            sudo easy_install pip3
-        fi
-        sudo pip3 install salt==2018.3.3
-
-        # I can't figure out how to pip install a specific git hash, so this
-        # applies the fix listed here:
-        # https://github.com/saltstack/salt/pull/51012/files
-        install_path=$(pip3 show salt | grep Location | cut -d' ' -f2)
-        target="${install_path}/salt/modules/cmdmod.py"
-        sudo cp ./salt/bugfix-cmdmod.py "${target}"
+if [ ! $(command -v sudo) ]; then
+    if [[ "${os}" == "centos" ]]; then
+        yum install -y sudo
+    elif [[ "${os}" == "ubuntu" ]]; then
+        apt-get update
+        apt-get install -y sudo
     fi
 fi
 
-# Update the repository.
-set +ue
-if [[ "${CI}" != true ]]; then
-    git pull
+if [ ! $(command -v git) ]; then
+    if [[ "${os}" == "mac" ]]; then
+        brew install -y git
+    elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
+        sudo pacman -Syu git
+    elif [[ "${os}" == "centos" ]]; then
+        sudo yum install -y git
+    elif [[ "${os}" == "ubuntu" ]]; then
+        sudo apt-get update
+        sudo apt-get install -y git
+    fi
 fi
-set -ue
 
-# Set a custom OS grain for Manjaro.
-if grep Manjaro /etc/issue; then
-    sudo bash -c "echo os: Arch > /etc/salt/grains"
+if [ ! $(command -v curl) ]; then
+    if [[ "${os}" == "ubuntu" ]]; then
+        sudo apt-get update
+        sudo apt-get install -y curl
+    fi
 fi
 
-# Run salt.
-# add "-l debug" to the salt-call command to produce verbose output
-sudo /bin/bash -c "PATH=${PATH} HOME=${HOME} salt-call --local --file-root=./salt --state-output=mixed -l info --force-color --out-file=/tmp/salt-call.log state.apply 2>&1"
-grep --color=never -v stty /tmp/salt-call.log
+if [ ! $(command -v go) ]; then
+    if [[ "${os}" == "mac" ]]; then
+        brew install -y go
+    elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
+        sudo pacman --noconfirm -Syu go
+    else
+        ./templates/packages/go/linux.sh
+    fi
+fi
 
-# Exit with non-zero status if a failure occurred.
-grep Failed /tmp/salt-call.log | sed -E "s/[[:space:]]+/ /g" | grep -q ": 0" || exit 1
+echo "building for ${os}"
+go build -tags "${os}" -o ./bin/cfg ./cmd/cfg
+echo "done"
+
+./bin/cfg
