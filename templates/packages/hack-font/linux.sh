@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-if [ ! -f /usr/share/fonts/TTF/Hack-Regular.ttf ]; then
+if ! sudo test -f /usr/share/fonts/TTF/Hack-Regular.ttf; then
     cd /tmp
     curl -Lo hack-font.zip https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.zip
     unzip -o hack-font.zip
@@ -10,6 +10,5 @@ if [ ! -f /usr/share/fonts/TTF/Hack-Regular.ttf ]; then
         sudo chown root:root "${file}"
         sudo mv "${file}" /usr/share/fonts/TTF/
     done
+    fc-cache -f -v 1> /dev/null
 fi
-
-fc-cache -f -v 1> /dev/null
