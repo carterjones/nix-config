@@ -1,0 +1,8 @@
+[Unit]
+Description=Disable IPv6
+
+[Service]
+ExecStart=/bin/bash -c "sysctl -w net.ipv6.conf.all.disable_ipv6=1"
+
+[Install]
+WantedBy=graphical.target
