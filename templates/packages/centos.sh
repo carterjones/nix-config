@@ -20,6 +20,6 @@ sudo yum install -y \
     xz \
     xz-devel
 
-yum groupinstall -y "Development Tools"
+sudo yum groupinstall -y "Development Tools"
 
 ./packer/centos.sh

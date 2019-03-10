@@ -12,7 +12,7 @@ if [[ "${target_version}" != "${current_version}" ]]; then
     tar -C /usr/local/ -xvf /tmp/go.tar.gz 1> /dev/null
 fi
 
-ln -sf /usr/local/go/bin/go /usr/local/bin/go
+sudo ln -sf /usr/local/go/bin/go /usr/local/bin/go
 
 if grep -q Ubuntu /etc/lsb-release; then
     update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
