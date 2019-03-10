@@ -1,12 +1,14 @@
 # Temporarily comment out setxkbmap command. For some reason, out of nowhere, it
 # is now totally hanging whenever it is run from inside a shell on a Mac.
 # TODO: try uncommenting this on or after February 2018
-#if command -v setxkbmap &> /dev/null; then
-#    if ! [ -z "${DISPLAY:-}" ]; then
-#        setxkbmap -option altwin:ctrl_win \
-#                  -option caps:ctrl_modifier
-#    fi
-#fi
+if [[ $(uname) != Darwin ]]; then
+    if command -v setxkbmap &> /dev/null; then
+	if ! [ -z "${DISPLAY:-}" ]; then
+	    setxkbmap -option altwin:ctrl_win \
+                      -option caps:ctrl_modifier
+	fi
+    fi
+fi
 
 if command -v localectl &> /dev/null; then
     if ! (localectl status | grep -q "VC Keymap: dvorak"); then
