@@ -22,4 +22,5 @@ sudo yum install -y \
 
 sudo yum groupinstall -y "Development Tools"
 
+./emacs/centos.sh
 ./packer/centos.sh
