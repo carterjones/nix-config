@@ -2,8 +2,6 @@
   '(ag
     bar-cursor
     buffer-move
-    doremi
-    doremi-cmd
     exec-path-from-shell
     fiplr
     git

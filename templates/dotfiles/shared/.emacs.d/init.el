@@ -49,7 +49,7 @@
  '(org-support-shift-select t)
  '(package-selected-packages
    (quote
-    (exec-path-from-shell doremi-cmd doremi ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
+    (exec-path-from-shell ag helm-ag helm-projectile bar-cursor multiple-cursors magit window-number buffer-move smooth-scroll project-explorer json-mode markdown-mode go-autocomplete go-eldoc go-mode)))
  '(persp-set-ido-hooks t))
 
 (custom-set-faces
