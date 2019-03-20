@@ -21,8 +21,8 @@ cd nix-config
 
 # Supported Operating Systems
 
-The install script is tested against Arch, Manjaro, Ubuntu 16.04, and Ubuntu
-18.04.
+The install script is tested against Arch, Manjaro, Ubuntu 16.04, Ubuntu 18.04,
+and macOS.
 
 # Design Philosophy
 
