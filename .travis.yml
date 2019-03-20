@@ -1,38 +1,29 @@
 language: bash
-
-os:
-  - linux
-  - osx
-
 sudo: required
 
-matrix:
-  allow_failures:
-    - env: OS=Arch
-    - env: OS=Manjaro
-  exclude:
-    - os: osx
-      env: OS=Arch
-    - os: osx
-      env: OS=Manjaro
-    - os: osx
-      env: OS=Ubuntu_16.04
-    - os: osx
-      env: OS=Ubuntu_18.04
-    - os: osx
-      env: OS=CentOS_7
-    - os: linux
-      env: OS=Mac_OS_X
-
-env:
-  - OS=Arch
-  - OS=Manjaro
-  - OS=Ubuntu_16.04
-  - OS=Ubuntu_18.04
-  - OS=CentOS_7
-  - OS=Mac_OS_X
-
-# Note: if this fails due to timeouts in stdout, replace the following line
-# with:
-#   script: travis_wait 30 ./ci/test.sh
-script: ./ci/test.sh
+jobs:
+  include:
+    - stage:  test
+      env:    OS=Arch
+      os:     linux
+      script: ./ci/test.sh
+    - stage:  test
+      env:    OS=Manjaro
+      os:     linux
+      script: ./ci/test.sh
+    - stage:  test
+      env:    OS=Ubuntu_16.04
+      os:     linux
+      script: ./ci/test.sh
+    - stage:  test
+      env:    OS=Ubuntu_18.04
+      os:     linux
+      script: ./ci/test.sh
+    - stage:  test
+      env:    OS=CentOS_7
+      os:     linux
+      script: ./ci/test.sh
+    - stage:  test
+      env:    OS=Mac_OS_X
+      os:     osx
+      script: ./ci/test.sh
