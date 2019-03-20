@@ -9,8 +9,5 @@ Command=/usr/bin/bash
 Name=carter-custom
 Parent=FALLBACK/
 
-[Keyboard]
-KeyBindings=default
-
 [Scrolling]
 ScrollBarPosition=2
