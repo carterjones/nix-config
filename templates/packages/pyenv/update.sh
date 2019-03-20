@@ -17,9 +17,9 @@ latest_version=$(pyenv install --list | \
 
 # Install the latest Python version.
 if [ $(uname) == Darwin ]; then
-    # Mojave has issues with zlib, so we need this hack.
-    # https://github.com/pyenv/pyenv/issues/1219#issuecomment-429331397
-    export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+    if [ ! -f /usr/include/zlib.h ]; then
+        sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+    fi
 fi
 pyenv install -s $latest_version | grep -v "python-build: use.*from homebrew"
 
