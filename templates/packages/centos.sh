@@ -3,8 +3,7 @@ set -euxo pipefail
 
 # Base packages.
 sudo yum install -y \
-    fontconfig \
-    zsh
+    fontconfig
 
 # Python requirements.
 sudo yum install -y \
@@ -26,3 +25,4 @@ sudo yum groupinstall -y "Development Tools"
 ./git/centos.sh
 ./packer/centos.sh
 ./vscode/centos.sh
+./zsh/centos.sh
