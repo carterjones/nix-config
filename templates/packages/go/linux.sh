@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-target_version="go1.12"
+target_version="go1.12.1"
 current_version=$(/usr/local/go/bin/go version 2>&1 | cut -d" " -f3) || true
 
 if [[ "${target_version}" != "${current_version}" ]]; then
