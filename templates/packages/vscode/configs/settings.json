@@ -7,6 +7,7 @@
     "python.linting.pep8Enabled": true,
     "python.pythonPath": "${env:HOME}/.pyenv/versions/3.6.5/bin/python",
     "shellcheck.executablePath": "/usr/local/bin/shellcheck",
+    "shellcheck.exclude": ["SC1091"],
     "todohighlight.include": [
         "**/*.js",
         "**/*.txt",
