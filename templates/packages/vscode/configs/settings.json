@@ -1,12 +1,22 @@
 {
     "editor.fontFamily": "Hack",
-    "editor.rulers": [80, 100, 120],
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "python.linting.pep8Args": ["--max-line-length=100"],
+    "python.linting.pep8Args": [
+        "--max-line-length=100"
+    ],
     "python.linting.pep8Enabled": true,
     "python.pythonPath": "${env:HOME}/.pyenv/versions/3.6.5/bin/python",
     "shellcheck.executablePath": "/usr/local/bin/shellcheck",
-    "shellcheck.exclude": ["SC1091"],
+    "shellcheck.exclude": [
+        "SC1091"
+    ],
     "todohighlight.include": [
         "**/*.js",
         "**/*.txt",
