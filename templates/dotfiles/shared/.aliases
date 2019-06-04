@@ -19,6 +19,7 @@ fi
 alias ghist='git hist'
 alias gprune='git remote prune origin'
 alias gfc='git diff-tree --no-commit-id --name-status -r HEAD'
+alias groot='cd $(git rev-parse --show-toplevel)'
 
 # grep aliases
 if [[ $(echo $0) == "bash" ]]; then
