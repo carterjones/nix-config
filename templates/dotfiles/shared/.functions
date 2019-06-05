@@ -18,3 +18,20 @@ json2yaml () {
 yaml2json () {
     ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' < "${1:-/dev/stdin}"
 }
+
+compresspdf() {
+    if [ -z "$1" ]
+    then
+        echo "no input file specified"
+    fi
+    if [ -z "$2" ]
+    then
+        echo "no output file specified"
+    fi
+    # Quality level settings are:
+    # - "/screen": lowest quality
+    # - "/ebook": next highest quality
+    # - "/printer": next highest quality
+    # - "/prepress": next highest quality
+    gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -sOutputFile=$2 $1
+}
