@@ -15,6 +15,9 @@ else
    alias e='emacs -nw'
 fi
 
+# fzf aliases
+alias ft='fzf-tmux'
+
 # git aliases
 alias ghist='git hist'
 alias gprune='git remote prune origin'

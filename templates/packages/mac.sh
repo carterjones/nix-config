@@ -5,6 +5,7 @@ brew update
 brew upgrade
 
 brew install \
+    fzf \
     git \
     go \
     jq \
