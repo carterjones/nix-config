@@ -7,7 +7,6 @@ bbenoist.vagrant
 bibhasdn.unique-lines
 bungcip.better-toml
 carolynvs.dep
-daltonjorge.scala
 eamodio.gitlens
 eriklynd.json-tools
 esbenp.prettier-vscode
