@@ -17,6 +17,7 @@ fi
 
 # fzf aliases
 alias ft='fzf-tmux'
+alias s='fzf-tmux'
 
 # git aliases
 alias ghist='git hist'
