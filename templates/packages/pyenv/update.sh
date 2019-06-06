@@ -16,11 +16,6 @@ latest_version=$(pyenv install --list | \
                        sed "s/.* 3/3/")
 
 # Install the latest Python version.
-if [ $(uname) == Darwin ]; then
-    if [ ! -f /usr/include/zlib.h ]; then
-        sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
-    fi
-fi
 pyenv install -s $latest_version | grep -v "python-build: use.*from homebrew"
 
 # Set the latest Python version as the global default.
