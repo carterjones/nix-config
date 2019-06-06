@@ -1,11 +1,17 @@
 AlanWalk.markdown-toc
 DotJoshJohnson.xml
+GrapeCity.gc-excelviewer
 PeterJausovec.vscode-docker
+adamhartford.vscode-base64
+bbenoist.vagrant
 bibhasdn.unique-lines
 bungcip.better-toml
 carolynvs.dep
+daltonjorge.scala
+eamodio.gitlens
 eriklynd.json-tools
 esbenp.prettier-vscode
+jebbs.plantuml
 korekontrol.saltstack
 mechatroner.rainbow-csv
 ms-python.python
