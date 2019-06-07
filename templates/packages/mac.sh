@@ -13,6 +13,7 @@ brew install \
     packer \
     pyenv \
     pyenv-virtualenvwrapper \
+    ranger \
     the_silver_searcher \
     tmux \
     tree \
