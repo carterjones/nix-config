@@ -14,6 +14,9 @@ export GOPATH=$HOME
 # Set the default editor.
 export EDITOR="emacs -nw"
 
+# Set the default visual editor.
+export VISUAL="code"
+
 # Set up an nmap log directory path.
 export NMAP_LOGS=$HOME/.nmap/logs
 
