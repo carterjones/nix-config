@@ -21,10 +21,9 @@ class fzf_select(Command):
     """
 
     def execute(self):
-        command = r"find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) \
-            -print 2> /dev/null | grep -v '.git$' | grep -v '.git/' | cut -b3- | fzf +m"
+        command = r"find . -path '*/**' -print 2> /dev/null | cut -b3- | fzf +m"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
-        stdout = fzf.communicate()
+        stdout, _ = fzf.communicate()
         if fzf.returncode == 0:
             fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
             if os.path.isdir(fzf_file):
