@@ -3,27 +3,29 @@ sudo: required
 
 jobs:
   include:
-    - stage:  test
-      env:    OS=Arch
-      os:     linux
+    - stage: lint
+      script: ./ci/lint.sh
+    - stage: test
+      env: OS=Arch
+      os: linux
       script: ./ci/test.sh
-    - stage:  test
-      env:    OS=Manjaro
-      os:     linux
+    - stage: test
+      env: OS=Manjaro
+      os: linux
       script: ./ci/test.sh
-    - stage:  test
-      env:    OS=Ubuntu_16.04
-      os:     linux
+    - stage: test
+      env: OS=Ubuntu_16.04
+      os: linux
       script: ./ci/test.sh
-    - stage:  test
-      env:    OS=Ubuntu_18.04
-      os:     linux
+    - stage: test
+      env: OS=Ubuntu_18.04
+      os: linux
       script: ./ci/test.sh
-    - stage:  test
-      env:    OS=CentOS_7
-      os:     linux
+    - stage: test
+      env: OS=CentOS_7
+      os: linux
       script: ./ci/test.sh
-    - stage:  test
-      env:    OS=Mac_OS_X
-      os:     osx
+    - stage: test
+      env: OS=Mac_OS_X
+      os: osx
       script: ./ci/test.sh
