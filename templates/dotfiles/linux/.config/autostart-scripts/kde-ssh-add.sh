@@ -1,5 +1,6 @@
 #!/bin/bash
 
 eval "$(ssh-agent)"
-export SSH_ASKPASS="$(command -v ksshaskpass)"
+SSH_ASKPASS="$(command -v ksshaskpass)"
+export SSH_ASKPASS
 ssh-add < /dev/null

@@ -6,7 +6,7 @@ if ! id -u notroot; then
     echo 'notroot ALL = NOPASSWD: /usr/sbin/makepkg, /usr/sbin/pacman, /usr/sbin/trizen' | sudo EDITOR='tee -a' visudo
 fi
 
-if ! $(command -v trizen); then
+if ! command -v trizen; then
     cd /tmp
     if [ ! -d trizen ]; then
         sudo -u notroot git clone https://aur.archlinux.org/trizen.git
@@ -15,7 +15,7 @@ if ! $(command -v trizen); then
 
     # Observe: spaghetti + wall.
     sudo -u notroot makepkg -Ssif --noconfirm
-    result=$(ls *.gz | tail -1)
+    result=$(find . -path "*.gz" | tail -1)
     sudo pacman -U "${result}" || true
     sudo pacman -Syu
     sudo -u notroot makepkg -si --noconfirm

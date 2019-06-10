@@ -16,19 +16,19 @@ if [ $PREPARE -eq 1 ]; then
  # create files with AAA...A BBBC AAA...A
  # to find the sequence "BBB" == 0x424242
  #
- for index in `seq 0 1025`;do
-  fileIndex=`printf "%04i" ${index}`
-  perl -e 'print "A"x'"${index}"';print "BBBC";print "A"x20;' > /tmp/bgrepTest${fileIndex}.txt
-  printf "%08x\n" ${index} >> /tmp/bgrepExpectedResult.txt
+ for index in $(seq 0 1025);do
+  fileIndex=$(printf "%04i" "${index}")
+  perl -e 'print "A"x'"${index}"';print "BBBC";print "A"x20;' > "/tmp/bgrepTest${fileIndex}.txt"
+  printf "%08x\n" "${index}" >> /tmp/bgrepExpectedResult.txt
  done
 
  #
  # create files with AAA...A BBB
  # to find the sequence "BBB" == 0x424242
  #
- for index in `seq 1020 1025`;do
-  perl -e 'print "A"x'"${index}"';print "BBB"' > /tmp/bgrepTestSpecial${index}.txt
-  printf "%08x\n" ${index} >> /tmp/bgrepExpectedResult.txt
+ for index in $(seq 1020 1025);do
+  perl -e 'print "A"x'"${index}"';print "BBB"' > "/tmp/bgrepTestSpecial${index}.txt"
+  printf "%08x\n" "${index}" >> /tmp/bgrepExpectedResult.txt
  done
 
 fi

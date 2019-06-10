@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-if [[ "${install_plugins}" != "yes" ]]; then
+if [[ "${install_plugins:?}" != "yes" ]]; then
     exit 0
 fi
 

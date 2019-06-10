@@ -6,7 +6,7 @@ sudo chown root:root /etc/systemd/system/fnmode.service
 
 [ -f /sbin/init ] || exit 0
 
-if ! $(sudo systemctl is-active --quiet fnmode); then
+if ! sudo systemctl is-active --quiet fnmode; then
     sudo systemctl start fnmode
 fi
 
