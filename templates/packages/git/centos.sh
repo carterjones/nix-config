@@ -6,6 +6,6 @@ if ! git --version | grep -q "${version}"; then
     # Install git.
     pushd /tmp
     curl -Lo git.tgz "https://s3-us-west-2.amazonaws.com/res.carterjones.info/pkg/centos7/git/git-${version}.tar.gz"
-    tar -xf git.tgz -C /
+    sudo tar -xf git.tgz -C /
     popd
 fi
