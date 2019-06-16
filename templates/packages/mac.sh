@@ -9,7 +9,6 @@ brew install \
     git \
     go \
     jq \
-    mps-youtube \
     reattach-to-user-namespace \
     packer \
     pyenv \
