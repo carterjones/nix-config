@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "Hack",
   "editor.formatOnSave": true,
-  "editor.rulers": [80, 100, 120],
+  "editor.rulers": [80, 100],
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "gitlens.codeLens.enabled": false,
