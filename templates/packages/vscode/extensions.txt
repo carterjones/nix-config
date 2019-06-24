@@ -1,7 +1,6 @@
 AlanWalk.markdown-toc
 DotJoshJohnson.xml
 GrapeCity.gc-excelviewer
-PeterJausovec.vscode-docker
 adamhartford.vscode-base64
 bbenoist.vagrant
 bibhasdn.unique-lines
