@@ -5,6 +5,8 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "gitlens.codeLens.enabled": false,
+  "prettier.arrowParens": "always",
+  "prettier.trailingComma": "all",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.pep8Args": ["--max-line-length=100"],
