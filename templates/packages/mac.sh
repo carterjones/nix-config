@@ -33,3 +33,6 @@ brew cleanup 1> /dev/null
 ./hack-font/mac.sh
 ./vscode/mac.sh
 ./xcode/mac.sh
+
+# Hide all icons from the desktop.
+defaults write com.apple.finder CreateDesktop -bool false
