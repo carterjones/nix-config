@@ -5,6 +5,7 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "gitlens.codeLens.enabled": false,
+  "keyboard.touchbar.enabled": false,
   "prettier.arrowParens": "always",
   "prettier.trailingComma": "all",
   "python.linting.pylintEnabled": false,
