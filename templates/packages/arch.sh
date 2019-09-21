@@ -63,9 +63,12 @@ sudo pacman --noconfirm -Syu \
     yakuake \
     zsh
 
-./docker/arch.sh
-./fnmode/arch.sh
-./packer/linux.sh
-./pacman/arch.sh
-./trizen/arch.sh
-./vagrant/arch.sh
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+install_pkg_for_env docker arch
+install_pkg_for_env docker arch
+install_pkg_for_env fnmode arch
+install_pkg_for_env packer linux
+install_pkg_for_env pacman arch
+install_pkg_for_env trizen arch
+install_pkg_for_env vagrant arch

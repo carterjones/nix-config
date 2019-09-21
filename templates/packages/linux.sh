@@ -1,7 +1,9 @@
 #!/bin/bash
 set -euxo pipefail
 
-./go/linux.sh
-./hack-font/linux.sh
-./ipv6/linux.sh
-./vscode/linux.sh
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+install_pkg_for_env go linux
+install_pkg_for_env hack-font linux
+install_pkg_for_env ipv6 linux
+install_pkg_for_env vscode linux

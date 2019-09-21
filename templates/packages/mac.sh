@@ -29,10 +29,12 @@ brew cask install \
 
 brew cleanup 1> /dev/null
 
-./docker/mac.sh
-./hack-font/mac.sh
-./vscode/mac.sh
-./xcode/mac.sh
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+install_pkg_for_env docker mac
+install_pkg_for_env hack-font mac
+install_pkg_for_env vscode mac
+install_pkg_for_env xcode mac
 
 # Hide all icons from the desktop.
 defaults write com.apple.finder CreateDesktop -bool false

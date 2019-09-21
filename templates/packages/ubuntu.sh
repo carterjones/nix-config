@@ -35,7 +35,9 @@ if [ -d /usr/share/xsessions/ ]; then
         yakuake
 fi
 
-./gnome/ubuntu.sh
-./openvpn/ubuntu.sh
-./packer/linux.sh
-./vagrant/ubuntu.sh
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+install_pkg_for_env gnome ubuntu
+install_pkg_for_env openvpn ubuntu
+install_pkg_for_env packer linux
+install_pkg_for_env vagrant ubuntu

@@ -19,5 +19,5 @@ cd "${HOME}/.pyenv/plugins/pyenv-virtualenvwrapper"
 git pull
 popd
 
-./pyenv/pyenv/pyenv-installer
-./pyenv/update.sh
+./pyenv/pyenv-installer
+./update.sh

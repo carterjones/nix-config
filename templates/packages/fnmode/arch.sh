@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-sudo cp ./fnmode/fnmode.service /etc/systemd/system/fnmode.service
+sudo cp ./fnmode.service /etc/systemd/system/fnmode.service
 sudo chown root:root /etc/systemd/system/fnmode.service
 
 [ -f /sbin/init ] || exit 0

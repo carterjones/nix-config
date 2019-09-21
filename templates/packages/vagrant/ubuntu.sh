@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 # shellcheck disable=SC1091
-source ./vagrant/common.sh
+source ./common.sh
 export install_plugins
 
 if [[ "${latest_version:?}" != "${current_version:?}" ]]; then
@@ -10,4 +10,4 @@ if [[ "${latest_version:?}" != "${current_version:?}" ]]; then
     sudo dpkg -i /tmp/vagrant_installer
 fi
 
-./vagrant/plugins.sh
+./plugins.sh

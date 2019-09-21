@@ -2,6 +2,6 @@
 set -euxo pipefail
 
 # shellcheck disable=SC1091
-source ./vagrant/common.sh
+source ./common.sh
 export install_plugins
-./vagrant/plugins.sh
+./plugins.sh

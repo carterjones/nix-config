@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 # shellcheck disable=SC1091
-source ./packer/common.sh
+source ./common.sh
 current_version=$("${HOME}/bin/packer.io" --version 2>&1 | cut -d" " -f2) || true
 
 if [[ "${latest_version:?}" != "${current_version}" ]]; then

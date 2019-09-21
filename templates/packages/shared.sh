@@ -1,8 +1,10 @@
 #!/bin/bash
 set -euxo pipefail
 
-./bgrep/shared.sh
-./nmap/shared.sh
-./pyenv/shared.sh
-./tmux/shared.sh
-./zsh/shared.sh
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+install_pkg_for_env bgrep shared
+install_pkg_for_env nmap shared
+install_pkg_for_env pyenv shared
+install_pkg_for_env tmux shared
+install_pkg_for_env zsh shared
