@@ -20,7 +20,7 @@ if [[ "${os}" == "???" ]]; then
     exit 1
 fi
 
-if [ ! $(command -v sudo) ]; then
+if [ ! "$(command -v sudo)" ]; then
     if [[ "${os}" == "centos" ]]; then
         yum install -y sudo
     elif [[ "${os}" == "ubuntu" ]]; then
@@ -29,7 +29,7 @@ if [ ! $(command -v sudo) ]; then
     fi
 fi
 
-if [ ! $(command -v git) ]; then
+if [ ! "$(command -v git)" ]; then
     if [[ "${os}" == "mac" ]]; then
         brew install -y git
     elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
@@ -42,14 +42,14 @@ if [ ! $(command -v git) ]; then
     fi
 fi
 
-if [ ! $(command -v curl) ]; then
+if [ ! "$(command -v curl)" ]; then
     if [[ "${os}" == "ubuntu" ]]; then
         sudo apt-get update
         sudo apt-get install -y curl
     fi
 fi
 
-if [ ! $(command -v go) ]; then
+if [ ! "$(command -v go)" ]; then
     if [[ "${os}" == "mac" ]]; then
         brew install -y go
     elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then

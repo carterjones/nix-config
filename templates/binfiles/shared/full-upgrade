@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 if [[ $(uname) == Linux ]]; then
-    if cat /etc/issue | grep -E "(Arch|Manjaro)" -q; then
+    if grep -E "(Arch|Manjaro)" -q < /etc/issue; then
         # Upgrade the keyring.
         sudo pacman -Sy archlinux-keyring
 
@@ -15,7 +15,7 @@ if [[ $(uname) == Linux ]]; then
         # Remove unneeded packages.
         set +ue
         packages=$(sudo pacman -Qtdq)
-        if ! [ -z "${packages}" ]; then
+        if [ -n "${packages}" ]; then
             pacman -Rns "${packages}"
         fi
         set -ue
@@ -44,6 +44,6 @@ elif [[ $(uname) == Darwin ]]; then
 fi
 
 # Update nix-config. Install any updates.
-pushd $HOME/src/github.com/carterjones/nix-config
+pushd "${HOME}/src/github.com/carterjones/nix-config"
 ./install
 popd

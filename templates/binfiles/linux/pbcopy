@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Determine what the input is (file or stdin).
-[ $# -ge 1 -a -f "$1" ] && input="$1" || input="-"
+[ $# -ge 1 ] && [ -f "$1" ] && input="$1" || input="-"
 
 # Copy to cliboard.
-cat $input | xclip -selection clipboard
+xclip -selection clipboard < "${input}"

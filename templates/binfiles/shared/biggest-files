@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo du -sh * .* | grep "G\t" | grep -v "\t\.$" | grep -v "\t\.\." | sort -nr
+sudo du -sh ./* .* | grep "G\t" | grep -v "\t\.$" | grep -v "\t\.\." | sort -nr
