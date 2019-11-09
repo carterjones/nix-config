@@ -1,6 +1,12 @@
 #!/bin/bash
 set -euxo pipefail
 
+# shellcheck source=./templates/packages/common.sh
+source ./common.sh
+
+# Install XCode before running brew commands.
+install_pkg_for_env xcode mac
+
 brew update
 brew upgrade
 
@@ -29,12 +35,10 @@ brew cask install \
 
 brew cleanup 1> /dev/null
 
-# shellcheck source=./templates/packages/common.sh
-source ./common.sh
+# Install additional packages.
 install_pkg_for_env docker mac
 install_pkg_for_env hack-font mac
 install_pkg_for_env vscode mac
-install_pkg_for_env xcode mac
 
 # Hide all icons from the desktop.
 defaults write com.apple.finder CreateDesktop -bool false
