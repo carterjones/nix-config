@@ -28,4 +28,5 @@ jobs:
     - stage: test
       env: OS=Mac_OS_X
       os: osx
+      osx_image: xcode11.2
       script: ./ci/test.sh
