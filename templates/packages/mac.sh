@@ -42,3 +42,6 @@ install_pkg_for_env vscode mac
 
 # Hide all icons from the desktop.
 defaults write com.apple.finder CreateDesktop -bool false
+
+# Don't copy/paste formatting from the terminal.
+defaults write com.apple.Terminal CopyAttributesProfile com.apple.Terminal.no-attributes
