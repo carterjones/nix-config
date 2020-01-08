@@ -25,7 +25,7 @@
   ],
   "todohighlight.isCaseSensitive": true,
   "todohighlight.isEnable": true,
-  "todohighlight.keywordsPattern": "TODO|DEBUG|FIXME|[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy",
+  "todohighlight.keywordsPattern": "[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy|[Ee]asily",
   "window.restoreWindows": "all",
   "window.zoomLevel": 0,
   "workbench.startupEditor": "newUntitledFile",
