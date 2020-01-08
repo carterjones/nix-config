@@ -20,6 +20,7 @@ brew install \
     pyenv \
     pyenv-virtualenvwrapper \
     ranger \
+    shellcheck \
     the_silver_searcher \
     tmux \
     tree \
