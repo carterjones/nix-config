@@ -20,15 +20,6 @@ if [[ "${os}" == "???" ]]; then
     exit 1
 fi
 
-if [ ! "$(command -v sudo)" ]; then
-    if [[ "${os}" == "centos" ]]; then
-        yum install -y sudo
-    elif [[ "${os}" == "ubuntu" ]]; then
-        apt-get update
-        apt-get install -y sudo
-    fi
-fi
-
 if [ ! "$(command -v git)" ]; then
     if [[ "${os}" == "mac" ]]; then
         brew install -y git
