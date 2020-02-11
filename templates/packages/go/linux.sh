@@ -15,6 +15,6 @@ fi
 sudo ln -sf /usr/local/go/bin/go /usr/local/bin/go
 
 if grep -q Ubuntu /etc/lsb-release; then
-    update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
-    update-alternatives --set go /usr/local/go/bin/go
+    sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
+    sudo update-alternatives --set go /usr/local/go/bin/go
 fi
