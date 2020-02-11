@@ -9,4 +9,4 @@ if grep -q 16.04 /etc/lsb-release; then
     sudo apt-get update -y
 fi
 
-sudo apt-get install -y openvpn
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn
