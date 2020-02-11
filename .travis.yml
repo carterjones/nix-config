@@ -6,27 +6,27 @@ jobs:
     - stage: lint
       script: ./ci/lint.sh
     - stage: test
-      env: OS=Arch
+      env: OS=arch
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=Manjaro
+      env: OS=manjaro
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=Ubuntu_16.04
+      env: OS=ubuntu-16.04
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=Ubuntu_18.04
+      env: OS=ubuntu-18.04
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=CentOS_7
+      env: OS=centos-7
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=Mac_OS_X
+      env: OS=macos
       os: osx
       osx_image: xcode11.3
       script: ./ci/test.sh
