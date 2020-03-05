@@ -11,6 +11,7 @@ eriklynd.json-tools
 esbenp.prettier-vscode
 jebbs.plantuml
 korekontrol.saltstack
+mauve.terraform
 mechatroner.rainbow-csv
 ms-python.python
 ms-vscode.Go
@@ -22,4 +23,3 @@ stkb.rewrap
 timonwong.shellcheck
 tootone.org-mode
 wayou.vscode-todo-highlight
-wholroyd.HCL
