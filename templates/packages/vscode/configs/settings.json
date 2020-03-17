@@ -15,6 +15,16 @@
   "python.pythonPath": "${env:HOME}/.pyenv/versions/3.6.5/bin/python",
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellcheck.exclude": ["SC1091"],
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
+  },
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  },
   "todohighlight.include": [
     "**/*.js",
     "**/*.txt",
