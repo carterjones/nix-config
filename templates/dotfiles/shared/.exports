@@ -9,7 +9,7 @@ export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 
 # Set up the go path.
-export GOPATH=$HOME
+export GOPATH=$HOME/go
 
 # Set the default editor.
 export EDITOR="emacs -nw"
