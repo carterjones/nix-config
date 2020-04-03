@@ -15,6 +15,14 @@ latest_version=$(pyenv install --list | \
                        tail -1 | \
                        sed "s/.* 3/3/")
 
+# Make sure TLS gets installed.
+if [[ $(uname) == "Darwin" ]]; then
+    CFLAGS="-I$(brew --prefix openssl)/include"
+    LDFLAGS="-L$(brew --prefix openssl)/lib"
+    export CFLAGS
+    export LDFLAGS
+fi
+
 # Install the latest Python version.
 pyenv install -s "$latest_version" | grep -v "python-build: use.*from homebrew"
 
