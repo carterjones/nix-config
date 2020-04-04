@@ -22,7 +22,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \
-    python-pip \
     python3-pip \
     zlib1g-dev
 
