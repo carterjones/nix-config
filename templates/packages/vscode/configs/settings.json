@@ -7,7 +7,7 @@
   "gitlens.codeLens.enabled": false,
   "keyboard.touchbar.enabled": false,
   "prettier.arrowParens": "always",
-  "prettier.trailingComma": "all",
+  "prettier.trailingComma": "es5",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.pep8Args": ["--max-line-length=100"],
