@@ -55,3 +55,8 @@ go build -tags "${os}" -o ./bin/cfg ./cmd/cfg
 echo "done"
 
 ./bin/cfg
+
+# Run a custom installer if one has been created.
+if [[ -f "${HOME}/bin/install-custom-config" ]]; then
+    "${HOME}/bin/install-custom-config"
+fi
