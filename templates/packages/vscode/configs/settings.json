@@ -3,7 +3,6 @@
   "[go]": {"editor.formatOnType": true},
   "[groovy]": {"editor.formatOnType": true},
   "[markdown]": {"editor.formatOnType": true},
-  "[plaintext]": {"editor.formatOnType": true},
   "[shellscript]": {"editor.formatOnType": true},
   "[terraform]": {"editor.formatOnType": true},
   "[toml]": {"editor.formatOnType": true},
