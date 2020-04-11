@@ -53,6 +53,9 @@ alias todo='ag -i todo --ignore-dir=vendor --ignore-dir=.git'
 alias t="pgrep tmux && tmux a || tmux"
 alias tk="tmux kill-server"
 
+# vscode aliases
+alias c='code'
+
 # wine aliases
 alias wine-steam-prep='export WINEARCH=win32; export WINEPREFIX=~/.wine-steam'
 
