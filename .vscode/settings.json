@@ -1,4 +1,3 @@
 {
-    "go.buildTags": "mac",
-    "python.pythonPath": "/Users/shad0w/.pyenv/versions/3.7.3/bin/python"
+    "go.buildTags": "mac"
 }
