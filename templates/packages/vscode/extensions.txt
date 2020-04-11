@@ -18,4 +18,5 @@ mushan.vscode-paste-image
 shd101wyy.markdown-preview-enhanced
 stkb.rewrap
 timonwong.shellcheck
+trentrand.git-rebase-shortcuts
 wayou.vscode-todo-highlight
