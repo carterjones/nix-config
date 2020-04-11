@@ -31,6 +31,7 @@ brew install \
 brew cask install \
     docker \
     emacs \
+    hyper \
     vagrant \
     visual-studio-code
 
