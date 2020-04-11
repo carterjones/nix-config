@@ -14,7 +14,7 @@
     changed = magenta
     untracked = bold yellow
 [core]
-    editor = emacs -nw
+    editor = code -w
 [diff]
     color = true
     tool = meld

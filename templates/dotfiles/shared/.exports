@@ -12,7 +12,7 @@ export PATH=/usr/local/go/bin:$PATH
 export GOPATH=$HOME/go
 
 # Set the default editor.
-export EDITOR="emacs -nw"
+export EDITOR="code -w"
 
 # Set the default visual editor.
 export VISUAL="code"
