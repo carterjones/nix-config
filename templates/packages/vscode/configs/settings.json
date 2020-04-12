@@ -15,7 +15,6 @@
   "keyboard.touchbar.enabled": false,
   "python.linting.flake8Enabled": true,
   "rewrap.wholeComment": false,
-  "rewrap.autoWrap.enabled": true,
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellcheck.exclude": ["SC1091"],
   "terraform.indexing": {
