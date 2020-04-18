@@ -1,0 +1,3 @@
+#!/bin/bash
+
+things.sh today | sed ';s,|things.*,,' | column -t -s '|'

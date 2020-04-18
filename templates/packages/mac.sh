@@ -7,6 +7,11 @@ source ./common.sh
 # Install XCode before running brew commands.
 install_pkg_for_env xcode mac
 
+# Tap custom repositories.
+
+# https://github.com/AlexanderWillner/things.sh
+brew tap AlexanderWillner/tap # provides things.sh
+
 brew update
 brew upgrade
 
@@ -22,6 +27,7 @@ brew install \
     ranger \
     shellcheck \
     the_silver_searcher \
+    things.sh \
     tmux \
     tree \
     vagrant-completion \
