@@ -22,10 +22,6 @@ jobs:
       os: linux
       script: ./ci/test.sh
     - stage: test
-      env: OS=centos-7
-      os: linux
-      script: ./ci/test.sh
-    - stage: test
       env: OS=centos-8
       os: linux
       script: ./ci/test.sh
