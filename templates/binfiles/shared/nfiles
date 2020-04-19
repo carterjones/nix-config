@@ -1,0 +1,6 @@
+#!/bin/bash
+
+target_dir="${1:-$(pwd)}"
+
+# Recursively count the number of files in the current directory.
+find "${target_dir}" -type f | wc -l
