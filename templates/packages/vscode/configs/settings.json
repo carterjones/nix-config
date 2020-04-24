@@ -4,7 +4,7 @@
   "[groovy]": {"editor.formatOnType": true},
   "[markdown]": {"editor.formatOnType": true},
   "[shellscript]": {"editor.formatOnType": true},
-  "[terraform]": {"editor.formatOnType": true},
+  "[terraform]": {"editor.formatOnType": true, "editor.formatOnSave": true},
   "[toml]": {"editor.formatOnType": true},
   "[yaml]": {"editor.formatOnType": true},
   "editor.fontFamily": "Hack",
