@@ -3,7 +3,8 @@ set -euxo pipefail
 
 # Base packages.
 sudo yum install -y \
-    fontconfig
+    fontconfig \
+    jq
 
 # Python requirements.
 sudo yum install -y \

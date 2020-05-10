@@ -9,6 +9,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
     fontconfig \
     git-el \
     iproute2 \
+    jq \
     meld \
     nmap \
     tmux \

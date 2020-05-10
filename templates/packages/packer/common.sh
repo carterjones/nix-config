@@ -1,4 +1,4 @@
 #!/bin/bash
 
-latest_version=$(curl -s "https://www.packer.io/downloads.html" | grep darwin_amd64.zip | sed "s/.*packer_//;s/_darwin_amd64.*//")
+latest_version=$(curl --silent "https://api.github.com/repos/hashicorp/packer/tags" | jq -r '.[] | .name' | sort -r | grep "^v" | head -1 | sed "s/v//")
 export latest_version
