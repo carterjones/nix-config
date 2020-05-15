@@ -8,6 +8,9 @@ alias ag='ag --hidden'
 alias b='source ~/.bashrc'
 alias exti='exit'
 
+# docker aliases
+alias docker-rm-rf="docker rm $(docker ps -a -q); docker image rm $(docker image ls --quiet)"
+
 # emacs alias
 if command -v emacs-snapshot &> /dev/null; then
    alias e='emacs-snapshot -nw'
