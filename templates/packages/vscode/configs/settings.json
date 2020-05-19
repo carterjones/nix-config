@@ -10,6 +10,7 @@
   "editor.fontFamily": "Hack",
   "editor.rulers": [79, 99],
   "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "gitlens.codeLens.enabled": false,
   "keyboard.touchbar.enabled": false,
