@@ -18,6 +18,8 @@
 [diff]
     color = true
     tool = meld
+[pull]
+    ff = only
 [push]
     default = simple
 [url "ssh://git@github.com/carterjones/"]
