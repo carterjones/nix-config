@@ -9,8 +9,8 @@ bungcip.better-toml
 coolbear.systemd-unit-file
 eamodio.gitlens
 eriklynd.json-tools
+hashicorp.terraform
 jebbs.plantuml
-mauve.terraform
 mechatroner.rainbow-csv
 ms-python.python
 ms-vscode.Go
