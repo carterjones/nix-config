@@ -33,4 +33,4 @@ systems for myself constantly and every second where I repeat myself adds up, so
 this repo helps me streamline my efforts and be efficient.
 
 For more info about this concept, please see
-http://growsmethod.com/practices/EverythingInVC.html
+[http://growsmethod.com/practices/EverythingInVC.html](https://web.archive.org/web/20180508113126/http://growsmethod.com/practices/EverythingInVC.html)
