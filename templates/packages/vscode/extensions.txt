@@ -8,12 +8,12 @@ DavidAnson.vscode-markdownlint
 DotJoshJohnson.xml
 eamodio.gitlens
 eriklynd.json-tools
+golang.go
 GrapeCity.gc-excelviewer
 hashicorp.terraform
 jebbs.plantuml
 mechatroner.rainbow-csv
 ms-python.python
-ms-vscode.Go
 ms-vsliveshare.vsliveshare
 mushan.vscode-paste-image
 shd101wyy.markdown-preview-enhanced
