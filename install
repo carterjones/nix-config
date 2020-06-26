@@ -51,7 +51,7 @@ if [ ! "$(command -v go)" ]; then
 fi
 
 echo "building for ${os}"
-go build -tags "${os}" -o ./bin/cfg ./cmd/cfg
+go build -o ./bin/cfg ./cmd/cfg
 echo "done"
 
 ./bin/cfg
