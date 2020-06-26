@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/carterjones/nix-config.svg?branch=master)](https://travis-ci.org/carterjones/nix-config)
+[![Maintainability](https://api.codeclimate.com/v1/badges/929b0a915c29e8d5a994/maintainability)](https://codeclimate.com/github/carterjones/nix-config/maintainability)
 
 # Overview
 
