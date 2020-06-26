@@ -4,6 +4,9 @@ func main() {
 	actions := append(osActions(), sharedActions()...)
 
 	for _, a := range actions {
-		panicIfErr(a())
+		err := a()
+		if err != nil {
+			panic(err)
+		}
 	}
 }
