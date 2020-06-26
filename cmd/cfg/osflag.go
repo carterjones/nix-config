@@ -44,12 +44,12 @@ func (of OSFlag) OSString() string {
 	return s
 }
 
-func isFile(name string) (bool, error) {
-	fi, err := os.Stat(name)
+func fileExists(path string) bool {
+	fi, err := os.Stat(path)
 	if err != nil {
-		return false, err
+		return false
 	}
-	return !fi.IsDir(), nil
+	return !fi.IsDir()
 }
 
 func fileContains(str, filepath string) bool {
@@ -76,11 +76,11 @@ func getUnameOutput() string {
 
 func generateOSFlag() OSFlag {
 	of := OSFlag{}
-	if ok, _ := isFile("/etc/manjaro-release"); ok {
+	if fileExists("/etc/manjaro-release") {
 		of.IsManjaro = true
-	} else if ok, _ := isFile("/etc/arch-release"); ok {
+	} else if fileExists("/etc/arch-release") {
 		of.IsArch = true
-	} else if ok, _ := isFile("/etc/centos-release"); ok {
+	} else if fileExists("/etc/centos-release") {
 		of.IsCentos = true
 	} else if fileContains("Ubuntu", "/etc/lsb-release") {
 		of.IsUbuntu = true
