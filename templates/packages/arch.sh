@@ -24,6 +24,7 @@ sudo pacman --noconfirm -Syu \
     groff \
     guile \
     hplip \
+    jq \
     libatomic_ops \
     libffi \
     libmpc \
