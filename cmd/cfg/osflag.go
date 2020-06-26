@@ -76,17 +76,18 @@ func getUnameOutput() string {
 
 func generateOSFlag() OSFlag {
 	of := OSFlag{}
-	if fileExists("/etc/manjaro-release") {
+	switch {
+	case fileExists("/etc/manjaro-release"):
 		of.IsManjaro = true
-	} else if fileExists("/etc/arch-release") {
+	case fileExists("/etc/arch-release"):
 		of.IsArch = true
-	} else if fileExists("/etc/centos-release") {
+	case fileExists("/etc/centos-release"):
 		of.IsCentos = true
-	} else if fileContains("Ubuntu", "/etc/lsb-release") {
+	case fileContains("Ubuntu", "/etc/lsb-release"):
 		of.IsUbuntu = true
-	} else if strings.Contains(getUnameOutput(), "Darwin") {
+	case strings.Contains(getUnameOutput(), "Darwin"):
 		of.IsMac = true
-	} else {
+	default:
 		panic("no OS was identified. this is required to proceed.")
 	}
 	return of
