@@ -20,10 +20,10 @@ func generateOSActions() []action {
 	case osFlag.IsUbuntu:
 		return []action{
 			func() error { return bash(cnfTemplate("packages/" + osFlag.OSString() + ".sh")) },
-			func() error { return copy(cnfTemplate("dotfiles/linux"), home(), OSFlag{}) },
-			func() error { return copy(cnfTemplate("dotfiles/shared"), home(), OSFlag{}) },
+			func() error { return copy(cnfTemplate("dotfiles/linux"), home(), osFlag) },
+			func() error { return copy(cnfTemplate("dotfiles/shared"), home(), osFlag) },
 			func() error { return bash(cnfTemplate("packages/linux.sh")) },
-			func() error { return copy(cnfTemplate("binfiles/linux"), home("bin"), OSFlag{}) },
+			func() error { return copy(cnfTemplate("binfiles/linux"), home("bin"), osFlag) },
 		}
 	default:
 		panic("unsupported operating system. bye.")
