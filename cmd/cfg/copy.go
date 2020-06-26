@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -40,23 +39,14 @@ func copyDir(src, dst string, of OSFlag) error {
 	})
 }
 
-func copy(src, dst string, of OSFlag) error {
-	// Handle directories.
-	ok, err := isDir(src)
-	if err != nil {
-		return err
-	}
-	if ok {
-		return copyDir(src, dst, of)
-	}
-
+func copyFile(src, dst string, of OSFlag) error {
 	data, err := ioutil.ReadFile(src)
 	if err != nil {
 		return err
 	}
 
 	dstDir := filepath.Dir(dst)
-	ok, err = isDir(dstDir)
+	ok, err := isDir(dstDir)
 	if err != nil || !ok {
 		err = os.MkdirAll(dstDir, os.ModePerm)
 		if err != nil {
@@ -71,12 +61,18 @@ func copy(src, dst string, of OSFlag) error {
 
 	// Create a new template and parse the letter into it.
 	t := template.Must(template.New("file").Parse(string(data)))
-	err = t.Execute(dstF, of)
+	return t.Execute(dstF, of)
+}
+
+func copy(src, dst string, of OSFlag) error {
+	// Handle directories.
+	ok, err := isDir(src)
 	if err != nil {
 		return err
 	}
+	if ok {
+		return copyDir(src, dst, of)
+	}
 
-	fmt.Println("copy:", src, "->", dst)
-
-	return nil
+	return copyFile(src, dst, of)
 }
