@@ -86,6 +86,8 @@ func generateOSFlag() OSFlag {
 		of.IsUbuntu = true
 	} else if strings.Contains(getUnameOutput(), "Darwin") {
 		of.IsMac = true
+	} else {
+		panic("no OS was identified. this is required to proceed.")
 	}
 	return of
 }
