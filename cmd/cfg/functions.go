@@ -29,11 +29,3 @@ func bash(p string) error {
 	}
 	return nil
 }
-
-func isDir(name string) (bool, error) {
-	fi, err := os.Stat(name)
-	if err != nil {
-		return false, err
-	}
-	return fi.IsDir(), nil
-}

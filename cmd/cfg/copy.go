@@ -9,6 +9,14 @@ import (
 	"text/template"
 )
 
+func isDir(name string) (bool, error) {
+	fi, err := os.Stat(name)
+	if err != nil {
+		return false, err
+	}
+	return fi.IsDir(), nil
+}
+
 func copyDir(src, dst string, of OSFlag) error {
 	// Add a '/' suffix to the directory string.
 	if !strings.HasSuffix(src, "/") {
