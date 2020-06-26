@@ -1,53 +1,30 @@
 package main
 
-func linuxActions(of OSFlag) []action {
-	return []action{
-		func() error { return copy(cnfTemplate("dotfiles/linux"), home(), OSFlag{}) },
-		func() error { return copy(cnfTemplate("dotfiles/shared"), home(), OSFlag{}) },
-		func() error { return bash(cnfTemplate("packages/linux.sh")) },
-		func() error { return copy(cnfTemplate("binfiles/linux"), home("bin"), OSFlag{}) },
-	}
-}
-
 func generateOSActions() []action {
 	osFlag := generateOSFlag()
 
-	osActions := map[string][]action{
-		"arch": append(
-			[]action{func() error { return bash(cnfTemplate("packages/arch.sh")) }},
-			linuxActions(osFlag)...,
-		),
-		"centos": append(
-			[]action{func() error { return bash(cnfTemplate("packages/centos.sh")) }},
-			linuxActions(osFlag)...,
-		),
-		"mac": []action{
+	switch {
+	case osFlag.IsMac:
+		return []action{
 			func() error { return bash(cnfTemplate("packages/mac.sh")) },
 			func() error { return copy(cnfTemplate("dotfiles/shared"), home(), osFlag) },
 			func() error { return copy(cnfTemplate("dotfiles/mac"), home(), osFlag) },
 			func() error { return copy(cnfTemplate("binfiles/mac"), home("bin"), osFlag) },
-		},
-		"manjaro": append(
-			[]action{func() error { return bash(cnfTemplate("packages/manjaro.sh")) }},
-			linuxActions(osFlag)...,
-		),
-		"ubuntu": append(
-			[]action{func() error { return bash(cnfTemplate("packages/ubuntu.sh")) }},
-			linuxActions(osFlag)...,
-		),
-	}
-
-	switch {
+		}
 	case osFlag.IsArch:
-		return osActions["arch"]
+		fallthrough
 	case osFlag.IsCentos:
-		return osActions["centos"]
-	case osFlag.IsMac:
-		return osActions["mac"]
+		fallthrough
 	case osFlag.IsManjaro:
-		return osActions["manjaro"]
+		fallthrough
 	case osFlag.IsUbuntu:
-		return osActions["ubuntu"]
+		return []action{
+			func() error { return bash(cnfTemplate("packages/" + osFlag.OSString() + ".sh")) },
+			func() error { return copy(cnfTemplate("dotfiles/linux"), home(), OSFlag{}) },
+			func() error { return copy(cnfTemplate("dotfiles/shared"), home(), OSFlag{}) },
+			func() error { return bash(cnfTemplate("packages/linux.sh")) },
+			func() error { return copy(cnfTemplate("binfiles/linux"), home("bin"), OSFlag{}) },
+		}
 	default:
 		panic("unsupported operating system. bye.")
 	}

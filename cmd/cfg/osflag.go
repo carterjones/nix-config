@@ -23,6 +23,27 @@ func (of OSFlag) IsLinux() bool {
 	return of.IsArch || of.IsCentos || of.IsManjaro || of.IsUbuntu
 }
 
+// OSString returns a short string representing the type of operating system
+// associated with the flag.
+func (of OSFlag) OSString() string {
+	var s string
+	switch {
+	case of.IsArch:
+		s = "arch"
+	case of.IsCentos:
+		s = "centos"
+	case of.IsMac:
+		s = "mac"
+	case of.IsManjaro:
+		s = "manjaro"
+	case of.IsUbuntu:
+		s = "ubuntu"
+	default:
+		s = "<undefined os>"
+	}
+	return s
+}
+
 func isFile(name string) (bool, error) {
 	fi, err := os.Stat(name)
 	if err != nil {
