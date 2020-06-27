@@ -16,6 +16,7 @@ mechatroner.rainbow-csv
 ms-python.python
 ms-vsliveshare.vsliveshare
 mushan.vscode-paste-image
+redhat.vscode-yaml
 shd101wyy.markdown-preview-enhanced
 stkb.rewrap
 timonwong.shellcheck
