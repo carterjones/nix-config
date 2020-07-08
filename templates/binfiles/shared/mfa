@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PROFILE=${1:-default}
+
+source "${HOME}/.venv_setup"
+workon aws
+pip install aws-mfa &> /dev/null
+
+set -eux -o pipefail
+
+# Authenticate via MFA.
+aws-mfa --profile "${PROFILE}" --force
+
+# Rotate the access key.
+export AWS_PROFILE="${PROFILE}"
+aws-rotate-iam-keys "${PROFILE}"
