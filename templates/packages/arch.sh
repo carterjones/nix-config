@@ -64,7 +64,6 @@ sudo pacman --noconfirm -Syu \
     yakuake \
     zsh
 
-# shellcheck source=./templates/packages/common.sh
 source ./common.sh
 install_pkg_for_env docker arch
 install_pkg_for_env docker arch

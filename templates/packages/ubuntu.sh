@@ -35,7 +35,6 @@ if [ -d /usr/share/xsessions/ ]; then
         yakuake
 fi
 
-# shellcheck source=./templates/packages/common.sh
 source ./common.sh
 install_pkg_for_env gnome ubuntu
 install_pkg_for_env openvpn ubuntu

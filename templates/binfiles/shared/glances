@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Set up venv.
-# shellcheck source=/dev/null
 source "${HOME}/.venv_setup"
 if [[ $(lsvirtualenv -b | grep glances &>/dev/null; echo $?) != 0 ]]; then
     mkvirtualenv glances

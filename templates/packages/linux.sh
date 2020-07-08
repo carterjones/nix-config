@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-# shellcheck source=./templates/packages/common.sh
 source ./common.sh
 install_pkg_for_env go linux
 install_pkg_for_env hack-font linux

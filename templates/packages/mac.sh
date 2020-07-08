@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-# shellcheck source=./templates/packages/common.sh
 source ./common.sh
 
 # Install XCode before running brew commands.
