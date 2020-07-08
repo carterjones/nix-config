@@ -8,6 +8,9 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 
+# Disable the AWS pager.
+export AWS_PAGER=""
+
 # Set up the go path.
 export GOPATH=$HOME/go
 
