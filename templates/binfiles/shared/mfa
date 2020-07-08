@@ -3,8 +3,15 @@
 PROFILE=${1:-default}
 
 source "${HOME}/.venv_setup"
+if ! lsvirtualenv -b | grep "^aws$" &>/dev/null; then
+    echo "creating 'aws' virtualenv..."
+    mkvirtualenv aws
+fi
 workon aws
-pip install aws-mfa &> /dev/null
+if ! pip freeze | grep "aws-mfa=" &>/dev/null; then
+     echo "installing aws-mfa..."
+     pip install aws-mfa
+fi
 
 set -eux -o pipefail
 
