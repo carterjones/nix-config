@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# This file is derived from https://github.com/rhyeal/aws-rotate-iam-keys
+# This file is therefore licensed under GNU v3.0, as defined here:
+# https://github.com/rhyeal/aws-rotate-iam-keys/blob/d6ebe7f82c94d4b541ff8627d6c96f2c7d78cc71/LICENSE
+
+PROFILE_NAME_ACTIVE=${1:-default}
+PROFILE_NAME_LONG_TERM="${PROFILE_NAME_ACTIVE}-long-term"
+
+# Set the profile to use for rotating the keys.
+export AWS_PROFILE=${PROFILE_NAME_ACTIVE}
+
+# Ensure that the current profile is active.
+aws iam list-access-keys --output json | jq '.AccessKeyMetadata | length' &>/dev/null || exit 1
+
+# Get the access key ID for the current long term key.
+OLD_ACCESS_KEY_ID=$(aws configure get "${PROFILE_NAME_LONG_TERM}.aws_access_key_id" 2>/dev/null)
+
+echo "Creating new access key for ${PROFILE_NAME_LONG_TERM}"
+NEW_ACCESS_KEY=$(aws iam create-access-key --output json | jq .AccessKey)
+NEW_ACCESS_KEY_ID=$(echo "${NEW_ACCESS_KEY}" | jq -r '.AccessKeyId')
+NEW_SECRET_ACCESS_KEY=$(echo "${NEW_ACCESS_KEY}" | jq -r '.SecretAccessKey')
+
+if [[ "$NEW_ACCESS_KEY_ID" = "" || "$NEW_SECRET_ACCESS_KEY" = "" ]]; then
+  echo "Failed to create access key. Please correct reported errors and try again." >&2
+  exit 1
+fi
+
+echo "Saving new credentials for ${PROFILE_NAME_LONG_TERM}"
+aws configure set aws_access_key_id "${NEW_ACCESS_KEY_ID}" \
+  --profile "${PROFILE_NAME_LONG_TERM}"
+aws configure set aws_secret_access_key "${NEW_SECRET_ACCESS_KEY}" \
+  --profile "${PROFILE_NAME_LONG_TERM}"
+
+echo "Deleting old access key for ${PROFILE_NAME_LONG_TERM}"
+aws iam delete-access-key --access-key-id "${OLD_ACCESS_KEY_ID}"
+echo "Deleted old key: ${OLD_ACCESS_KEY_ID}"
