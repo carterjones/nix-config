@@ -43,3 +43,11 @@ cdf() {
         cd "${dir}"
     fi
 }
+
+# Remove many of the fancy POWERLEVEL9K visual indicators from the terminal.
+minimal-terminal() {
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="$"
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+}
