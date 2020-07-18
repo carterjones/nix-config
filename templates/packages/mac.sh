@@ -46,6 +46,7 @@ brew cleanup 1> /dev/null
 install_pkg_for_env docker mac
 install_pkg_for_env hack-font mac
 install_pkg_for_env hyperjs mac
+install_pkg_for_env keybase mac
 install_pkg_for_env vscode mac
 
 # Hide all icons from the desktop.
