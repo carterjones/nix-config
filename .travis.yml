@@ -7,6 +7,11 @@ jobs:
     - stage: lint
       script: ./ci/lint.sh
     - stage: test
+      env: OS=macos
+      os: osx
+      osx_image: xcode11.3
+      script: ./ci/test.sh
+    - stage: test
       env: OS=arch
       script: ./ci/test.sh
     - stage: test
@@ -20,9 +25,4 @@ jobs:
       script: ./ci/test.sh
     - stage: test
       env: OS=centos-8
-      script: ./ci/test.sh
-    - stage: test
-      env: OS=macos
-      os: osx
-      osx_image: xcode11.3
       script: ./ci/test.sh
