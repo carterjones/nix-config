@@ -5,5 +5,7 @@ set -eux -o pipefail
 # apply the workaround in the event that keybase is installed. Details here:
 # https://github.com/keybase/client/issues/17796#issuecomment-647286732
 if command -v keybase; then
-    sudo xattr -rd com.apple.quarantine /Library/Filesystems/kbfuse.fs/
+    if xattr -rl /Library/Filesystems/kbfuse.fs/ | grep com.apple.quarantine; then
+        sudo xattr -rd com.apple.quarantine /Library/Filesystems/kbfuse.fs/
+    fi
 fi
