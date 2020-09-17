@@ -1,0 +1,72 @@
+#!/bin/bash
+set -eu -o pipefail
+
+usage () {
+    exit_code="${?}"
+    if [[ "${exit_code}" == 0 ]]; then exit; fi
+    echo "usage: $0 <lastpass user> <lastpass item> <vpn hostname> <vpn username> [action]"
+    exit "${exit_code}"
+}
+trap usage EXIT
+
+LPASS_USER="${1}"
+LPASS_ITEM="${2}"
+VPN_HOST="${3}"
+VPN_USER="${4}"
+ACTION="${5:-connect}"
+
+# Get the current state for analysis later. By running this in an isolated
+# subshell, it avoids some rare edge cases that cause the vpn command to hang
+# when piped through to other programs like grep.
+current_state=$(/opt/cisco/anyconnect/bin/vpn state)
+
+if [[ "${ACTION}" == "dc" ]] || [[ "${ACTION}" == "disconnect" ]]; then
+    # Disconnect from the VPN.
+    /opt/cisco/anyconnect/bin/vpn disconnect
+    exit 0
+elif [[ "${ACTION}" == "status" ]] || [[ "${ACTION}" == "state" ]]; then
+    # Print the current status.
+    /opt/cisco/anyconnect/bin/vpn state
+    exit 0
+elif [[ "${ACTION}" == "connect" ]] && (echo "${current_state}" | grep -q "state: Connected"); then
+    # If the VPN is currently connected, do not proceed.
+    echo "The VPN is already connected."
+    exit 0
+fi
+
+# Verify that lpass is logged in. If not, log into LastPass and extend the
+# duration of the agent session's lifetime.
+lpass status || LPASS_AGENT_TIMEOUT=36000 lpass login "${LPASS_USER}"
+
+# Get the VPN password.
+VPN_PASS=$(lpass show --password "${LPASS_ITEM}" | sed 's/\$/\\\$/')
+
+# Get an MFA password.
+printf "Please enter your MFA token for the VPN: "
+read -r MFA_PASS
+
+# For reasons unknown to me, `expect` only works with environment variables
+# that have been exported. There's likely a reason for this behavior and a more
+# elegant way to use the variables, but exporting them seems to work fine too.
+export VPN_HOST
+export VPN_USER
+export VPN_PASS
+export MFA_PASS
+
+expect <<-EOF
+set VPN_HOST \$env(VPN_HOST)
+set VPN_USER \$env(VPN_USER)
+set VPN_PASS \$env(VPN_PASS)
+set MFA_PASS \$env(MFA_PASS)
+spawn /opt/cisco/anyconnect/bin/vpn -s connect $VPN_HOST
+expect "Username:"
+send "$VPN_USER\n"
+expect "Password:"
+send "$VPN_PASS\n"
+expect "Second Password:"
+send "$MFA_PASS\n"
+expect "accept"
+send "y\n"
+expect "state: Connected"
+interact
+EOF
