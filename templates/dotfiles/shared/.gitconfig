@@ -26,3 +26,5 @@
     insteadOf = https://github.com/carterjones/
 [url "https://github.com/carterjones/awsinfo"]
     insteadOf = https://github.com/carterjones/awsinfo
+[url "https://github.com/carterjones/ramdisk"]
+    insteadOf = https://github.com/carterjones/ramdisk
