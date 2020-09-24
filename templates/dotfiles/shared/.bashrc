@@ -3,7 +3,7 @@
 # TODO: try uncommenting this on or after February 2018
 if [[ $(uname) != Darwin ]]; then
     if command -v setxkbmap &> /dev/null; then
-	if ! [ -z "${DISPLAY:-}" ]; then
+	if [ -n "${DISPLAY:-}" ]; then
 	    setxkbmap -option altwin:ctrl_win \
                       -option caps:ctrl_modifier
 	fi
@@ -32,7 +32,7 @@ if [[ $- == *i* ]]; then
     fi
 fi
 
-source $HOME/.connect-ssh-agent
+source "${HOME}/.connect-ssh-agent"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -58,7 +58,7 @@ if [[ $(uname) == MINGW* ]]; then
 fi
 
 # Load exported settings.
-source $HOME/.exports
+source "${HOME}/.exports"
 
 # Stop processing if this is a non-interactive prompt.
 set +u
@@ -66,13 +66,13 @@ set +u
 set -u
 
 # Source external files.
-source $HOME/.bash_aliases
-source $HOME/.bash_completion
-source $HOME/.bash_prompt
+source "${HOME}/.bash_aliases"
+source "${HOME}/.bash_completion"
+source "${HOME}/.bash_prompt"
 
 # Source any private settings not tracked in this repo.
 if [ -f ~/.private ]; then
    source ~/.private
 fi
 
-source $HOME/.venv_setup
+source "${HOME}/.venv_setup"

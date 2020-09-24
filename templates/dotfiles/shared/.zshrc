@@ -1,7 +1,7 @@
 export TERM="xterm-256color"
 
-source $HOME/.connect-ssh-agent
-source $HOME/src/github.com/zsh-users/antigen/antigen.zsh
+source "${HOME}/.connect-ssh-agent"
+source "${HOME}/src/github.com/zsh-users/antigen/antigen.zsh"
 
 # Note: you can use the "cat" command to determine what various keystrokes get
 # converted to magical computer codes.
@@ -100,9 +100,9 @@ ZSH_HIGHLIGHT_STYLES[globbing]='none'
 PROMPT_EOL_MARK=""
 
 # Load external files.
-source $HOME/.aliases
-source $HOME/.exports
-source $HOME/.functions
+source "${HOME}/.aliases"
+source "${HOME}/.exports"
+source "${HOME}/.functions"
 
 # Source any private settings not tracked in this repo.
 if [ -f ~/.private ]; then
@@ -110,12 +110,12 @@ if [ -f ~/.private ]; then
 fi
 
 # Set up virtualenv.
-source $HOME/.venv_setup
+source "${HOME}/.venv_setup"
 
 # Set up Google Cloud SDK.
-if [ -f "$HOME/bin/google-cloud-sdk/path.zsh.inc" ]; then
-    . "$HOME/bin/google-cloud-sdk/path.zsh.inc"
+if [ -f "${HOME}/bin/google-cloud-sdk/path.zsh.inc" ]; then
+    . "${HOME}/bin/google-cloud-sdk/path.zsh.inc"
 fi
-if [ -f "$HOME/bin/google-cloud-sdk/completion.zsh.inc" ]; then
-    . "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
+if [ -f "${HOME}/bin/google-cloud-sdk/completion.zsh.inc" ]; then
+    . "${HOME}/bin/google-cloud-sdk/completion.zsh.inc"
 fi

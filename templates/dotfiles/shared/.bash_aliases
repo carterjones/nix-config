@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source ~/.aliases
+source "${HOME}/.aliases"
