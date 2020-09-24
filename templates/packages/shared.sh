@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 source ./common.sh
 install_pkg_for_env bgrep shared

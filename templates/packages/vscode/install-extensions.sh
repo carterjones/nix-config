@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 while read -r in; do
     code --install-extension "$in"

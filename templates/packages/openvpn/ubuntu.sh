@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 if grep -q 16.04 /etc/lsb-release; then
     sudo apt-key add ./repo-public.gpg

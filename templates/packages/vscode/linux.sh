@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 mkdir -p "${HOME}/.config/Code/User/"
 cp -R ./configs/* "${HOME}/.config/Code/User/"

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 mkdir -p "${HOME}/Library/Application Support/Code/User/"
 cp -R ./configs/* "${HOME}/Library/Application Support/Code/User/"

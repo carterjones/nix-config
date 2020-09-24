@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 if ! id -u notroot; then
     sudo useradd -m notroot

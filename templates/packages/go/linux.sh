@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 target_version="go1.12.6"
 current_version=$(/usr/local/go/bin/go version 2>&1 | cut -d" " -f3) || true

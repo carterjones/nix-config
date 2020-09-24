@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 sudo cp ./disable-ipv6.service /etc/systemd/system/disable-ipv6.service
 sudo chown root:root /etc/systemd/system/disable-ipv6.service

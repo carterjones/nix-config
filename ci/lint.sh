@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 # Change to the root directory.
 cd "$(git rev-parse --show-toplevel)"

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 if [ ! -f /Library/Fonts/Hack-Regular.ttf ]; then
     cd /tmp

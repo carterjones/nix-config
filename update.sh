@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 # Update VS Code extension list.
 pushd templates/packages/vscode

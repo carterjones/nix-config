@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 # Ensure gnome is installed.
 if ! apt list --installed 2>/dev/null | grep -q gnome-desktop; then

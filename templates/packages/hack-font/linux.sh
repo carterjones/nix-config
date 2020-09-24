@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 if ! sudo test -f /usr/share/fonts/TTF/Hack-Regular.ttf; then
     cd /tmp

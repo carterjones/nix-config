@@ -1,4 +1,4 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 mkdir -p "$HOME/.nmap/logs"

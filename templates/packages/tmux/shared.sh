@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 mkdir -p "${HOME}/src/github.com/tmux-plugins"
 pushd "${HOME}/src/github.com/tmux-plugins"

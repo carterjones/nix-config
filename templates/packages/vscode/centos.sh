@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 if ! command -v code; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc

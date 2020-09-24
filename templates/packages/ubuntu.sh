@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 # Base software.
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \

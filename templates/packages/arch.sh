@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -eux -o pipefail
 
 sudo pacman --noconfirm -Syu \
     autoconf \
