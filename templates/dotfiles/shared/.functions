@@ -36,14 +36,6 @@ compresspdf() {
     gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -sOutputFile=$2 $1
 }
 
-# cd fuzzy search
-cdf() {
-    dir=$(find . -path '*/**' -type d -print 2> /dev/null | cut -b3- | fzf +m)
-    if [[ ! -z "${dir}" ]]; then
-        cd "${dir}"
-    fi
-}
-
 # Remove many of the fancy POWERLEVEL9K visual indicators from the terminal.
 minimal-terminal() {
     POWERLEVEL9K_PROMPT_ON_NEWLINE=false

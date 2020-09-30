@@ -10,7 +10,6 @@ brew update
 brew upgrade
 
 brew install \
-    fzf \
     git \
     go \
     jq \
@@ -18,7 +17,6 @@ brew install \
     packer \
     pyenv \
     pyenv-virtualenvwrapper \
-    ranger \
     shellcheck \
     the_silver_searcher \
     tmux \
@@ -29,7 +27,6 @@ brew install \
 
 brew cask install \
     docker \
-    emacs \
     hyper \
     vagrant \
     visual-studio-code

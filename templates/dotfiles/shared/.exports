@@ -20,10 +20,6 @@ export EDITOR="code -w"
 # Set the default visual editor.
 export VISUAL="code"
 
-# Configure the FZF command.
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
-export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-
 # Set up an nmap log directory path.
 export NMAP_LOGS=$HOME/.nmap/logs
 
