@@ -3,6 +3,9 @@ set -eux -o pipefail
 
 source ./common.sh
 
+# Upgrade everything from the App Store.
+softwareupdate -i --all
+
 # Install XCode before running brew commands.
 install_pkg_for_env xcode mac
 
