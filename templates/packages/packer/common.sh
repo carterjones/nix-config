@@ -1,4 +1,5 @@
 #!/bin/bash
 
-latest_version=$(curl --silent "https://api.github.com/repos/hashicorp/packer/tags" | jq -r '.[] | .name' | sort -r | grep "^v" | head -1 | sed "s/v//")
+versions=$(curl --silent "https://releases.hashicorp.com/packer/")
+latest_version=$(echo "${versions}" | grep '/packer/' | head -1 | sed 's,.*packer/,,' | cut -f1 -d '/')
 export latest_version
