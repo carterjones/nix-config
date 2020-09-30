@@ -1,7 +1,6 @@
 #!/bin/bash
 set -eux -o pipefail
 
-# shellcheck disable=SC1091
 source ./common.sh
 current_version=$("${HOME}/bin/packer.io" --version 2>&1 | cut -d" " -f2) || true
 
