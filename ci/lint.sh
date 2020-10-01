@@ -1,12 +1,5 @@
-#!/bin/bash
-set -eux -o pipefail
-
-# Change to the root directory.
-cd "$(git rev-parse --show-toplevel)"
-
-# Run shellcheck against top level scripts.
-shellcheck install
-shellcheck update.sh
+#!/bin/sh
+set -eux
 
 # Define the rules to ignore in shellcheck.
 SHELLCHECK_IGNORE="SC1090,SC1091"
