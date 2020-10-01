@@ -3,8 +3,10 @@ set -eux -o pipefail
 
 source ./common.sh
 
-# Upgrade everything from the App Store.
-softwareupdate -i --all
+# Upgrade everything from the App Store when not running on CI.
+if [[ -z "${CI}" ]]; then
+    softwareupdate -i --all
+fi
 
 # Install XCode before running brew commands.
 install_pkg_for_env xcode mac
