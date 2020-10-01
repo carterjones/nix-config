@@ -22,7 +22,7 @@ fi
 
 if [ ! "$(command -v git)" ]; then
     if [[ "${os}" == "mac" ]]; then
-        brew install -y git
+        brew install -f git
     elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
         sudo pacman -Syu git
     elif [[ "${os}" == "centos" ]]; then
@@ -42,7 +42,7 @@ fi
 
 if [ ! "$(command -v go)" ]; then
     if [[ "${os}" == "mac" ]]; then
-        brew install -y go
+        brew install -f go
     elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
         sudo pacman --noconfirm -Syu go
     else
