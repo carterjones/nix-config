@@ -4,7 +4,7 @@ set -eux -o pipefail
 source ./common.sh
 
 # Upgrade everything from the App Store when not running on CI.
-if [[ -z "${CI}" ]]; then
+if [[ -z "${CI:-}" ]]; then
     softwareupdate -i --all
 fi
 
