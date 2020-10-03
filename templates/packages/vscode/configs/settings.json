@@ -18,6 +18,7 @@
   "rewrap.wholeComment": false,
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellcheck.exclude": ["SC1090", "SC1091"],
+  "telemetry.enableTelemetry": false,
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
