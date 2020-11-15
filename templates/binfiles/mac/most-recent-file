@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    targetpath="."
+else
+    targetpath="${1}"
+fi
+
+# https://stackoverflow.com/a/9052878
+filepath=$(find "${targetpath}" -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -f2- -d" ")
+mod_date=$(GetFileInfo -m "${filepath}")
+echo "${mod_date} -> ${filepath}"
