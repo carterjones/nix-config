@@ -84,9 +84,15 @@ defaults write com.apple.Terminal CopyAttributesProfile com.apple.Terminal.no-at
 # available to programs launched via Spotlight.
 #
 # Therefore, we set a new value of `user.cs_path` here.
-current_path=$(launchctl getenv PATH)
-desired_path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-if [[ "${current_path}" != "${desired_path}" ]]; then
-    sudo launchctl config user path "${desired_path}"
-    echo "A restart is required for the new user.cs_path value to take effect."
+#
+# Note: This only works on Catalina (and possibly prior). It stopped working on
+# Big Sur (last verified as not working on 2020-11-20).
+osx_version=$(sw_vers -productVersion)
+if [[ "${osx_version}" == "10."* ]]; then
+    current_path=$(launchctl getenv PATH)
+    desired_path="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+    if [[ "${current_path}" != "${desired_path}" ]]; then
+        sudo launchctl config user path "${desired_path}"
+        echo "A restart is required for the new user.cs_path value to take effect."
+    fi
 fi
