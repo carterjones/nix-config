@@ -19,6 +19,8 @@
 [diff]
     color = true
     tool = meld
+[pager]
+    branch = false
 [pull]
     ff = only
 [push]
