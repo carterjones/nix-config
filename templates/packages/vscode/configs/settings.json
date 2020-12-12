@@ -33,5 +33,6 @@
   "window.restoreWindows": "all",
   "window.zoomLevel": 0,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "Monokai"
+  "workbench.colorTheme": "Monokai",
+  "yaml.schemaStore.enable": false
 }
