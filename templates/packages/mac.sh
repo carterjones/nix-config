@@ -20,6 +20,7 @@ brew install \
     jq \
     reattach-to-user-namespace \
     packer \
+    pre-commit \
     pyenv \
     pyenv-virtualenvwrapper \
     shellcheck \
