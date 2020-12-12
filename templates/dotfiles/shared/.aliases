@@ -9,7 +9,9 @@ alias b='source ~/.bashrc'
 alias exti='exit'
 
 # docker aliases
-alias docker-rm-rf="docker rm $(docker ps -a -q); docker image rm $(docker image ls --quiet)"
+alias docker-rm-containers="docker kill $(docker ps -q); docker rm $(docker ps -aq)"
+alias docker-rm-images="docker image rm $(docker image ls -q)"
+alias docker-rm-rf="docker-rm-containers; docker-rm-images"
 
 # emacs alias
 if command -v emacs-snapshot &> /dev/null; then
