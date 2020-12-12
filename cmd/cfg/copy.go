@@ -26,7 +26,10 @@ func copyDir(src, dst string, of OSFlag) error {
 		dst = dst + "/"
 	}
 
-	return filepath.Walk(src, func(p string, info os.FileInfo, err error) error {
+	walkFunc := func(p string, info os.FileInfo, err error) error {
+		if err != nil {
+			return nil
+		}
 		newPath := strings.Replace(p, src, "", -1)
 		newDst := dst + newPath
 		ok, err := isDir(p)
@@ -37,7 +40,9 @@ func copyDir(src, dst string, of OSFlag) error {
 			return nil
 		}
 		return copy(p, newDst, of)
-	})
+	}
+
+	return filepath.Walk(src, walkFunc)
 }
 
 // Copy the file mode and data of a source file to a destination file.
