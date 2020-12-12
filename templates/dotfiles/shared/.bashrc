@@ -32,8 +32,6 @@ if [[ $- == *i* ]]; then
     fi
 fi
 
-source "${HOME}/.connect-ssh-agent"
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
