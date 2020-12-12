@@ -19,12 +19,6 @@
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellcheck.exclude": ["SC1090", "SC1091"],
   "telemetry.enableTelemetry": false,
-  "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
-    "delay": 500,
-    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
-  },
   "terraform.languageServer": {"enabled": true, "args": []},
   "todohighlight.include": ["**/*.js", "**/*.txt", "**/*.md", "**/*.html", "**/*.go", "**/*.sh"],
   "todohighlight.isCaseSensitive": true,
