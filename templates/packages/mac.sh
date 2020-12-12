@@ -24,6 +24,7 @@ brew install \
     pyenv-virtualenvwrapper \
     shellcheck \
     tfenv \
+    tfsec \
     the_silver_searcher \
     tmux \
     tree \
