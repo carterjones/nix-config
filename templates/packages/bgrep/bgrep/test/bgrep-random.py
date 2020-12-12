@@ -5,7 +5,7 @@ BGREP="../bgrep"
 def generate_random(datalen, searchlen):
 	data = os.urandom(datalen)
 	search = os.urandom(searchlen)
-	
+
 	results = []
 	for i in range(datalen-searchlen+1):
 		if data[i:i+searchlen] == search:
@@ -17,11 +17,11 @@ def test_bgrep(datalen, searchlen):
 	data, search, results = generate_random(datalen, searchlen)
 	filename = "data"
 	open(filename, "wb").write(data)
-	
+
 	bgrep_res = subprocess.Popen([BGREP, search.encode('hex'), filename], stdout=subprocess.PIPE).communicate()[0]
-	
+
 	expected_res = ''.join(["%s: %08x\n" % (filename, i) for i in results])
-	
+
 	if bgrep_res != expected_res:
 		print "search: %s" % search.encode('hex')
 		open("res_expected", "w").write(expected_res)

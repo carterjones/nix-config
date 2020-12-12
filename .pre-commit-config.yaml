@@ -1,0 +1,12 @@
+exclude: ^archive/.*$
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: HEAD
+  hooks:
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: HEAD
+  hooks:
+    - id: shellcheck

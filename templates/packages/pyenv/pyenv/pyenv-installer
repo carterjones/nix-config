@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2242,SC2088
 
 set -e
 [ -n "$PYENV_DEBUG" ] && set -x
