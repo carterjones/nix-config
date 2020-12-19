@@ -33,7 +33,7 @@ brew install \
     wget \
     zsh
 
-brew cask install \
+brew install --cask \
     docker \
     hyper \
     vagrant \
