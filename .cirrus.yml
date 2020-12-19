@@ -1,8 +1,8 @@
-lint_task:
-  name: Lint
+pre_commit_task:
+  name: Run pre-commit checks
   container:
-    image: koalaman/shellcheck-alpine
-  lint_script: ./ci/lint.sh
+    image: carterjones/ci-runner:latest
+  script: pre-commit run --all
 
 macos_task:
   name: Integration Test (MacOS)
