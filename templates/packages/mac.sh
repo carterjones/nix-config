@@ -11,6 +11,38 @@ fi
 # Install XCode before running brew commands.
 install_pkg_for_env xcode mac
 
+# Prepare homebrew. This avoids receiving the following error.
+#
+# Error:
+#   homebrew-core is a shallow clone.
+# To `brew update`, first run:
+#   git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
+# This restriction has been made on GitHub's request because updating shallow
+# clones is an extremely expensive operation due to the tree layout and traffic
+# of Homebrew/homebrew-core and Homebrew/homebrew-cask. We don't do this for
+# you automatically to avoid repeatedly performing an expensive unshallow
+# operation in CI systems (which should instead be fixed to not use shallow
+# clones). Sorry for the inconvenience!
+# panic: exit status 1
+if [[ "${CI:-}" == true ]]; then
+    homebrew_path="/usr/local/Homebrew/Library/Taps/homebrew"
+    for repo in homebrew-core homebrew-cask; do
+        # Ensure that the repository exists.
+        if ! test -d "${homebrew_path}/${repo}"; then
+            continue
+        fi
+
+        # Ensure that the repository is a shallow clone.
+        if [[ $(git -C "${homebrew_path}/${repo}" rev-parse --is-shallow-repository) == "false" ]]; then
+            continue
+        fi
+
+        # Fetch the repository using --unshallow.
+        git -C "${homebrew_path}/${repo}" fetch --unshallow
+    done
+fi
+
+# Ensure homebrew is up to date.
 brew update
 brew upgrade
 
