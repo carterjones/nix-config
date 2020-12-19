@@ -1,2 +1,5 @@
 disable=SC1090
 disable=SC1091
+
+source-path=SCRIPTDIR/dotfiles/mac
+source-path=SCRIPTDIR/dotfiles/shared
