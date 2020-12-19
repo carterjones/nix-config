@@ -1,0 +1,17 @@
+#!/bin/bash
+set -x
+
+# Stop all containers.
+docker kill "$(docker ps -q)"
+
+# Delete all containers.
+docker rm "$(docker ps -aq)"
+
+# Delete all dangling volumes.
+docker volume rm "$(docker volume ls -qf dangling=true)"
+
+# Delete all images.
+docker rmi "$(docker images -q)"
+
+# Prune Docker, whatever that means.
+docker system prune
