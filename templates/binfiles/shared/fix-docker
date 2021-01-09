@@ -1,17 +1,18 @@
 #!/bin/bash
+# shellcheck disable=SC2046
 set -x
 
 # Stop all containers.
-docker kill "$(docker ps -q)"
+docker kill $(docker ps -q)
 
 # Delete all containers.
-docker rm "$(docker ps -aq)"
+docker rm $(docker ps -aq)
 
 # Delete all dangling volumes.
-docker volume rm "$(docker volume ls -qf dangling=true)"
+docker volume rm $(docker volume ls -qf dangling=true)
 
 # Delete all images.
-docker rmi "$(docker images -q)"
+docker rmi $(docker images -q)
 
 # Prune Docker, whatever that means.
 docker system prune
