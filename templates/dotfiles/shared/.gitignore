@@ -1,0 +1,2 @@
+# Ignore plan.txt files generated when running `terraform plan -out=plan.txt`.
+plan.txt

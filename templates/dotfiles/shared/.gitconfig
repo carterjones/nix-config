@@ -16,6 +16,7 @@
     untracked = bold yellow
 [core]
     editor = code -w
+    excludesfile = ~/.gitignore
 [diff]
     color = true
     tool = meld
