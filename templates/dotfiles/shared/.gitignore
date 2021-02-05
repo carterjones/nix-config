@@ -1,5 +1,5 @@
-# Ignore plan.txt files generated when running `terraform plan -out=plan.txt`.
-plan.txt
+# Ignore plan.tfplan files generated when running `terraform plan -out=plan.tfplan`.
+plan.tfplan
 
 # Ignore specifically named scripts that can be used for testing.
 test.ignore.sh
