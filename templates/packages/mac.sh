@@ -48,6 +48,7 @@ brew upgrade
 
 brew install \
     git \
+    gnu-sed \
     go \
     jq \
     reattach-to-user-namespace \
