@@ -1,0 +1,17 @@
+#!/bin/bash
+
+remove_color () {
+    # this requires https://formulae.brew.sh/formula/gnu-sed
+    gsed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"
+}
+
+extract_plan_diff () {
+    # shellcheck disable=SC2016
+    gsed '0,/^---*$/d;' | gsed '1d' | gsed '/^---*$/,$d' | gsed '$ d'
+}
+
+# Call terraform plan with the parameters passed into this script.
+# Stream the output to the terminal.
+# Save the diff output to the system clipboard.
+raw_output=$(terraform plan -out=plan.tfplan "$@" | tee /dev/tty)
+echo "${raw_output}" | remove_color | extract_plan_diff | pbcopy
