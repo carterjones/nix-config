@@ -9,6 +9,6 @@ if ! command -v ramdisk; then
     # Instead of doing all that, I cloned the repo to avoid installing
     # potential breaking changes that the original author
     # (https://github.com/mroth) may make.
-    go get github.com/carterjones/ramdisk/cmd/ramdisk
-    GOBIN="${HOME}/bin" go install github.com/carterjones/ramdisk/cmd/ramdisk
+    go get github.com/carterjones/ramdisk/cmd/ramdisk@latest
+    GOBIN="${HOME}/bin" go install github.com/carterjones/ramdisk/cmd/ramdisk@latest
 fi
