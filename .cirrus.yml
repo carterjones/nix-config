@@ -37,14 +37,6 @@ centos_8_task:
     - ./ci/prepare-container.sh
     - ./ci/integration-tests.sh
 
-ubuntu_1804_task:
-  name: Integration Test (Ubuntu 18.04)
-  container:
-    image: carterjones/ubuntu-18.04
-  test_script:
-    - ./ci/prepare-container.sh
-    - ./ci/integration-tests.sh
-
 ubuntu_2004_task:
   name: Integration Test (Ubuntu 20.04)
   container:
