@@ -41,12 +41,12 @@ if [ ! "$(command -v curl)" ]; then
 fi
 
 if [ ! "$(command -v go)" ]; then
-    if [[ "${os}" == "mac" ]]; then
-        brew install -f go
-    elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
+    if [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
         sudo pacman --noconfirm -Syu go
     else
-        ./templates/packages/go/linux.sh
+        pushd ./templates/packages/go
+        ./shared.sh
+        popd
     fi
 fi
 

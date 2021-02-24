@@ -50,7 +50,6 @@ brew install \
     bash \
     git \
     gnu-sed \
-    go \
     jq \
     reattach-to-user-namespace \
     packer \
