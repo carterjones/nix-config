@@ -20,6 +20,8 @@
 [diff]
     color = true
     tool = meld
+[init]
+    defaultBranch = main
 [pager]
     branch = false
 [pull]
