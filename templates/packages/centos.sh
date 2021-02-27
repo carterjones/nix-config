@@ -26,5 +26,4 @@ sudo yum install -y \
 sudo yum groupinstall -y "Development Tools"
 
 source ./common.sh
-install_pkg_for_env packer centos
 install_pkg_for_env vscode centos

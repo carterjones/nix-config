@@ -15,5 +15,7 @@ searching through git history to find what I am looking for.
 <https://linux.die.net/man/4/mailcap>
 * [muttrc](https://github.com/carterjones/nix-config/blob/13a0ddbd86373daeee843cc9415e9726dc540f63/archive/templates/dotfiles/shared/.muttrc):
 <http://www.mutt.org/>
+* [packer (linux installation)](https://github.com/carterjones/nix-config/tree/624cc487c802b9ef9e370cec7d1c2b0b1eb742fc/templates/packages/packer):
+<https://www.packer.io/>
 * [ranger](https://github.com/carterjones/nix-config/tree/ef6a976a1aef07834ac65375f09cc6862365b066/archive/templates/dotfiles/shared/.config/ranger):
 <https://github.com/ranger/ranger>
