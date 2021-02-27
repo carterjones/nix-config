@@ -1,17 +1,17 @@
 exclude: ^archive/.*$
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: HEAD
+  rev: v3.4.0
   hooks:
     - id: check-yaml
     - id: end-of-file-fixer
     - id: trailing-whitespace
 - repo: https://github.com/gruntwork-io/pre-commit
-  rev: HEAD
+  rev: v0.1.12
   hooks:
     - id: shellcheck
 - repo: https://github.com/golangci/golangci-lint
-  rev: HEAD
+  rev: v1.37.1
   hooks:
     - id: golangci-lint
       name: golangci-lint
