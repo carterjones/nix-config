@@ -48,6 +48,7 @@ brew upgrade
 
 brew install \
     bash \
+    cmake \
     git \
     gnu-sed \
     jq \
