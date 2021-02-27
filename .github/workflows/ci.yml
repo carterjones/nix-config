@@ -1,0 +1,38 @@
+name: test
+
+on:
+  push:
+  schedule:
+    - cron: '0 1 * * 1'
+
+jobs:
+  lint-pre-commit:
+    container:
+      image: carterjones/ci-runner:latest
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: pre-commit run --all
+
+  test-macos:
+    runs-on: macos-10.15
+    steps:
+      - uses: actions/checkout@v2
+      - name: test macos-10.15
+        run: |
+          ./ci/integration-tests.sh
+
+  test-linux:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        os: ["centos-8", "ubuntu-20.04"]
+    container:
+      image: carterjones/${{ matrix.os }}:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: test ${{ matrix.os }}
+        run: |
+          su notroot
+          ./ci/prepare-container.sh
+          ./ci/integration-tests.sh
