@@ -16,17 +16,9 @@ func isDir(name string) (bool, error) {
 	return fi.IsDir(), nil
 }
 
-// Recursively copy the source directory to the destination directory.
-func copyDir(src, dst string, of OSFlag) error {
-	// Add a '/' suffix to the directory string.
-	if !strings.HasSuffix(src, "/") {
-		src = src + "/"
-	}
-	if !strings.HasSuffix(dst, "/") {
-		dst = dst + "/"
-	}
-
-	walkFunc := func(p string, info os.FileInfo, err error) error {
+// Generate a walk function used to copy files.
+func generateWalkFunc(src, dst string, of OSFlag) filepath.WalkFunc {
+	return func(p string, info os.FileInfo, err error) error {
 		if err != nil {
 			return nil
 		}
@@ -41,8 +33,19 @@ func copyDir(src, dst string, of OSFlag) error {
 		}
 		return copy(p, newDst, of)
 	}
+}
 
-	return filepath.Walk(src, walkFunc)
+// Recursively copy the source directory to the destination directory.
+func copyDir(src, dst string, of OSFlag) error {
+	// Add a '/' suffix to the directory string.
+	if !strings.HasSuffix(src, "/") {
+		src = src + "/"
+	}
+	if !strings.HasSuffix(dst, "/") {
+		dst = dst + "/"
+	}
+
+	return filepath.Walk(src, generateWalkFunc(src, dst, of))
 }
 
 // Copy the file mode and data of a source file to a destination file.
