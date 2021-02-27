@@ -1,0 +1,27 @@
+name: pre-commit auto-update
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: install pre-commit
+        run: pip install pre-commit
+      - name: run pre-commit autoupdate
+        run: pre-commit autoupdate
+      - name: create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: update/pre-commit-autoupdate
+          title: update pre-commit hooks
+          commit-message: update pre-commit hooks
+          body: update pre-commit hooks
+          labels: dependencies
