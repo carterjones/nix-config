@@ -6,8 +6,8 @@ sudo chown root:root /etc/systemd/system/disable-ipv6.service
 
 [ -f /sbin/init ] || exit 0
 
-# Make sure this isn't a docker container.
-if [ -f /proc/1/cgroup ] && ! grep -q docker /proc/1/cgroup; then
+# Make sure this isn't CI.
+if [[ -z "${CI}" ]]; then
     sudo systemctl enable disable-ipv6
 
     if ! sudo systemctl is-active --quiet disable-ipv6; then
