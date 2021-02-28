@@ -1,7 +1,5 @@
 #!/bin/bash
 set -eux -o pipefail
 
-cp -R ./bgrep /tmp/
-gcc -O2 -x c -o /tmp/bgrep/bgrep /tmp/bgrep/bgrep.c
-mv /tmp/bgrep/bgrep "$HOME/bin/bgrep"
-rm -rf /tmp/bgrep
+curl -L 'https://github.com/tmbinc/bgrep/raw/master/bgrep.c' | gcc -O2 -x c -o /tmp/bgrep -
+mv /tmp/bgrep "$HOME/bin/bgrep"
