@@ -13,5 +13,5 @@ extract_plan_diff () {
 # Call terraform plan with the parameters passed into this script.
 # Stream the output to the terminal.
 # Save the diff output to the system clipboard.
-raw_output=$(terraform plan -out=plan.tfplan "$@" | tee /dev/tty)
+raw_output=$(terraform plan -out=plan.plan "$@" | tee /dev/tty)
 echo "${raw_output}" | remove_color | extract_plan_diff | pbcopy
