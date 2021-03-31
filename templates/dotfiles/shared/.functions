@@ -43,3 +43,8 @@ minimal-terminal() {
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 }
+
+# Remove terraform artifacts.
+tfclean() {
+    find . -type d -name .terraform -print0 | xargs -0 rm -rf
+}
