@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["centos-8", "ubuntu-20.04"]
+        os: ["centos-8", "ubuntu-20.04", "arch", "manjaro"]
     container:
       image: carterjones/${{ matrix.os }}:latest
     steps:
