@@ -4,13 +4,13 @@ set -eux -o pipefail
 sudo cp ./disable-ipv6.service /etc/systemd/system/disable-ipv6.service
 sudo chown root:root /etc/systemd/system/disable-ipv6.service
 
-[ -f /sbin/init ] || exit 0
+# Exit the script if this is CI.
+if [[ -n "${CI}" ]]; then
+    exit 0
+fi
 
-# Make sure this isn't CI.
-if [[ -z "${CI}" ]]; then
-    sudo systemctl enable disable-ipv6
+sudo systemctl enable disable-ipv6
 
-    if ! sudo systemctl is-active --quiet disable-ipv6; then
-        sudo systemctl start disable-ipv6
-    fi
+if ! sudo systemctl is-active --quiet disable-ipv6; then
+    sudo systemctl start disable-ipv6
 fi

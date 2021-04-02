@@ -4,7 +4,10 @@ set -eux -o pipefail
 sudo cp ./fnmode.service /etc/systemd/system/fnmode.service
 sudo chown root:root /etc/systemd/system/fnmode.service
 
-[ -f /sbin/init ] || exit 0
+# Exit the script if this is CI.
+if [[ -n "${CI}" ]]; then
+    exit 0
+fi
 
 if ! sudo systemctl is-active --quiet fnmode; then
     sudo systemctl start fnmode
