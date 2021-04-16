@@ -9,3 +9,6 @@ fi
 cd tmux-resurrect
 git pull
 popd
+
+# Remove saved .tmux.history file if it exists.
+rm -f "${HOME}/.tmux.history"
