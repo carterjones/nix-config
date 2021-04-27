@@ -6,13 +6,13 @@ set -x
 docker kill $(docker ps -q)
 
 # Delete all containers.
-docker rm $(docker ps -aq)
+docker rm -f $(docker ps -aq)
 
 # Delete all dangling volumes.
-docker volume rm $(docker volume ls -qf dangling=true)
+docker volume rm -f $(docker volume ls -qf dangling=true)
 
 # Delete all images.
-docker rmi $(docker images -q)
+docker rmi -f $(docker images -q)
 
 # Prune Docker, whatever that means.
-docker system prune
+docker system prune -a -f
