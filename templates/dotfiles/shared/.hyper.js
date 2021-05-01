@@ -148,7 +148,6 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     "hyper-hide-title",
-    "hyperpower",
   ],
 
   // in development, you can create a directory under
