@@ -2,7 +2,7 @@
 set -eux -o pipefail
 
 if [[ $(uname) == Linux ]]; then
-    if grep -E "(Arch|Manjaro)" -q < /etc/issue; then
+    if grep -E "Manjaro" -q < /etc/issue; then
         # Upgrade the keyring.
         sudo pacman -Sy archlinux-keyring
 

@@ -9,6 +9,7 @@ searching through git history to find what I am looking for.
 
 ## Configurations
 
+* [arch](https://github.com/carterjones/nix-config/blob/b02ce477857982e44031e2c6889bbe1a828c68cb/templates/packages/arch.sh)
 * [emacs](https://github.com/carterjones/nix-config/tree/ef6a976a1aef07834ac65375f09cc6862365b066/archive/templates/dotfiles/shared/.emacs.d):
 <https://www.gnu.org/software/emacs/>
 * [mailcap](https://github.com/carterjones/nix-config/blob/13a0ddbd86373daeee843cc9415e9726dc540f63/archive/templates/dotfiles/shared/.mailcap):

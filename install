@@ -7,8 +7,6 @@ if [[ $(uname) == "Darwin" ]]; then
     os="mac"
 elif [[ -f /etc/manjaro-release ]]; then
     os="manjaro"
-elif [[ -f /etc/arch-release ]]; then
-    os="arch"
 elif [[ -f /etc/centos-release ]]; then
     os="centos"
 elif grep -q Ubuntu /etc/lsb-release; then
@@ -23,7 +21,7 @@ fi
 if [ ! "$(command -v git)" ]; then
     if [[ "${os}" == "mac" ]]; then
         brew install -f git
-    elif [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
+    elif [[ "${os}" == "manjaro" ]]; then
         sudo pacman -Syu git
     elif [[ "${os}" == "centos" ]]; then
         sudo yum install -y git
@@ -41,7 +39,7 @@ if [ ! "$(command -v curl)" ]; then
 fi
 
 if [ ! "$(command -v go)" ]; then
-    if [[ "${os}" == "arch" ]] || [[ "${os}" == "manjaro" ]]; then
+    if [[ "${os}" == "manjaro" ]]; then
         sudo pacman --noconfirm -Syu go
     else
         pushd ./templates/packages/go

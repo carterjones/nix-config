@@ -16,8 +16,6 @@ func generateOSActions() []action {
 			func() error { return copy(cnfTemplate("dotfiles/mac"), home(), osFlag) },
 			func() error { return copy(cnfTemplate("binfiles/mac"), home("bin"), osFlag) },
 		}, sharedActions...)
-	case osFlag.IsArch:
-		fallthrough
 	case osFlag.IsCentos:
 		fallthrough
 	case osFlag.IsManjaro:

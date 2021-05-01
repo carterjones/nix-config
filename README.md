@@ -22,7 +22,7 @@ cd nix-config
 
 # Supported Operating Systems
 
-The install script is tested against Arch, Manjaro, Ubuntu 20.04, CentOS 8, and
+The install script is tested against Manjaro, Ubuntu 20.04, CentOS 8, and
 macOS.
 
 # Design Philosophy
