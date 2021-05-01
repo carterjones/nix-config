@@ -1,5 +1,5 @@
-[![Build Status](https://api.cirrus-ci.com/github/carterjones/nix-config.svg?branch=main)](https://cirrus-ci.com/github/carterjones/nix-config)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a93650c7bfb759fe346e/maintainability)](https://codeclimate.com/github/carterjones/nix-config/maintainability)
+[![ci](https://github.com/carterjones/nix-config/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/carterjones/nix-config/actions/workflows/ci.yml?query=branch%3Amain)
+[![maintainability](https://api.codeclimate.com/v1/badges/a93650c7bfb759fe346e/maintainability)](https://codeclimate.com/github/carterjones/nix-config/maintainability)
 
 # Overview
 
