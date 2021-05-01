@@ -1,6 +1,3 @@
 {
     "go.buildTags": "mac",
-    "search.exclude": {
-        "archive": true,
-    },
 }
