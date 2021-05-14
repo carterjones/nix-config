@@ -18,7 +18,7 @@ jobs:
       - name: run pre-commit autoupdate
         run: pre-commit autoupdate
       - name: create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v3.9.1
         with:
           branch: update/pre-commit-autoupdate
           title: update pre-commit hooks
