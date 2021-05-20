@@ -21,6 +21,7 @@ else
 fi
 
 # git aliases
+alias gco='git checkout'
 alias ghist='git hist'
 alias gprune='git remote prune origin'
 alias gfc='git diff-tree --no-commit-id --name-status -r HEAD'
