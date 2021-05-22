@@ -21,6 +21,10 @@ fi
 # We force a true statement here because when it fails, we don't care.
 stty stop '' || true
 
+# Pressing enter should cause enter to be pressed, rather than sending an ^M
+# character. See https://askubuntu.com/a/452576
+stty sane
+
 if [[ $- == *i* ]]; then
     if [[ -f $HOME/.use_zsh ]]; then
         # This is a horrible, but... elegant(?) hack to make zsh the default
