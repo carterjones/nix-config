@@ -36,6 +36,7 @@ if [ -d /usr/share/xsessions/ ]; then
 fi
 
 source ./common.sh
+install_pkg_for_env docker ubuntu
 install_pkg_for_env gnome ubuntu
 install_pkg_for_env openvpn ubuntu
 install_pkg_for_env vagrant ubuntu
