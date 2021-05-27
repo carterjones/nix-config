@@ -53,6 +53,7 @@ brew install \
     gnu-sed \
     jq \
     reattach-to-user-namespace \
+    pinentry-mac \
     pre-commit \
     pyenv \
     pyenv-virtualenvwrapper \
