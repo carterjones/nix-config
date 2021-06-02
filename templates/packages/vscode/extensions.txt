@@ -1,3 +1,7 @@
+AlanWalk.markdown-toc
+DavidAnson.vscode-markdownlint
+DotJoshJohnson.xml
+GrapeCity.gc-excelviewer
 adamhartford.vscode-base64
 alanwalk.markdown-toc
 bbenoist.vagrant
@@ -11,10 +15,15 @@ eriklynd.json-tools
 golang.go
 grapecity.gc-excelviewer
 hashicorp.terraform
+iciclesoft.workspacesort
 jebbs.plantuml
 mechatroner.rainbow-csv
+ms-azuretools.vscode-docker
 ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
 mushan.vscode-paste-image
+redhat.vscode-commons
 redhat.vscode-yaml
 shd101wyy.markdown-preview-enhanced
 stkb.rewrap
