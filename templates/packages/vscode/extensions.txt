@@ -1,9 +1,7 @@
-AlanWalk.markdown-toc
 DavidAnson.vscode-markdownlint
 DotJoshJohnson.xml
 GrapeCity.gc-excelviewer
 adamhartford.vscode-base64
-alanwalk.markdown-toc
 bbenoist.vagrant
 bibhasdn.unique-lines
 bungcip.better-toml
