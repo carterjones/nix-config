@@ -137,5 +137,15 @@
   {
     "key": "cmd+k cmd+f",
     "command": "editor.action.formatSelection"
+  },
+  {
+    "key": "cmd+1",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+2",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
   }
 ]
