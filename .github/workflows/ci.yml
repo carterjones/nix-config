@@ -16,10 +16,10 @@ jobs:
       - run: pre-commit run --all
 
   test-macos:
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2.4.0
-      - name: test macos-10.15
+      - name: test macos-latest
         run: |
           ./ci/integration-tests.sh
 
