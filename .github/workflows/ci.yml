@@ -12,13 +12,13 @@ jobs:
       image: carterjones/ci-runner:latest
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - run: pre-commit run --all
 
   test-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: test macos-latest
         run: |
           ./ci/integration-tests.sh
@@ -32,7 +32,7 @@ jobs:
     container:
       image: carterjones/${{ matrix.os }}:latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
       - name: test ${{ matrix.os }}
         run: |
           su notroot
