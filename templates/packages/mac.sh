@@ -71,8 +71,7 @@ brew install \
 brew install --cask \
     docker \
     hyper \
-    vagrant \
-    visual-studio-code
+    vagrant
 
 brew cleanup 1> /dev/null
 
