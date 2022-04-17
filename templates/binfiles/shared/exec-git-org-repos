@@ -1,0 +1,26 @@
+#!/bin/bash
+set -eu -o pipefail
+
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+popd () {
+    command popd > /dev/null
+}
+
+org="${1}"
+command="${2}"
+cd "${HOME}/src/github.com/${org}"
+for repo in *; do
+    pushd "${repo}"
+    if [[ ! -d .git ]]; then
+        # Skip directories that are not git repositories.
+        echo "Skipping: ${repo} is not a git directory."
+        popd
+        continue
+    fi
+    echo "${repo}:"
+    eval "${command}"
+    popd
+done
