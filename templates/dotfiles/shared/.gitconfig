@@ -8,6 +8,8 @@
     push-new = !"git push -u origin $(git branch --show-current)"
     re-sign = rebase --exec 'git commit --amend --no-edit -n -S' -i main
     root = rev-parse --show-toplevel
+	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
+	count-lines-since = "! git log --author=\"$1\" --since=\"$2\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
 [color]
     ui = true
 [color "diff"]
