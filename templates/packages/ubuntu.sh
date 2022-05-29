@@ -7,7 +7,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apt-transport-https \
     build-essential \
     fontconfig \
-    git-el \
     iproute2 \
     jq \
     meld \
