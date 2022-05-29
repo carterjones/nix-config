@@ -1,0 +1,125 @@
+#!/usr/bin/env python
+
+# Copyright 2017 U.S. Federal Government (in countries where recognized) and TrussWorks
+#
+# MIT License
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This file is derived from this script:
+# https://github.com/transcom/milmove_load_testing/blob/a803efe97b6eb29e822c54457a04390a9dd4f4c7/scripts/aws-session-port-forward.py
+
+
+import argparse
+import json
+import os
+import subprocess
+import sys
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Connect to a port on an ECS cluster')
+    parser.add_argument('cluster', type=str, help='The cluster to connect to')
+    parser.add_argument('port', type=str, help='The port to connect to')
+
+    cluster = ''
+    port = ''
+
+    result = subprocess.run(
+        ["aws", "ecs", "list-tasks", "--cluster", cluster],
+        stdout=subprocess.PIPE,
+    )
+
+    tasks = json.loads(result.stdout)
+    if "taskArns" not in tasks or len(tasks["taskArns"]) == 0:
+        print("Cannot find any running tasks in cluster: {}",
+              cluster, file=sys.stderr)
+        sys.exit(1)
+
+    if len(tasks["taskArns"]) != 1:
+        print("More than one task running in cluster: {}",
+              cluster, file=sys.stderr)
+        sys.exit(1)
+
+    task_arn = tasks["taskArns"][0]
+
+    result = subprocess.run(
+        [
+            "aws", "ecs", "describe-tasks",
+            "--cluster", cluster,
+            "--tasks", task_arn,
+        ],
+        stdout=subprocess.PIPE,
+    )
+
+    try:
+        task_details = json.loads(result.stdout)
+    except Exception as e:
+        print("Cannot parse describe tasks for taskArn: {}",
+              task_arn, file=sys.stderr)
+        print(sys.exc_info()[0], file=sys.stderr)
+        print(e, file=sys.stderr)
+        sys.exit(1)
+
+    if "tasks" not in task_details or len(task_details["tasks"]) == 0:
+        print("Cannot find task detail for taskArn: {}",
+              task_arn, file=sys.stderr)
+        sys.exit(1)
+
+    if len(task_details["tasks"]) != 1:
+        print("More than one task detail for taskArn: {}",
+              task_arn, file=sys.stderr)
+        sys.exit(1)
+
+    task = task_details["tasks"][0]
+
+    if "containers" not in task or len(task["containers"]) == 0:
+        print("Cannot find containers for taskArn: {}",
+              task_arn, file=sys.stderr)
+        sys.exit(1)
+
+    if len(task["containers"]) != 1:
+        print("More than one container for taskArn: {}",
+              task_arn, file=sys.stderr)
+        sys.exit(1)
+
+    container = task["containers"][0]
+
+    task_id = task_arn.split("/")[-1]
+    container_id = container["runtimeId"]
+
+    target = "ecs:{cluster}_{task_id}_{container_id}".format(
+        cluster=cluster, task_id=task_id, container_id=container_id)
+
+    parameters = json.dumps({"portNumber": [port], "localPortNumber": [port]})
+
+    print("Hit 'Control-C' to exit")
+
+    # Replace this process with the session.
+    os.execlp(
+        "aws", "aws", "ssm", "start-session",
+        "--target", target,
+        "--document-name", "AWS-StartPortForwardingSession",
+        "--parameters", parameters,
+    )
+
+
+if __name__ == "__main__":
+    main()
