@@ -10,7 +10,7 @@ jobs:
   lint-pre-commit:
     container:
       image: carterjones/ci-runner:latest
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - run: pre-commit run --all
@@ -24,11 +24,11 @@ jobs:
           ./ci/integration-tests.sh
 
   test-linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        os: ["centos-stream9", "ubuntu-20.04"]
+        os: ["centos-stream9", "ubuntu-22.04"]
     container:
       image: carterjones/${{ matrix.os }}:latest
     steps:
