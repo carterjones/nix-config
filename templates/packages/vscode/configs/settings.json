@@ -26,6 +26,9 @@
   "todohighlight.keywordsPattern": "[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy|[Ee]asily",
   "window.restoreWindows": "all",
   "window.zoomLevel": 0,
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Monokai",
   "yaml.schemaStore.enable": false
