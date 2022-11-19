@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"regexp"
@@ -50,7 +49,7 @@ func fileExists(path string) bool {
 }
 
 func fileContains(str, filepath string) bool {
-	b, err := ioutil.ReadFile(filepath)
+	b, err := os.ReadFile(filepath)
 	if err != nil {
 		return false
 	}

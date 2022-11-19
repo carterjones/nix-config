@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -50,7 +49,7 @@ func copyDir(src, dst string, of OSFlag) error {
 
 // Copy the file mode and data of a source file to a destination file.
 func copyFile(src, dst string, of OSFlag) error {
-	data, err := ioutil.ReadFile(src)
+	data, err := os.ReadFile(src)
 	if err != nil {
 		return err
 	}
