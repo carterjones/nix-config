@@ -18,20 +18,14 @@
   "rewrap.wholeComment": false,
   "shellcheck.executablePath": "/usr/local/bin/shellcheck",
   "shellcheck.exclude": ["SC1090", "SC1091"],
-  "telemetry.enableTelemetry": false,
-  "terraform.languageServer": {"enabled": true, "args": []},
+  "telemetry.telemetryLevel": "off",
+  "terraform.languageServer.enable": true,
   "todohighlight.include": ["**/*.js", "**/*.txt", "**/*.md", "**/*.html", "**/*.go", "**/*.sh"],
   "todohighlight.isCaseSensitive": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywordsPattern": "[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy|[Ee]asily",
   "window.restoreWindows": "all",
   "window.zoomLevel": 0,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "default",
-      "filenamePattern": "git-rebase-todo"
-    }
-  ],
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Monokai",
   "yaml.schemaStore.enable": false
