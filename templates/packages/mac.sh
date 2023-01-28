@@ -74,6 +74,7 @@ brew install --cask \
     docker \
     dropbox \
     hyper \
+    omnifocus \
     raycast \
     vagrant
 
