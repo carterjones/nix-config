@@ -79,6 +79,7 @@ brew install --cask \
     raycast \
     rectangle \
     signal \
+    standard-notes \
     vagrant
 
 brew cleanup 1> /dev/null
