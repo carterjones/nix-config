@@ -77,6 +77,7 @@ brew install --cask \
     hyper \
     omnifocus \
     raycast \
+    rectangle \
     signal \
     vagrant
 
