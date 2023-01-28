@@ -71,6 +71,7 @@ brew install \
 brew install --cask \
     cryptomator \
     docker \
+    dropbox \
     hyper \
     raycast \
     vagrant
