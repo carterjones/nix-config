@@ -28,6 +28,10 @@ else
     exit 1
 fi
 
+if [[ ! -d /usr/local/bin ]]; then
+    sudo mkdir -p /usr/local/bin
+fi
+
 sudo ln -sf /usr/local/go/bin/go /usr/local/bin/go
 
 if grep -q Ubuntu /etc/lsb-release; then
