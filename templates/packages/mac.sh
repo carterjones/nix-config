@@ -76,6 +76,7 @@ brew install --cask \
     docker \
     dropbox \
     hyper \
+    obsidian \
     omnifocus \
     raycast \
     rectangle \
