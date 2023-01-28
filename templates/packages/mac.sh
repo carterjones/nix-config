@@ -76,6 +76,7 @@ brew install --cask \
     docker \
     dropbox \
     hyper \
+    mailmate \
     notion \
     obsidian \
     omnifocus \
