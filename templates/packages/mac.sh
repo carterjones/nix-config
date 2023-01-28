@@ -50,6 +50,7 @@ brew install \
     bash \
     cmake \
     coreutils \
+    croc \
     git \
     gnu-sed \
     jq \
