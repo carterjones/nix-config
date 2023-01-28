@@ -13,7 +13,11 @@ sudo rm -rf /usr/local/go/*
 cd /tmp
 
 if [[ $(uname) == "Darwin" ]]; then
-    curl -o go.pkg "https://dl.google.com/go/${target_version}.darwin-amd64.pkg"
+    type="amd64"
+    if [[ $(uname -m) == 'arm64' ]]; then
+        type="arm64"
+    fi
+    curl -o go.pkg "https://dl.google.com/go/${target_version}.darwin-${type}.pkg"
     sudo installer -pkg ./go.pkg -target /
 elif [[ $(uname) == "Linux" ]]; then
     export platform="linux-amd64.tar.gz"
