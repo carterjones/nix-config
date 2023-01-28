@@ -71,6 +71,7 @@ brew install \
 brew install --cask \
     docker \
     hyper \
+    raycast \
     vagrant
 
 brew cleanup 1> /dev/null
