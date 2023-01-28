@@ -70,6 +70,7 @@ brew install \
 
 brew install --cask \
     bitwarden \
+    brave-browser \
     cryptomator \
     docker \
     dropbox \
