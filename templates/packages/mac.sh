@@ -80,6 +80,7 @@ brew install --cask \
     notion \
     obsidian \
     omnifocus \
+    protonmail-bridge \
     raycast \
     rectangle \
     signal \
