@@ -69,6 +69,7 @@ brew install \
     zsh
 
 brew install --cask \
+    bitwarden \
     cryptomator \
     docker \
     dropbox \
