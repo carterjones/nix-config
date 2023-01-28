@@ -16,7 +16,7 @@ fi
 # Point "code" to Visual Studio Code. This is based on the resulting effect of
 # running the "Shell Command: Install 'code' command in PATH" from within
 # Visual Studio Code, which appears to just add a symlink to /usr/local/bin.
-ln -nfs /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
+sudo ln -nfs /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 
 # Configure extensions.
 mkdir -p "${HOME}/Library/Application Support/Code/User/"
