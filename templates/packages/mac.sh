@@ -77,6 +77,7 @@ brew install --cask \
     hyper \
     omnifocus \
     raycast \
+    signal \
     vagrant
 
 brew cleanup 1> /dev/null
