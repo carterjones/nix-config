@@ -70,6 +70,7 @@ brew install \
     zsh
 
 brew install --cask \
+    bartender \
     bitwarden \
     brave-browser \
     cryptomator \
