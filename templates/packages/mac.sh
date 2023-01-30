@@ -73,6 +73,7 @@ brew install --cask \
     bartender \
     bitwarden \
     brave-browser \
+    caffeine \
     cryptomator \
     docker \
     dropbox \
