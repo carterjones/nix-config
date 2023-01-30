@@ -16,7 +16,7 @@
   "keyboard.touchbar.enabled": false,
   "python.linting.flake8Enabled": true,
   "rewrap.wholeComment": false,
-  "shellcheck.executablePath": "/usr/local/bin/shellcheck",
+  "shellcheck.executablePath": "shellcheck",
   "shellcheck.exclude": ["SC1090", "SC1091"],
   "telemetry.telemetryLevel": "off",
   "terraform.languageServer.enable": true,
