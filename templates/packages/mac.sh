@@ -87,7 +87,8 @@ brew install --cask \
     rectangle \
     signal \
     standard-notes \
-    vagrant
+    vagrant \
+    vlc
 
 brew cleanup 1> /dev/null
 
