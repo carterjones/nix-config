@@ -48,6 +48,7 @@ brew upgrade
 
 brew install \
     bash \
+    basictex \
     cmake \
     coreutils \
     croc \
@@ -55,6 +56,7 @@ brew install \
     gnu-sed \
     jq \
     reattach-to-user-namespace \
+    pandoc \
     pinentry-mac \
     pre-commit \
     pyenv \
