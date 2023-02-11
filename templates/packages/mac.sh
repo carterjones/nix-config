@@ -47,6 +47,7 @@ brew update
 brew upgrade
 
 brew install \
+    awscli \
     bash \
     basictex \
     cmake \
