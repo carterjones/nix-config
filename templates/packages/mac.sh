@@ -72,6 +72,7 @@ brew install \
     zsh
 
 brew install --cask \
+    aws-vault \
     bartender \
     bitwarden \
     brave-browser \
