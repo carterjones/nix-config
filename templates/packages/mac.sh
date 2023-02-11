@@ -80,6 +80,7 @@ brew install --cask \
     docker \
     dropbox \
     hyper \
+    keybase \
     mailmate \
     notion \
     obsidian \
