@@ -93,7 +93,8 @@ brew install --cask \
     signal \
     standard-notes \
     vagrant \
-    vlc
+    vlc \
+    zoom
 
 brew cleanup 1> /dev/null
 
