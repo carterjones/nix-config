@@ -50,6 +50,7 @@ brew install \
     awscli \
     bash \
     basictex \
+    certigo \
     cmake \
     coreutils \
     croc \
