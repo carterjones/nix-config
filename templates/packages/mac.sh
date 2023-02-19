@@ -92,6 +92,7 @@ brew install --cask \
     raycast \
     rectangle \
     signal \
+    slack \
     standard-notes \
     vagrant \
     vlc \
