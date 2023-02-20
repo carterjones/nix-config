@@ -93,6 +93,7 @@ brew install --cask \
     rectangle \
     signal \
     slack \
+    spotify \
     standard-notes \
     vagrant \
     vlc \
