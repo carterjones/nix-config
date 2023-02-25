@@ -57,6 +57,7 @@ brew install \
     git \
     gnu-sed \
     jq \
+    n \
     reattach-to-user-namespace \
     pandoc \
     pinentry-mac \

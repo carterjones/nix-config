@@ -20,6 +20,10 @@ export EDITOR="code -w"
 # Set the default visual editor.
 export VISUAL="code"
 
+# Define the node versions directory.
+export N_PREFIX=$HOME/.node
+export PATH=$N_PREFIX/bin:$PATH
+
 # Set up an nmap log directory path.
 export NMAP_LOGS=$HOME/.nmap/logs
 
