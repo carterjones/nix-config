@@ -96,6 +96,7 @@ brew install --cask \
     slack \
     spotify \
     standard-notes \
+    steam \
     vagrant \
     vlc \
     zoom
