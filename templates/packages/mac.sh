@@ -84,6 +84,7 @@ brew install --cask \
     docker \
     dropbox \
     hyper \
+    keka \
     keybase \
     mailmate \
     notion \
