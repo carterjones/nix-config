@@ -82,6 +82,7 @@ brew install --cask \
     bitwarden \
     brave-browser \
     caffeine \
+    cool-retro-term \
     cryptomator \
     docker \
     dropbox \
