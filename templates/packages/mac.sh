@@ -66,6 +66,7 @@ brew install \
     pyenv \
     pyenv-virtualenvwrapper \
     shellcheck \
+    tig \
     tfenv \
     tfsec \
     the_silver_searcher \
