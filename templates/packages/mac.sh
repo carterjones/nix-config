@@ -56,6 +56,7 @@ brew install \
     croc \
     git \
     gnu-sed \
+    gpg \
     jq \
     n \
     reattach-to-user-namespace \
