@@ -20,3 +20,13 @@ repos:
       types: [go]
       language: golang
       pass_filenames: false
+- repo: https://github.com/Lucas-C/pre-commit-hooks
+  rev: v1.4.2
+  hooks:
+    - id: remove-tabs
+      exclude_types: [go]
+      exclude: |
+        (?x)^(
+            templates/dotfiles/shared/.gitconfig
+        )$
+      args: [--whitespaces-count, '4']
