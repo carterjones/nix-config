@@ -1,40 +1,40 @@
 [alias]
-    co = checkout
-    drop = !"pushd $(git rev-parse --show-toplevel) && git add . && git stash && git stash drop && popd"
-    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    lg = !"git lg1"
-    prune = remote prune origin
-    push-new = !"git push -u origin $(git branch --show-current)"
-    re-sign = rebase --exec 'git commit --amend --no-edit -n -S' -i main
-    root = rev-parse --show-toplevel
+	co = checkout
+	drop = !"pushd $(git rev-parse --show-toplevel) && git add . && git stash && git stash drop && popd"
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''		  %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+	prune = remote prune origin
+	push-new = !"git push -u origin $(git branch --show-current)"
+	re-sign = rebase --exec 'git commit --amend --no-edit -n -S' -i main
+	root = rev-parse --show-toplevel
 	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
 	count-lines-since = "! git log --author=\"$1\" --since=\"$2\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
 [color]
-    ui = true
+	ui = true
 [color "diff"]
-    new = bold cyan
-    whitespace = normal yellow
+	new = bold cyan
+	whitespace = normal yellow
 [color "status"]
-    changed = magenta
-    untracked = bold yellow
+	changed = magenta
+	untracked = bold yellow
 [core]
-    editor = code -w
-    excludesfile = ~/.gitignore
+	editor = nano
+	excludesfile = ~/.gitignore
 [diff]
-    color = true
-    tool = meld
+	color = true
+	tool = meld
 [init]
-    defaultBranch = main
+	defaultBranch = main
 [pager]
-    branch = false
+	branch = false
 [pull]
-    ff = only
+	ff = only
 [push]
-    default = simple
+	default = simple
 [url "ssh://git@github.com/carterjones/"]
-    insteadOf = https://github.com/carterjones/
+	insteadOf = https://github.com/carterjones/
 [url "https://github.com/carterjones/awsinfo"]
-    insteadOf = https://github.com/carterjones/awsinfo
+	insteadOf = https://github.com/carterjones/awsinfo
 [url "https://github.com/carterjones/ramdisk"]
-    insteadOf = https://github.com/carterjones/ramdisk
+	insteadOf = https://github.com/carterjones/ramdisk
