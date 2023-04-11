@@ -3,10 +3,10 @@
 # TODO: try uncommenting this on or after February 2018
 if [[ $(uname) != Darwin ]]; then
     if command -v setxkbmap &> /dev/null; then
-	if [ -n "${DISPLAY:-}" ]; then
-	    setxkbmap -option altwin:ctrl_win \
+    if [ -n "${DISPLAY:-}" ]; then
+        setxkbmap -option altwin:ctrl_win \
                       -option caps:ctrl_modifier
-	fi
+    fi
     fi
 fi
 
@@ -74,7 +74,7 @@ source "${HOME}/.bash_prompt"
 
 # Source any private settings not tracked in this repo.
 if [ -f ~/.private ]; then
-   source ~/.private
+    source ~/.private
 fi
 
 source "${HOME}/.venv_setup"
