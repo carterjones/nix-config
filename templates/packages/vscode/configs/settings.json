@@ -68,5 +68,6 @@
   },
   "workbench.colorTheme": "Material Darker + Monokai ST3",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": false,
   "yaml.schemaStore.enable": false
 }
