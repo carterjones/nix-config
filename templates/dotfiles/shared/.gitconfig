@@ -28,6 +28,7 @@
 	defaultBranch = main
 [pager]
 	branch = false
+	diff = false
 [pull]
 	ff = only
 [push]
