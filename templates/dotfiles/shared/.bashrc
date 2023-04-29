@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Temporarily comment out setxkbmap command. For some reason, out of nowhere, it
 # is now totally hanging whenever it is run from inside a shell on a Mac.
 # TODO: try uncommenting this on or after February 2018

@@ -1,9 +1,13 @@
+# shellcheck shell=bash
+
 # https://twitter.com/francesc/status/982025296898478080
-whoseport() { lsof -i ":$1" | grep LISTEN }
+whoseport() {
+    lsof -i ":$1" | grep LISTEN
+}
 
 # Show which ports are listening.
 listening() {
-    if echo $(uname -a) | grep -q Linux; then
+    if "$(uname -a)" | grep -q Linux; then
         # This only works with recent versions of ss.
         sudo ss -H -p -l -4 "sport = :$1"|sed "s/^.*pid=\(.*\),.*$/\1/"
     else
@@ -38,10 +42,10 @@ compresspdf() {
 
 # Remove many of the fancy POWERLEVEL9K visual indicators from the terminal.
 minimal-terminal() {
-    POWERLEVEL9K_PROMPT_ON_NEWLINE=false
-    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="$"
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+    export POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+    export POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR="$"
+    export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+    export POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 }
 
 # Remove terraform artifacts.

@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1009,SC1054,SC1073,SC1083
+
 # ag alias
 {{- if .IsManjaro }}
 alias ag='ack-grep'

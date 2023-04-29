@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # Set up miscellaneous variables.
 export CODE=$HOME/src

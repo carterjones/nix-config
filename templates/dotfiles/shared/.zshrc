@@ -1,3 +1,5 @@
+# shellcheck shell=zsh
+
 export TERM="xterm-256color"
 
 source "${HOME}/src/github.com/zsh-users/antigen/antigen.zsh"
