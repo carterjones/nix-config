@@ -32,7 +32,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen theme romkatv/powerlevel10k
 
 # Miscellaneous theme settings.
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
