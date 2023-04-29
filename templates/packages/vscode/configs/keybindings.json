@@ -119,6 +119,10 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
+    "key": "cmd+shift+l",
+    "command": "editor.action.selectHighlights"
+  },
+  {
     "key": "cmd+shift+left",
     "command": "cursorHomeSelect"
   },
