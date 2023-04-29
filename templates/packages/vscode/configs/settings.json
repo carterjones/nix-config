@@ -1,16 +1,36 @@
 {
-  "[dockerfile]": {"editor.formatOnType": true},
-  "[go]": {"editor.formatOnType": true},
-  "[groovy]": {"editor.formatOnType": true},
-  "[markdown]": {"editor.formatOnType": true},
-  "[shellscript]": {"editor.formatOnType": true},
-  "[terraform]": {"editor.formatOnType": true, "editor.formatOnSave": true},
-  "[toml]": {"editor.formatOnType": true},
-  "[yaml]": {"editor.formatOnType": true},
+  "[dockerfile]": {
+    "editor.formatOnType": true
+  },
+  "[go]": {
+    "editor.formatOnType": true
+  },
+  "[groovy]": {
+    "editor.formatOnType": true
+  },
+  "[markdown]": {
+    "editor.formatOnType": true
+  },
+  "[shellscript]": {
+    "editor.formatOnType": true
+  },
+  "[terraform]": {
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true
+  },
+  "[toml]": {
+    "editor.formatOnType": true
+  },
+  "[yaml]": {
+    "editor.formatOnType": true
+  },
   "editor.fontFamily": "Hack Nerd Font Mono",
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "none",
-  "editor.rulers": [79, 99],
+  "editor.rulers": [
+    79,
+    99
+  ],
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -19,11 +39,21 @@
   "python.linting.flake8Enabled": true,
   "rewrap.wholeComment": false,
   "shellcheck.executablePath": "shellcheck",
-  "shellcheck.exclude": ["SC1090", "SC1091"],
+  "shellcheck.exclude": [
+    "SC1090",
+    "SC1091"
+  ],
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "terraform.languageServer.enable": true,
-  "todohighlight.include": ["**/*.js", "**/*.txt", "**/*.md", "**/*.html", "**/*.go", "**/*.sh"],
+  "todohighlight.include": [
+    "**/*.js",
+    "**/*.txt",
+    "**/*.md",
+    "**/*.html",
+    "**/*.go",
+    "**/*.sh"
+  ],
   "todohighlight.isCaseSensitive": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywordsPattern": "[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy|[Ee]asily",
