@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 set -eux -o pipefail
 
-find "${HOME}/.gnupg" -type f -exec chmod 600 {} \;
-find "${HOME}/.gnupg" -type d -exec chmod 700 {} \;
+gpg_dir="${HOME}/.gnupg"
+
+if [[ -d "${gpg_dir}" ]]; then
+    find "${gpg_dir}" -type f -exec chmod 600 {} \;
+    find "${gpg_dir}" -type d -exec chmod 700 {} \;
+fi
