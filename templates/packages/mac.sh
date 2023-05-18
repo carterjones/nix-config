@@ -46,8 +46,12 @@ fi
 brew update
 brew upgrade
 
+# Do not install AWS CLI on MacOS CI jobs; it causes symlink errors.
+if [[ "${CI:-}" != true ]] && [[ $(uname) == "Darwin" ]]; then
+    brew install awscli
+fi
+
 brew install \
-    awscli \
     bash \
     basictex \
     certigo \
