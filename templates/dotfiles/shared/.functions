@@ -52,3 +52,9 @@ minimal-terminal() {
 tfclean() {
     find . -type d -name .terraform -print0 | xargs -0 rm -rf
 }
+
+# Credit to https://superuser.com/a/166963
+diffdirs() {
+    # shellcheck disable=SC2164
+    vimdiff <(cd "${1}" ; find . | sort) <(cd "${2}" ; find . | sort)
+}
