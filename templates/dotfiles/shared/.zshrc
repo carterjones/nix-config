@@ -115,3 +115,9 @@ fi
 if [ -f "${HOME}/bin/google-cloud-sdk/completion.zsh.inc" ]; then
     . "${HOME}/bin/google-cloud-sdk/completion.zsh.inc"
 fi
+
+# Configure hstr: https://github.com/dvorka/hstr
+setopt histignorespace                # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor            # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j" # bind hstr to Ctrl-r
+export HSTR_TIOCSTI=y

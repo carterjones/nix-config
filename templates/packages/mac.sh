@@ -61,6 +61,7 @@ brew install \
     git \
     gnu-sed \
     gpg \
+    hstr \
     jq \
     n \
     reattach-to-user-namespace \
