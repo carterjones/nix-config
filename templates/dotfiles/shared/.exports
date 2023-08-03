@@ -8,6 +8,9 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.pyenv/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
+if [[ $(uname) == Darwin ]]; then
+    export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin/
+fi
 
 # Disable the AWS pager.
 export AWS_PAGER=""
