@@ -21,7 +21,7 @@ repos:
       language: golang
       pass_filenames: false
 - repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.5.3
+  rev: v1.5.4
   hooks:
     - id: remove-tabs
       exclude_types: [go]
