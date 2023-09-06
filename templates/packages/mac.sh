@@ -63,6 +63,7 @@ brew install \
     gpg \
     hstr \
     jq \
+    llvm \
     n \
     reattach-to-user-namespace \
     pandoc \
