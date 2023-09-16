@@ -101,6 +101,7 @@ brew install --cask \
     notion \
     obsidian \
     omnifocus \
+    onlyoffice \
     protonmail-bridge \
     raycast \
     rectangle \
