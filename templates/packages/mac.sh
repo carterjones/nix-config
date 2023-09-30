@@ -82,10 +82,6 @@ brew install \
     wget \
     zsh
 
-# TODO: re-add these once Sonoma is supported
-    # docker \
-    # keybase \
-    # spotify \
 brew install --cask \
     aws-vault \
     bartender \
@@ -94,9 +90,11 @@ brew install --cask \
     caffeine \
     cool-retro-term \
     cryptomator \
+    docker \
     dropbox \
     hyper \
     keka \
+    keybase \
     mailmate \
     notion \
     obsidian \
@@ -107,6 +105,7 @@ brew install --cask \
     rectangle \
     signal \
     slack \
+    spotify \
     standard-notes \
     steam \
     vagrant \
