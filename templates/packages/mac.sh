@@ -68,6 +68,7 @@ brew install \
     reattach-to-user-namespace \
     pandoc \
     pinentry-mac \
+    poppler \
     pre-commit \
     pyenv \
     pyenv-virtualenvwrapper \
