@@ -93,6 +93,7 @@ brew install --cask \
     cryptomator \
     docker \
     dropbox \
+    element \
     hyper \
     keka \
     keybase \
