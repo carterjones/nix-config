@@ -20,12 +20,8 @@ antigen use oh-my-zsh
 
 # Load standard plugins.
 antigen bundle brew
-antigen bundle dircycle
-antigen bundle docker
-antigen bundle encode64
 antigen bundle git
 antigen bundle python
-antigen bundle vagrant
 
 # Load plugins from github.
 antigen bundle zsh-users/zsh-autosuggestions
