@@ -75,7 +75,6 @@ brew install \
     shellcheck \
     tig \
     tfenv \
-    tfsec \
     the_silver_searcher \
     tmux \
     tree \
