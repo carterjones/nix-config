@@ -11,7 +11,7 @@ repos:
   hooks:
     - id: shellcheck
 - repo: https://github.com/golangci/golangci-lint
-  rev: v1.55.2
+  rev: v1.56.2
   hooks:
     - id: golangci-lint
       name: golangci-lint
@@ -21,7 +21,7 @@ repos:
       language: golang
       pass_filenames: false
 - repo: https://github.com/Lucas-C/pre-commit-hooks
-  rev: v1.5.4
+  rev: v1.5.5
   hooks:
     - id: remove-tabs
       exclude_types: [go]
