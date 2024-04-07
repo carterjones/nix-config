@@ -92,6 +92,7 @@ brew install --cask \
     caffeine \
     cool-retro-term \
     cryptomator \
+    discord \
     docker \
     dropbox \
     element \
