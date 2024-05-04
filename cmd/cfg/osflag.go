@@ -14,11 +14,12 @@ type OSFlag struct {
 	IsMac     bool
 	IsManjaro bool
 	IsUbuntu  bool
+	IsDebian  bool
 }
 
 // IsLinux returns true if the flags indicate it is a Linux operating system.
 func (of OSFlag) IsLinux() bool {
-	return of.IsCentos || of.IsManjaro || of.IsUbuntu
+	return of.IsCentos || of.IsManjaro || of.IsUbuntu || of.IsDebian
 }
 
 // OSString returns a short string representing the type of operating system
@@ -34,6 +35,8 @@ func (of OSFlag) OSString() string {
 		s = "manjaro"
 	case of.IsUbuntu:
 		s = "ubuntu"
+	case of.IsDebian:
+		s = "debian"
 	default:
 		s = "<undefined os>"
 	}
@@ -79,6 +82,8 @@ func generateOSFlag() OSFlag {
 		of.IsCentos = true
 	case fileContains("Ubuntu", "/etc/lsb-release"):
 		of.IsUbuntu = true
+	case fileContains("Debian", "/etc/os-release"):
+		of.IsDebian = true
 	case strings.Contains(getUnameOutput(), "Darwin"):
 		of.IsMac = true
 	default:

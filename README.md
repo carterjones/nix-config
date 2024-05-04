@@ -22,7 +22,8 @@ cd nix-config
 
 # Supported Operating Systems
 
-The install script is tested against Ubuntu 22.04, CentOS Stream 9, and macOS.
+The install script is tested against Debian 12, Ubuntu 22.04, CentOS Stream 9,
+and macOS.
 
 # Design Philosophy
 

@@ -20,8 +20,12 @@ if [[ $(uname) == "Darwin" ]]; then
     curl -o go.pkg "https://dl.google.com/go/${target_version}.darwin-${type}.pkg"
     sudo installer -pkg ./go.pkg -target /
 elif [[ $(uname) == "Linux" ]]; then
-    export platform="linux-amd64.tar.gz"
-    curl -o go.tar.gz "https://dl.google.com/go/${target_version}.linux-amd64.tar.gz"
+    arch=$(uname -m)
+    if [[ "${arch}" == "aarch64" ]]; then
+        arch="arm64"
+    fi
+    export platform="linux-${arch}.tar.gz"
+    curl -o go.tar.gz "https://dl.google.com/go/${target_version}.linux-${arch}.tar.gz"
     sudo tar -C /usr/local/ -xvf ./go.tar.gz 1> /dev/null
 else
     echo "unsupported platform. bye!"

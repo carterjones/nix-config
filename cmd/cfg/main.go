@@ -21,6 +21,8 @@ func generateOSActions() []action {
 	case osFlag.IsManjaro:
 		fallthrough
 	case osFlag.IsUbuntu:
+		fallthrough
+	case osFlag.IsDebian:
 		return append([]action{
 			func() error { return bash(cnfTemplate("packages/" + osFlag.OSString() + ".sh")) },
 			func() error { return copy(cnfTemplate("dotfiles/linux"), home(), osFlag) },

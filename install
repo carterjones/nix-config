@@ -11,6 +11,8 @@ elif [[ -f /etc/centos-release ]]; then
     os="centos"
 elif grep -q Ubuntu /etc/lsb-release; then
     os="ubuntu"
+elif grep -q Debian /etc/os-release; then
+    os="debian"
 fi
 
 if [[ "${os}" == "???" ]]; then
@@ -25,14 +27,14 @@ if [ ! "$(command -v git)" ]; then
         sudo pacman -Syu git
     elif [[ "${os}" == "centos" ]]; then
         sudo yum install -y git
-    elif [[ "${os}" == "ubuntu" ]]; then
+    elif [[ "${os}" == "ubuntu" || "${os}" == "debian" ]]; then
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y git
     fi
 fi
 
 if [ ! "$(command -v curl)" ]; then
-    if [[ "${os}" == "ubuntu" ]]; then
+    if [[ "${os}" == "ubuntu" || "${os}" == "debian" ]]; then
         sudo apt-get update
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y curl
     fi
