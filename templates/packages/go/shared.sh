@@ -12,20 +12,21 @@ sudo mkdir -p /usr/local/go
 sudo rm -rf /usr/local/go/*
 cd /tmp
 
+arch=$(uname -m)
+if [[ "${arch}" == "aarch64" ]]; then
+    arch="arm64"
+elif [[ "${arch}" == "x86_64" ]]; then
+    arch="amd64"
+fi
+
+platform=$(uname | tr "[:upper:]" "[:lower:]")
+uri_base="https://dl.google.com/go/${target_version}.${platform}-${arch}"
+
 if [[ $(uname) == "Darwin" ]]; then
-    type="amd64"
-    if [[ $(uname -m) == 'arm64' ]]; then
-        type="arm64"
-    fi
-    curl -o go.pkg "https://dl.google.com/go/${target_version}.darwin-${type}.pkg"
+    curl -o go.pkg "${uri_base}.pkg"
     sudo installer -pkg ./go.pkg -target /
 elif [[ $(uname) == "Linux" ]]; then
-    arch=$(uname -m)
-    if [[ "${arch}" == "aarch64" ]]; then
-        arch="arm64"
-    fi
-    export platform="linux-${arch}.tar.gz"
-    curl -o go.tar.gz "https://dl.google.com/go/${target_version}.linux-${arch}.tar.gz"
+    curl -o go.tar.gz "${uri_base}.tar.gz"
     sudo tar -C /usr/local/ -xvf ./go.tar.gz 1> /dev/null
 else
     echo "unsupported platform. bye!"
