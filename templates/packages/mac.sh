@@ -58,6 +58,7 @@ brew install \
     cmake \
     coreutils \
     croc \
+    exiftool \
     git \
     gnu-sed \
     gpg \
