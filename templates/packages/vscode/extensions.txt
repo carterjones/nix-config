@@ -1,14 +1,13 @@
 adamhartford.vscode-base64
 bbenoist.vagrant
 bibhasdn.unique-lines
-bitburner.bitburner-vscode-integration
-bungcip.better-toml
-codeium.codeium
 coolbear.systemd-unit-file
 davidanson.vscode-markdownlint
 dotjoshjohnson.xml
 eamodio.gitlens
 eriklynd.json-tools
+github.copilot
+github.copilot-chat
 github.vscode-github-actions
 golang.go
 grapecity.gc-excelviewer
