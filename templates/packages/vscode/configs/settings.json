@@ -59,7 +59,7 @@
   "todohighlight.keywordsPattern": "[Oo]bviously|[Bb]asically|[Ss]imply|[Oo]f course|[Cc]learly|[Ee]veryone knows|[Ee]asy|[Ee]asily",
   "window.restoreWindows": "all",
   "window.zoomLevel": 0,
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.location": "hidden",
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
