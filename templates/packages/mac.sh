@@ -107,7 +107,7 @@ brew install --cask \
     onlyoffice \
     protonmail-bridge \
     raycast \
-    rectangle \
+    rectangle-pro \
     signal \
     slack \
     spotify \
