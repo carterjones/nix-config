@@ -58,3 +58,11 @@ diffdirs() {
     # shellcheck disable=SC2164
     vimdiff <(cd "${1}" ; find . | sort) <(cd "${2}" ; find . | sort)
 }
+
+remove-image-metadata() {
+    local files=()
+    while IFS= read -r -d '' file; do
+        files+=("$file")
+    done < <(find . -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.heic" \) -print0)
+    mogrify -strip "${files[@]}"
+}
