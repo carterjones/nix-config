@@ -70,12 +70,6 @@ POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs pyenv virtualenv time)
 
-# Don't show the VCS info on vagrant boxes, due to performance issues that can
-# be caused by mounted git repos.
-if [[ "${USER}" == vagrant ]]; then
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir)
-fi
-
 # Miscellaneous zsh settings.
 DISABLE_AUTO_TITLE="true"
 

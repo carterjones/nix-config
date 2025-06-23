@@ -81,7 +81,6 @@ brew install \
     the_silver_searcher \
     tmux \
     tree \
-    vagrant-completion \
     wget \
     zsh
 
@@ -113,7 +112,6 @@ brew install --cask \
     spotify \
     standard-notes \
     steam \
-    vagrant \
     vlc \
     zoom
 

@@ -1,5 +1,4 @@
 adamhartford.vscode-base64
-bbenoist.vagrant
 bibhasdn.unique-lines
 coolbear.systemd-unit-file
 davidanson.vscode-markdownlint

@@ -55,7 +55,6 @@ sudo pacman --noconfirm -Syu \
     tmux \
     ufw \
     unzip \
-    vagrant \
     virtualbox \
     wget \
     which \
@@ -69,4 +68,3 @@ install_pkg_for_env docker manjaro
 install_pkg_for_env fnmode manjaro
 install_pkg_for_env pacman manjaro
 install_pkg_for_env trizen manjaro
-install_pkg_for_env vagrant manjaro
