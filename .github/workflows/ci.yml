@@ -12,14 +12,14 @@ jobs:
       image: carterjones/ci-runner:latest
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: git config --global --add safe.directory /__w/nix-config/nix-config
       - run: pre-commit run --all || (cat /github/home/.cache/pre-commit/pre-commit.log; exit 1)
 
   test-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: test macos-latest
         run: |
           ./ci/integration-tests.sh
@@ -33,7 +33,7 @@ jobs:
     container:
       image: carterjones/${{ matrix.os }}:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: test ${{ matrix.os }}
         run: |
           su notroot
