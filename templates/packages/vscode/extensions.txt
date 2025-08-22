@@ -6,7 +6,6 @@ dotjoshjohnson.xml
 eamodio.gitlens
 eriklynd.json-tools
 github.copilot
-github.copilot-chat
 github.vscode-github-actions
 golang.go
 grapecity.gc-excelviewer
