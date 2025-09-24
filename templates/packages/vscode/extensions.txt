@@ -32,6 +32,5 @@ shd101wyy.markdown-preview-enhanced
 stkb.rewrap
 tamasfe.even-better-toml
 timonwong.shellcheck
-trentrand.git-rebase-shortcuts
 wayou.vscode-todo-highlight
 xckomorebi.everythingmonokai
