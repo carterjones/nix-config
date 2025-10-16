@@ -21,8 +21,3 @@ if [[ ! -f /usr/local/bin/code ]]; then
         /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code \
         /usr/local/bin/code
 fi
-
-# Configure extensions.
-mkdir -p "${HOME}/Library/Application Support/Code/User/"
-cp -R ./configs/* "${HOME}/Library/Application Support/Code/User/"
-./install-extensions.sh
