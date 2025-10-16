@@ -86,7 +86,6 @@ brew install \
 
 brew install --cask \
     aws-vault \
-    bartender \
     bitwarden \
     brave-browser \
     caffeine \
