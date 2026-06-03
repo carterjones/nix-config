@@ -29,7 +29,8 @@
   "editor.renderLineHighlight": "none",
   "editor.rulers": [
     79,
-    99
+    99,
+    0
   ],
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
