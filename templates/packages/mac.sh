@@ -64,6 +64,7 @@ brew install \
     gpg \
     hstr \
     jq \
+    just \
     llvm \
     n \
     reattach-to-user-namespace \
