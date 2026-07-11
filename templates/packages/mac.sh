@@ -94,7 +94,6 @@ brew install --cask \
     cryptomator \
     discord \
     docker \
-    dropbox \
     element \
     hyper \
     keka \
