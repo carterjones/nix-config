@@ -75,7 +75,6 @@ brew install \
     pyenv \
     pyenv-virtualenvwrapper \
     shellcheck \
-    tailscale \
     tig \
     tfenv \
     tflint \
