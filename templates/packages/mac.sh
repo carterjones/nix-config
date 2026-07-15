@@ -89,11 +89,11 @@ brew install --cask \
     bitwarden \
     brave-browser \
     caffeine \
-    cool-retro-term \
     cryptomator \
     discord \
     docker \
     element \
+    ghostty \
     hyper \
     keka \
     keybase \
