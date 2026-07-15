@@ -15,8 +15,9 @@ fi
 # Disable the AWS pager.
 export AWS_PAGER=""
 
-# Set up the go path.
+# Set up the go paths.
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # Set the default editor.
 export EDITOR="code -w"
