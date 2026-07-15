@@ -1,0 +1,18 @@
+background = 000000
+
+# Retro CRT effects (Shadertoy-format GLSL). custom-shader-animation must be
+# on for the glow line to actually move. Multiple custom-shader lines are
+# applied in order, each taking the previous shader's output as its input, so
+# bloom runs last and blooms the whole composited image (text + glow sweep).
+custom-shader = shaders/glow-line.glsl
+custom-shader = shaders/bloom.glsl
+# `always` keeps the shader animating even when the window is unfocused/in the
+# background. The default `true` only animates while focused, which makes the
+# glow line stutter when Ghostty is backgrounded. Costs more CPU per surface.
+custom-shader-animation = always
+
+# Make Shift+Enter insert a newline instead of submitting (e.g. in Claude
+# Code). By default Ghostty sends a plain carriage return for Shift+Enter,
+# indistinguishable from Enter. Emitting ESC+CR matches what Alt+Enter already
+# sends, which apps interpret as "insert newline". Passes through tmux as-is.
+keybind = shift+enter=text:\x1b\r
