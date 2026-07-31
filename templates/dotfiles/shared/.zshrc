@@ -115,3 +115,10 @@ setopt histignorespace                # skip cmds w/ leading space from history
 export HSTR_CONFIG=hicolor            # get more colors
 bindkey -s "\C-r" "\C-a hstr -- \C-j" # bind hstr to Ctrl-r
 export HSTR_TIOCSTI=y
+
+{{- if .IsMac }}
+# Set up Nix.
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+{{- end }}
