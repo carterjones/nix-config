@@ -66,3 +66,12 @@ remove-image-metadata() {
     done < <(find . -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.heic" \) -print0)
     mogrify -strip "${files[@]}"
 }
+
+flushdns() {
+    if [[ $(uname) == "Darwin" ]]; then
+        sudo dscacheutil -flushcache
+        sudo killall -HUP mDNSResponder
+    elif [[ $(uname) == "Linux" ]]; then
+        echo "Platform not supported."
+    fi
+}
