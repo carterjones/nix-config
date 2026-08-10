@@ -74,6 +74,7 @@ brew install \
     pre-commit \
     pyenv \
     pyenv-virtualenvwrapper \
+    radare2 \
     shellcheck \
     tig \
     tfenv \
