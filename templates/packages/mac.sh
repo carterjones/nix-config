@@ -103,7 +103,6 @@ brew install --cask \
     obsidian \
     omnifocus \
     onlyoffice \
-    protonmail-bridge \
     raycast \
     rectangle-pro \
     signal \
