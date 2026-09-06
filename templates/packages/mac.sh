@@ -63,17 +63,21 @@ brew install \
     gnu-sed \
     gpg \
     hstr \
+    img2pdf \
     jq \
     just \
     llvm \
+    mozjpeg \
     n \
     reattach-to-user-namespace \
     pandoc \
+    pdfcpu \
     pinentry-mac \
     poppler \
     pre-commit \
     pyenv \
     pyenv-virtualenvwrapper \
+    qpdf \
     radare2 \
     shellcheck \
     tig \
