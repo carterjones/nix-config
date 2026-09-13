@@ -103,6 +103,7 @@ brew install --cask \
     keka \
     keybase \
     mailmate \
+    orcaslicer \
     notion \
     obsidian \
     omnifocus \
