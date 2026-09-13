@@ -94,19 +94,14 @@ brew install --cask \
     bitwarden \
     brave-browser \
     caffeine \
-    cryptomator \
     discord \
     docker \
     element \
     ghostty \
-    hyper \
     keka \
     keybase \
-    mailmate \
     orcaslicer \
-    notion \
     obsidian \
-    omnifocus \
     onlyoffice \
     raycast \
     rectangle-pro \
