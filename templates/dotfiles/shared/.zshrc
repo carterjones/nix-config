@@ -2,6 +2,21 @@
 
 export TERM="xterm-256color"
 
+# Pressing Enter should submit the line, rather than echoing a literal ^M.
+# A program that exits without restoring the terminal (a Ctrl-C'd TUI such as
+# hstr, a dropped ssh, a crashed curses app) can leave icrnl turned off. zsh's
+# line editor reads in raw mode and handles CR itself, so the prompt keeps
+# working and the breakage stays invisible -- but any script doing a
+# canonical-mode `read` never sees a line terminator and appears to ignore
+# Enter. See https://askubuntu.com/a/452576
+if [[ -t 0 ]]; then
+    stty sane
+
+    # "stty sane" turns flow control back on, so disable it again here.
+    # We don't need flow control, because we're not working in Bell Labs.
+    stty stop '' 2>/dev/null || true
+fi
+
 source "${HOME}/src/github.com/zsh-users/antigen/antigen.zsh"
 
 # Note: you can use the "cat" command to determine what various keystrokes get
