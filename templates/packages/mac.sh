@@ -54,11 +54,13 @@ fi
 brew install \
     bash \
     basictex \
+    binwalk \
     certigo \
     cmake \
     coreutils \
     croc \
     exiftool \
+    ghidra \
     git \
     gnu-sed \
     gpg \
@@ -86,6 +88,7 @@ brew install \
     the_silver_searcher \
     tmux \
     tree \
+    unicorn \
     wget \
     zsh
 
@@ -110,6 +113,7 @@ brew install --cask \
     spotify \
     standard-notes \
     steam \
+    uefitool \
     vlc \
     zoom
 
@@ -120,6 +124,7 @@ install_pkg_for_env docker mac
 install_pkg_for_env hack-font mac
 install_pkg_for_env hyperjs mac
 install_pkg_for_env keybase mac
+install_pkg_for_env uefiextract mac
 install_pkg_for_env vscode mac
 
 # Hide all icons from the desktop.

@@ -36,3 +36,7 @@ pip3 install --upgrade virtualenvwrapper 1> /dev/null
 
 # Upgrade pip.
 pip3 install --upgrade pip 1> /dev/null
+
+# Install the firmware reverse-engineering libraries. angr is left out on
+# purpose: it does not resolve on the newest Python releases.
+pip3 install --upgrade capstone unicorn 1> /dev/null
