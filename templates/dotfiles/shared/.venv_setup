@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set up pyenv, virtualenv, and virtualenvwrapper.
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path --no-rehash)"
+eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 VIRTUALENVWRAPPER_PYTHON=$(pyenv which python)
 export VIRTUALENVWRAPPER_PYTHON
